@@ -6,11 +6,7 @@
 
 #include "TokenType.h"
 #include "SymbolTable.h"
-
-struct Lexeme {
-    std::string token;
-    enum TokenType type;
-};
+#include "Lexeme.h"
 
 class LexicalAnalysis {
 public:

@@ -25,8 +25,8 @@ int main(int argc, char* argv[]) {
         struct Lexeme lex;
         do {
             lex = l.nextToken();
-            printf("%02d: (\"%s\", %d)\n", l.line(),
-                lex.token.c_str(), lex.type);
+            printf("%02d: <\"%s\", %s>\n", l.line(),
+                lex.token.c_str(), tt2str(TokenType(lex.type)).c_str());
         } while (lex.type != TKN_END_OF_FILE &&
                     lex.type != TKN_INVALID_TOKEN &&
                     lex.type != TKN_UNEXPECTED_EOF);
