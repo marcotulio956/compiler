@@ -37,6 +37,11 @@ SymbolTable::SymbolTable() {
     m_st["while"] = TKN_WHILE;
     m_st["scan"] = TKN_SCAN;
     m_st["print"] = TKN_PRINT;
+
+    // DATATYPES
+    m_st["int"] = TKN_INT;
+    m_st["float"] = TKN_FLOAT;
+    m_st["string"] = TKN_STRING;
 }
 
 SymbolTable::~SymbolTable() {
