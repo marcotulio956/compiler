@@ -27,7 +27,7 @@ struct Lexeme LexicalAnalysis::nextToken() {
     int state = 1;
     while (state != sb_find && state != tkn_defined) {
         int c = getc(m_file);
-        // printf("\tstate %02d, (char) '%c', %d ascii\n", state, (char) c, c);
+        printf("\tstate %02d, (char) '%c', %d ascii\n", state, (char) c, c);
 
         switch (state) {
             case 1:{
@@ -210,9 +210,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 }
                 break;
             }
-            case 11:{
-
-            }
             default: {
                 assert(false);
             }
@@ -221,6 +218,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
     if(state==sb_find){
         lex.type = m_st.find(lex.token);
     }
-    // std::cout << "\t\tm_st[" << lex.token << "]: " << lex.type << std::endl;
+    std::cout << "\t\tm_st[" << lex.token << "]: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << std::endl;
     return lex;
 }

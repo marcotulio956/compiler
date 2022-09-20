@@ -39,9 +39,9 @@ SymbolTable::SymbolTable() {
     m_st["print"] = TKN_PRINT;
 
     // DATATYPES
-    m_st["int"] = TKN_INT;
-    m_st["float"] = TKN_FLOAT;
-    m_st["string"] = TKN_STRING;
+    m_st["int"] = TKN_TYPE_INT;
+    m_st["float"] = TKN_TYPE_FLOAT;
+    m_st["string"] = TKN_TYPE_STRING;
 }
 
 SymbolTable::~SymbolTable() {

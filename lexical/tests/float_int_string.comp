@@ -4,3 +4,10 @@
 "string1"
  "strin asdf g2 22.345
     22345"
+    float 1111.
+    float .00001
+int 123
+string string str "string"
+float 1.1
+int 123
+string "str"

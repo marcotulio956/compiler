@@ -3,6 +3,7 @@
 
 enum TokenType {
     // SPECIALS
+    TKN_ID = -3,            // identifier
     TKN_UNEXPECTED_EOF = -2,
     TKN_INVALID_TOKEN = -1,
     TKN_END_OF_FILE = 0,
@@ -45,17 +46,20 @@ enum TokenType {
     TKN_PRINT,         // print
 
     // DATA TYPES
-    TKN_INT,           // int
-    TKN_FLOAT,         // float
-    TKN_STRING,        // string
+    TKN_INT,           // x
+    TKN_FLOAT,         // x.y
+    TKN_STRING,        // "a"
 
-    // OTHERS
-    TKN_ID,            // identifier
+    TKN_TYPE_INT,           // int
+    TKN_TYPE_FLOAT,         // float
+    TKN_TYPE_STRING         // string
 };
 
 inline std::string tt2str(enum TokenType type) {
     switch (type) {
         // Specials
+        case TKN_ID:            // identifier
+            return "ID";
         case TKN_UNEXPECTED_EOF:
             return "UNEXPECTED_EOF";
         case TKN_INVALID_TOKEN:
@@ -139,12 +143,16 @@ inline std::string tt2str(enum TokenType type) {
         case TKN_STRING:        // string
             return "STRING";
 
-        // OTHERS
-        case TKN_ID:            // identifier
-            return "ID";
+        // DATA TYPES
+        case TKN_TYPE_INT:           // type int
+            return "TYPE INT";
+        case TKN_TYPE_FLOAT:         // type float
+            return "TYPE FLOAT";
+        case TKN_TYPE_STRING:        // type string
+            return "TYPE STRING";
 
         default:
-            throw std::string("invalid token type");
+            throw std::string("Symbol Table: invalid token type");
     }
 }
 

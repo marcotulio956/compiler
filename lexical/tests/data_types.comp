@@ -1,9 +1,9 @@
 identifier_1
 identifi er_2
     int identifi er_2
-    string ident 3
-flloat ident4
-float ident5
+    string ident 3 3.1
+flloat ident4 "asodijas"
+float 1.0 ident5
 4notident
 
 
