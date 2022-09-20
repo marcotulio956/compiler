@@ -50,7 +50,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     || c == '+'
                     || c == '-'
                     || c == '*'
-                    || c == '/'
                 ){
                     lex.token += (char) c;
                     state = sb_find;
@@ -72,6 +71,8 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 }else if(isalpha(c)){
                     lex.token += (char) c;
                     state = 10;
+                }else if(c == '/'){
+                    state = 11;
                 }else if(c == -1){
                     ungetc(c,m_file);
                     lex.type = TKN_END_OF_FILE;
@@ -114,6 +115,7 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     lex.token += (char) c;
                     state = 4;
                 } else if (c == '"'){
+                    lex.token += (char) c;
                     lex.type = TKN_STRING;
                     state = tkn_defined;
                 } else if (c == -1){
@@ -210,6 +212,39 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 }
                 break;
             }
+            case 11:{
+                if(c == '*'){
+                    state = 12;
+                }
+                else if(c == '/'){
+                    state = 13;
+                }else{
+                    lex.token += (char) c;
+                    lex.type = TKN_DIV;
+                    state = tkn_defined;
+                }   
+                break;
+            }
+            case 12:{
+                if(c == '*'){
+                    state = 14;
+                }
+                break;
+            }
+            case 13:{
+                if(c=='\n'){
+                    state = 1;
+                }
+                break;
+            }
+            case 14:{
+                if(c=='/'){
+                    state = 1;
+                }else{
+                    state = 12;
+                }
+                break;
+            }
             default: {
                 assert(false);
             }
@@ -218,6 +253,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
     if(state==sb_find){
         lex.type = m_st.find(lex.token);
     }
-    std::cout << "\t\tm_st[" << lex.token << "]: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << std::endl;
+    std::cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << std::endl;
     return lex;
 }

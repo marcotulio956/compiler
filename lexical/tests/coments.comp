@@ -1,0 +1,10 @@
+////**cmt*/;int
+float ,1.3
+"string /*not a comment*/;"
+/*comment: int a = 1; string s = "";*/
+string s = /*not a comment*/;
+int a = 1/*
+float a;
+*/
+float ///**/ int
+/*/string/*/
