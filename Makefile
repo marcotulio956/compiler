@@ -14,5 +14,7 @@ clean:
 $(TARGET): $(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS)	
 
+make new: clean all
+
 .cpp.o:
-	$(CXX) $(CXXFLAGS) -c -o $@ $<				
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
