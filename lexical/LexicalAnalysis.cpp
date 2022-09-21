@@ -229,7 +229,8 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 else if(c == '/'){
                     state = 13;
                 }else{
-                    lex.token += (char) c;
+                    ungetc(c, m_file);
+                    lex.token = '/';
                     lex.type = TKN_DIV;
                     state = tkn_defined;
                 }   
