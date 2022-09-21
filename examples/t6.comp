@@ -1,0 +1,17 @@
+/*
+ Teste Numero 6
+*/
+
+start 
+  int x, y;
+  int soma = 0, media = 0, mult = 0;
+  scan(x);
+  scan(b);
+
+  soma = x + y;       // Realiza soma entre X e Y
+  print(soma);
+  media = soma / 2;   // Realiza media entre X e Y
+  print(media);
+  mult = x * y;       // Realiza multiplicação entre X e Y
+  print(mult);        
+exit

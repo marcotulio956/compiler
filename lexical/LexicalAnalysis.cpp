@@ -1,10 +1,10 @@
 #include <cstdio>
 #include <cctype>
 #include <cassert>
-
 #include <iostream>
-
 #include "LexicalAnalysis.h"
+
+using namespace std;
 
 LexicalAnalysis::LexicalAnalysis(const char* filename) : m_line(1) {
     m_file = fopen(filename, "r");
@@ -25,9 +25,11 @@ struct Lexeme LexicalAnalysis::nextToken() {
     const int sb_find = -1;
     const int tkn_defined = -2;
     int state = 1;
+    int c;
     while (state != sb_find && state != tkn_defined) {
-        int c = getc(m_file);
-        printf("\tstate %02d, (char) '%c', %d ascii\n", state, (char) c, c);
+        c = getc(m_file);     
+
+        printf("\tState: %02d, (char) '%c', %d ASCII\n", state, (char) c, c);
 
         switch (state) {
             case 1:{
@@ -103,10 +105,23 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 if (isdigit(c)){
                     lex.token += (char) c;
                     state = 3;
-                } else {
-                    ungetc(c, m_file);
-                    lex.type = TKN_FLOAT;
+                } else if (isalpha(c) || c == ' '){
+                    ungetc(c,m_file);
+                    lex.token += (char) c;
+                    lex.type = TKN_INVALID_TOKEN;
                     state = tkn_defined;
+                } else {
+                    if(isdigit(lex.token[lex.token.length() - 1])){
+                        ungetc(c, m_file);
+                        lex.type = TKN_FLOAT;
+                        state = tkn_defined;
+                    } else {
+                        ungetc(c,m_file);
+                        lex.token += (char) c;
+                        lex.type = TKN_INVALID_TOKEN;
+                        state = tkn_defined;
+                    }
+                    
                 }
                 break;
             }
@@ -253,6 +268,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
     if(state==sb_find){
         lex.type = m_st.find(lex.token);
     }
-    std::cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << std::endl;
+    cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;
     return lex;
 }
