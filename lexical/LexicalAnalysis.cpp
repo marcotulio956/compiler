@@ -105,11 +105,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 if (isdigit(c)){
                     lex.token += (char) c;
                     state = 3;
-                } else if (isalpha(c) || c == ' '){
-                    ungetc(c,m_file);
-                    lex.token += (char) c;
-                    lex.type = TKN_INVALID_TOKEN;
-                    state = tkn_defined;
                 } else {
                     if(isdigit(lex.token[lex.token.length() - 1])){
                         ungetc(c, m_file);
