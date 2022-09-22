@@ -11,5 +11,5 @@ string string str "string"
 float 1.1
 int 123
 string "str"
-12.1 // invalid
+12. // invalid
 .5//also invalid
