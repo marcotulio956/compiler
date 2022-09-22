@@ -1,13 +1,15 @@
-12. 345
+12.2 345
 
   12345
 "string1"
  "strin asdf g2 22.345
     22345"
-    float 1111.
-    float .00001
+    float 1111.1
+    float 1.00001
 int 123
 string string str "string"
 float 1.1
 int 123
 string "str"
+12.1 // invalid
+.5//also invalid

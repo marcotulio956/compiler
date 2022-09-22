@@ -6,10 +6,14 @@
 
 using namespace std;
 
-LexicalAnalysis::LexicalAnalysis(const char* filename) : m_line(1) {
+LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug) : m_line(1) {
+    showPrints = DEBug;
+    m_line = 1;
+    if(DEBug)
+        printf("Lexical: File> %s", filename);
     m_file = fopen(filename, "r");
     if (!m_file)
-        throw std::string("Unable to open file");
+        throw std::string("Unable to open file: %s", filename);
 }
 
 LexicalAnalysis::~LexicalAnalysis() {
@@ -29,12 +33,19 @@ struct Lexeme LexicalAnalysis::nextToken() {
     while (state != sb_find && state != tkn_defined) {
         c = getc(m_file);     
 
-        printf("\tState: %02d, (char) '%c', %d ASCII\n", state, (char) c, c);
+        if (showPrints)
+            printf("\tstate: %02d, (char) '%c', %d ASCII\n", state, (char) c, c);
 
         switch (state) {
             case 1:{
                 if(c == '\t' || c == '\r' || c == '\n' || c == ' '){
                     state = 1;
+                    if(c == '\n'){
+                        m_line++;
+                        if(showPrints){
+                            printf("\t\tm_lines %d\n", m_line);
+                        }
+                    }
                 }else if (isdigit(c)){
                     lex.token += (char) c;
                     state = 2;
@@ -46,7 +57,6 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     || c == ')'
                     || c == '{'
                     || c == '}'
-                    || c == '.'
                     || c == ','
                     || c == '!'
                     || c == '+'
@@ -75,8 +85,11 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     state = 10;
                 }else if(c == '/'){
                     state = 11;
+                }else if(c == '.'){
+                    lex.type = TKN_INVALID_TOKEN;
+                    state = tkn_defined;
                 }else if(c == -1){
-                    ungetc(c,m_file);
+                    ungetc(c, m_file);
                     lex.type = TKN_END_OF_FILE;
                     state = tkn_defined;
                 }
@@ -240,6 +253,10 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 if(c == '*'){
                     state = 14;
                 }
+                if(c == -1){
+                    lex.type = TKN_UNEXPECTED_EOF;
+                    state = tkn_defined;
+                }
                 break;
             }
             case 13:{
@@ -264,6 +281,8 @@ struct Lexeme LexicalAnalysis::nextToken() {
     if(state==sb_find){
         lex.type = m_st.find(lex.token);
     }
-    cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;
+    if (showPrints)
+        cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;
+        
     return lex;
 }

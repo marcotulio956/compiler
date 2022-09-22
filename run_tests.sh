@@ -7,5 +7,5 @@ echo 'files:'
 printf '\t%s\n' ${files[@]}
 for file in $files; do
   echo "TESTING $file ---" >> run.log
-  ./comp $file >> run.log
+  ./comp $file 1 >> run.log
 done

@@ -1,4 +1,4 @@
 *.o
 run.log
-comp.exe
+comp
 /dumps
