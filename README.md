@@ -1,6 +1,5 @@
-
 <p align="center">
-  <img width="300" height="300" src="src/logo-cefet.png">
+  <img width="300" height="300" src="logo-cefet.png">
 </p>
   <h1 align="center">Trabalho Prático de Compiladores - CEFET-MG - 2022.2  </h1>
   <h1 align="center"> Construção de um compilador </h1>
