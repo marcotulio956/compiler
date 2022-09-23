@@ -1,4 +1,4 @@
-# gen.asmCOMP
+
 <p align="center">
   <img width="300" height="300" src="src/logo-cefet.png">
 </p>
@@ -15,8 +15,8 @@
  <h2> Parte 1 - Análise léxica </h2>
 <h2>Para instalar o projeto copie o repositório e em seu terminal digite git clone e cole o link</h2>
 <h3>
-<li> o projeto já estará compilado, mas caso queira recompilar digite $make no terminal</li>
-<li> após abrir a pasta do projeto execute o comando a seguir no terminal : $./comp <Nome/Caminho do Arquivo> <Opções> </li>
+<li> O projeto já estará compilado, mas caso queira recompilar digite $make no terminal</li>
+<li> Após abrir a pasta do projeto execute o comando a seguir no terminal : $./comp <Nome/Caminho do Arquivo> <Opções> </li>
 <li> OBS: há também a opção de rodar o script do run all : $bash run_tests.sh
 </li>
 </h3>
