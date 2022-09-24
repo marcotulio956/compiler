@@ -33,8 +33,8 @@ struct Lexeme LexicalAnalysis::nextToken() {
     while (state != sb_find && state != tkn_defined) {
         c = getc(m_file);     
 
-        if (showPrints)
-            printf("\tstate: %02d, (char) '%c', %d ASCII\n", state, (char) c, c);
+        //if (showPrints)
+        //    printf("\tstate: %02d, (char) '%c', %d ASCII\n", state, (char) c, c);
 
         switch (state) {
             case 1:{
@@ -42,9 +42,9 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     state = 1;
                     if(c == '\n'){
                         m_line++;
-                        if(showPrints){
+                        /*if(showPrints){
                             printf("\t\tm_lines %d\n", m_line);
-                        }
+                        }*/
                     }
                 }else if (isdigit(c)){
                     lex.token += (char) c;
@@ -139,9 +139,9 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 } else if(c == '\n'){
                     lex.token += (char) c;
                     m_line++;
-                    if(showPrints){
+                    /*if(showPrints){
                         printf("\t\tm_lines %d\n", m_line);
-                    }
+                    }*/
                 } else if (c == '"'){
                     lex.token += (char) c;
                     lex.type = TKN_STRING;
@@ -257,9 +257,9 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     state = 14;
                 }else if(c == '\n'){
                     m_line++;
-                    if(showPrints){
+                    /*if(showPrints){
                         printf("\t\tm_lines %d\n", m_line);
-                    }
+                    }*/
                 }
                 if(c == -1){
                     lex.type = TKN_UNEXPECTED_EOF;
@@ -271,9 +271,9 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 if(c=='\n'){
                     state = 1;
                     m_line++;
-                    if(showPrints){
+                    /*if(showPrints){
                         printf("\t\tm_lines %d\n", m_line);
-                    }
+                    }*/
                 }
                 break;
             }
@@ -293,8 +293,8 @@ struct Lexeme LexicalAnalysis::nextToken() {
     if(state==sb_find){
         lex.type = m_st.find(lex.token);
     }
-    if (showPrints)
-        cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;
+    /*if (showPrints)
+        cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;*/
         
     return lex;
 }
