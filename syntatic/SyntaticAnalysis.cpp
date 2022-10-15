@@ -326,7 +326,6 @@ void SyntaticAnalysis::procSimpleExpr() {
         procAddOp();
         procTerm();
     }
-    else{showError();}
 }
 
 // term ::= factor-a | term mulop factor-a
