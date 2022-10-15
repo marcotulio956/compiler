@@ -4,22 +4,27 @@
 #include <cstdio>
 #include <string>
 
-#include "..\lexical\LexicalAnalysis.h"
-#include "..\lexical\TokenType.h"
-#include "..\lexical\SymbolTable.h"
-#include "..\lexical\Lexeme.h"
+#include "../lexical/LexicalAnalysis.h"
 
-class LexicalAnalysis {
+class SyntaticAnalysis {
 public:
     SyntaticAnalysis(LexicalAnalysis& lex);
     virtual ~SyntaticAnalysis();
-void start();
+    void start();
 private:
-    LexicalAnalysis& lex;
-    Lexeme current;
+    LexicalAnalysis& m_lex;
+    Lexeme m_current;
+
     void eat(enum TokenType type);
     void advance();
-    void showError();
+    void showError(enum TokenType expected_type);
+
+    bool is_identifier();
+    bool is_constant();
+    bool is_relop();
+    bool is_addop();
+    bool is_mulop();
+    
     void  procProgram();
     void  procDeclList();
     void  procDecl();
@@ -50,8 +55,7 @@ private:
     void  procIdentifier();
     void  procLetter();
     void  procDigit();
-    void  procCaractere();
+    void  procCharacter();
 };
-
 
 #endif

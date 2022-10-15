@@ -1,5 +1,5 @@
 #!/bin/bash
-make
+make new >> comp.log
 touch run.log
 echo "" > run.log
 files=./examples/*.comp

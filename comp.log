@@ -1,0 +1,12 @@
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+rm -frd comp comp.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o
+g++ -g -ggdb3 -O2 -Wall -c -o comp.o comp.cpp
+rm -frd comp comp.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o
+g++ -g -ggdb3 -O2 -Wall -c -o comp.o comp.cpp
+rm -frd comp comp.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o
+g++ -g -ggdb3 -O2 -Wall -c -o comp.o comp.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o lexical/LexicalAnalysis.o lexical/LexicalAnalysis.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o lexical/SymbolTable.o lexical/SymbolTable.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o syntatic/SyntaticAnalysis.o syntatic/SyntaticAnalysis.cpp
+g++ -o comp comp.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o	

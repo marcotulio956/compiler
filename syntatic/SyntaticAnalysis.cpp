@@ -2,345 +2,461 @@
 #include <cctype>
 #include <cassert>
 #include <iostream>
+
 #include "SyntaticAnalysis.h"
 
-
-using namespace std;
-
 SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex):
-lex(lex), current(lex.nextToken(){
+    m_lex(lex), m_current(lex.nextToken()) {
 }
 
-SyntaticAnalysis::~SyntaticAnalysis(){
-
-}
+SyntaticAnalysis::~SyntaticAnalysis(){}
 
 void SyntaticAnalysis::start(){
-
+    printf("start\n");
+    procProgram();
 }
 
 void SyntaticAnalysis::advance(){
-    current = lex.nextToken();
+    m_current = m_lex.nextToken();
+    printf("advance ->%s\n",tt2str(TokenType(m_current.type)).c_str());
 }
 
-
-void SyntaticAnalysis::eat(enum TokenType type){
-    if(type == current.type) advance();
-    else showError();
-
-}
-void SyntaticAnalysis:: showError(){ 
-    printf("%02d: ", lex.m_line);
-    switch(lex){
+void SyntaticAnalysis::showError(TokenType expected_type=TKN_NONE){ 
+    printf("showError\n");
+    printf("%02d: ", m_lex.m_line);
+    switch(m_current.type){
         case TKN_INVALID_TOKEN: { 
-            printf("Lexema inválido [%s]\n", current.token.c_str();
+            printf("Invalid Lexeme [%s]\n", m_current.token.c_str());
             break;
         }
         case TKN_UNEXPECTED_EOF:{}
         case TKN_END_OF_FILE:{
-            printf("Fim de arquivo inesperado\n");
+            printf("Unexpected EOF\n");
             break;
         }
         default:{
-            printf("Lexema não esperado [%s]\n", current.token.c_str());
+            printf("Unexpected Lexeme [%s]\n", m_current.token.c_str());
             break;
         }
     }
-    exit(1);
+    if(expected_type!=TKN_NONE)
+        printf("Expected Lexeme [%s]\n", tt2str(TokenType(expected_type)).c_str());
+    if(!m_lex.showPrints) 
+        exit(1);
+    else{ // DEBug mode
+        advance();
+    }
 }
 
+void SyntaticAnalysis::eat(enum TokenType type){
+    printf("eat +%s\n",tt2str(TokenType(type)).c_str());
+    if(type == m_current.type) advance();
+    else showError();
+}
+
+bool SyntaticAnalysis::is_identifier(){
+    if(m_current.type == TKN_ID)
+        return true;
+    return false;
+}
+bool SyntaticAnalysis::is_constant(){
+    if(m_current.type == TKN_INT
+        ||m_current.type == TKN_FLOAT
+        ||m_current.type == TKN_STRING
+    )
+        return true;
+    return false;
+}
+bool SyntaticAnalysis::is_relop(){
+    if(m_current.type == TKN_EQ
+        ||m_current.type == TKN_GE
+        ||m_current.type == TKN_GT
+        ||m_current.type == TKN_LE
+        ||m_current.type == TKN_LT
+        ||m_current.type == TKN_NE
+    )
+        return true;
+    return false;
+}
+bool SyntaticAnalysis::is_addop(){
+    if(m_current.type == TKN_PLUS
+        ||m_current.type == TKN_MINUS
+    )
+        return true;
+    return false;
+}
+bool SyntaticAnalysis::is_mulop(){
+    if(m_current.type == TKN_MUL
+        ||m_current.type == TKN_DIV
+        ||m_current.type == TKN_AND
+    )
+        return true;
+    return false;
+}
 
 // program ::= start [decl-list] stmt-list exit
-void SyntaticAnalysis:: procProgram() {
-    eat(TokenType.TKN_START);
-    if(current.type == TokenType.TKN_TYPE_INT || TokenType.TKN_TYPE_FLOAT || TokenType.TKN_TYPE_STRING){
-    advance();
-    procDeclList();
+void SyntaticAnalysis::procProgram() {
+    printf("procProgram\n");
+    eat(TKN_START);
+    if(m_current.type == TKN_TYPE_INT 
+        || m_current.type == TKN_TYPE_FLOAT 
+        || m_current.type == TKN_TYPE_STRING){
+        procDeclList();
     }
     procStmtList();
-    eat(TokenType.EXIT);
+    eat(TKN_EXIT);
 }
+
 // decl-list ::= decl {decl}
-void SyntaticAnalysis:: procDeclList() {
+void SyntaticAnalysis::procDeclList() {
+    printf("procDeclList\n");
     procDecl();
-    if(current.type == TokenType.TKN_TYPE_INT || TokenType.TKN_TYPE_FLOAT || TokenType.TKN_TYPE_STRING){
-        advance();
+    while(m_current.type == TKN_TYPE_INT 
+        || m_current.type == TKN_TYPE_FLOAT 
+        || m_current.type == TKN_TYPE_STRING
+    ){
         procDecl();
     }
 }
+
 // decl ::= type ident-list ";"
-void SyntaticAnalysis:: procDecl() {
-    if(current.type == TokenType.TKN_TYPE_INT){
-        eat(TokenType.TKN_TYPE_INT);
-        procIdentList();
-        eat(TokenType.TKN_SEMICOLON);
-    }
-    else if (current.type == TokenType.TKN_TYPE_FLOAT){
-        eat( TokenType.TKN_TYPE_FLOAT);
-        procIdentList();
-        eat(TokenType.TKN_SEMICOLON);
-    }
-    else if (current.type == TokenType.TKN_TYPE_STRING){
-        eat( TokenType.TKN_TYPE_STRING);
-        procIdentList();
-        eat(TokenType.TKN_SEMICOLON);
-    }
-    else{
-        showError();
-    }
+void SyntaticAnalysis::procDecl() {
+    printf("procDecl\n");
+    procType();
+    procIdentList();
+    eat(TKN_SEMICOLON);
 }
 
 // ident-list ::= identifier {"," identifier}
-void SyntaticAnalysis:: procIdentList() {
-    procIdentifier();
-    if(current.type == TokenType.TKN_COMMA){
-        advance();
-        eat(TokenType.TKN_COMMA);
-        procIdentifier();
+void SyntaticAnalysis::procIdentList() {
+    printf("procIdentList\n");
+    eat(TKN_ID);
+    while(m_current.type == TKN_COMMA){
+        eat(TKN_COMMA);
+        eat(TKN_ID);
     }
 }
 
 // type ::= int | float | string
-void SyntaticAnalysis:: procType() {
-    if(current.type == TokenType.TKN_TYPE_INT){
-        eat(TokenType.TKN_TYPE_INT);
+void SyntaticAnalysis::procType() {
+    printf("procType\n");
+    if(m_current.type == TKN_TYPE_INT){
+        eat(TKN_TYPE_INT);
     }
-    else if(current.type == TokenType.TKN_TYPE_FLOAT){
-        eat(TokenType.TKN_TYPE_FLOAT);
+    else if(m_current.type == TKN_TYPE_FLOAT){
+        eat(TKN_TYPE_FLOAT);
     }
-    else if(current.type == TokenType.TKN_TYPE_STRING){
-        eat(TokenType.TKN_TYPE_STRING);
+    else if(m_current.type == TKN_TYPE_STRING){
+        eat(TKN_TYPE_STRING);
     }
     else { showError();}
 
 }
 
-
 // stmt-list ::= stmt {stmt}
-void SyntaticAnalysis:: procStmtList() {
-    procStmt();
-    if(){
-    procStmt();
-    }
+void SyntaticAnalysis::procStmtList() {
+    printf("procStmtList\n");
+    while(m_current.type == TKN_ID 
+        || m_current.type == TKN_IF
+        || m_current.type == TKN_DO
+        || m_current.type == TKN_SCAN
+        || m_current.type == TKN_PRINT
+    )
+        procStmt();
 }
-
-
 
 // stmt ::= assign-stmt ";" | if-stmt | while-stmt
 //  | read-stmt ";" | write-stmt ";"
-void SyntaticAnalysis:: procStmt() {}
+void SyntaticAnalysis::procStmt() {
+    printf("procStmt\n");
+    switch(m_current.type){
+        case TKN_ID:{
+            procAssignStmt();
+            eat(TKN_SEMICOLON);
+            break;
+        }
+        case TKN_IF:{
+            procIfStmt();
+            break;
+        }
+        case TKN_DO:{
+            procWhileStmt();
+            break;
+        }
+        case TKN_SCAN:{
+            procReadStmt();
+            eat(TKN_SEMICOLON);
+            break;
+        }
+        case TKN_PRINT:{
+            procWriteStmt();
+            eat(TKN_SEMICOLON);
+            break;
+        }
+        default:
+            showError();
+    }
+}
+
 // assign-stmt ::= identifier "=" simple_expr
-void SyntaticAnalysis:: procAssignStmt() {
+void SyntaticAnalysis::procAssignStmt() {
+    printf("procAssignStmt\n");
     procIdentifier();
-    eat(TokenType.TKN_ASSIGN);
+    eat(TKN_ASSIGN);
     procSimpleExpr();
 }
 
-
 // if-stmt ::= if condition then stmt-list end
 //  | if condition then stmt-list else stmt-list end
-// ESSE AQUI TO COM PROBLEMA
-void SyntaticAnalysis:: procIfStmt() {
-    eat(TokenType.TKN_IF);
+void SyntaticAnalysis::procIfStmt() {
+    printf("procIfStmt\n");
+    eat(TKN_IF);
     procCondition();
-    eat(TokenType.TKN_THEN);
+    eat(TKN_THEN);
     procStmtList();
-    eat(TokenType.TKN_END);
+    eat(TKN_END);
 }
-
 
 // condition ::= expression
-void SyntaticAnalysis:: procCondition() {
+void SyntaticAnalysis::procCondition() {
+    printf("procCondition\n");
     procExpression();
 }
+
 // while-stmt ::= do stmt-list stmt-sufix
-void SyntaticAnalysis:: procWhileStmt() {
-    eat(TokenType.TKN_DO);
+void SyntaticAnalysis::procWhileStmt() {
+    printf("procWhileStmt\n");
+    eat(TKN_DO);
     procStmtList();
     procStmtSufix();
 }
+
 // stmt-sufix ::= while condition end
-void SyntaticAnalysis:: procStmtSufix() {
-    eat(TokenType.TKN_WHILE);
+void SyntaticAnalysis::procStmtSufix() {
+    printf("procStmtSufix\n");
+    eat(TKN_WHILE);
     procCondition();
-    eat(TokenType.TKN_END);
+    eat(TKN_END);
 }
+
 // read-stmt ::= scan "(" identifier ")"
-void SyntaticAnalysis:: procReadStmt() {
-    eat(TokenType.TKN_SCAN);
-    eat(TokenType.TKN_OPEN_PAR);
+void SyntaticAnalysis::procReadStmt() {
+    printf("procReadStmt\n");
+    eat(TKN_SCAN);
+    eat(TKN_OPEN_PAR);
     procIdentifier();
-    eat(TokenType.TKN_CLOSE_PAR);
+    eat(TKN_CLOSE_PAR);
 }
+
 // write-stmt ::= print "(" writable ")"
-void SyntaticAnalysis:: procWriteStmt() {
-    eat(TokenType.TKN_PRINT);
-    eat(TokenType.OPEN_PAR);
+void SyntaticAnalysis::procWriteStmt() {
+    printf("procWriteStmt\n");
+    eat(TKN_PRINT);
+    eat(TKN_OPEN_PAR);
     procWritable();
-    eat(TokenType.TKN_CLOSE_PAR);
+    eat(TKN_CLOSE_PAR);
 }
+
+
 // writable ::= simple-expr | literal
-void SyntaticAnalysis:: procWritable() {
-    if(){
-        advance();
+void SyntaticAnalysis::procWritable() {
+    printf("procWritable\n");
+    if(m_current.type == TKN_OPEN_CUR){
+        procLiteral();
+        if( m_current.type == TKN_NOT
+            || m_current.type == TKN_MINUS
+            || m_current.type == TKN_OPEN_PAR
+            || is_relop()
+            || is_mulop()
+        ){
+            procSimpleExpr();
+        }
+    }
+    else if(
+        m_current.type == TKN_NOT
+        || m_current.type == TKN_MINUS
+        || m_current.type == TKN_OPEN_PAR
+        || is_constant()
+        || is_identifier()
+    ){
         procSimpleExpr();
     }
-    else if(){
-        advance();
-        procLiteral();
-    }
-    else { showError();}
+    else { showError(); }
 }
 
 // expression ::= simple-expr | simple-expr relop simple-expr
-void SyntaticAnalysis:: procExpression() {
-    if(){
-        advance();
-        procSimpleExpr();
-    }
-    else if(){
-        advance();
-        procSimpleExpr();
+void SyntaticAnalysis::procExpression() {
+    printf("procExpression\n");
+    while (
+        m_current.type == TKN_NOT
+        || m_current.type == TKN_MINUS
+        || m_current.type == TKN_OPEN_PAR
+        || is_identifier()
+        || is_constant()
+    ){ procSimpleExpr(); }
+
+    if(is_relop()){
         procRelOp();
         procSimpleExpr();
     }
-    else(){
-        showError();
-    }
 }
+
+// ATE AQUI TA SAFE
+
 // simple-expr ::= term | simple-expr addop term
-void SyntaticAnalysis:: procSimpleExpr() {
-    if(){
-        advance();
-        procTerm();
+void SyntaticAnalysis::procSimpleExpr() {
+    printf("procSimpleExpr\n");
+    while(m_current.type == TKN_NOT
+        || m_current.type == TKN_MINUS
+        || m_current.type == TKN_OPEN_PAR
+        || is_identifier()
+        || is_constant()
+    ){
+        procTerm(); // ESSA PARTE TA ESTRANHO
+        if(m_current.type == TKN_NOT
+            || m_current.type == TKN_MINUS
+            || m_current.type == TKN_OPEN_PAR
+            || is_identifier()
+            || is_constant()){
+            procSimpleExpr();
+        }
     }
-    else if(){
-        advance();
-        procSimpleExpr();
+
+    if(is_addop()){
         procAddOp();
         procTerm();
     }
     else{showError();}
 }
+
 // term ::= factor-a | term mulop factor-a
-void SyntaticAnalysis:: procTerm() {
-    if(){
-        advance();
+void SyntaticAnalysis::procTerm() {
+    printf("procTerm\n");
+    while(m_current.type==TKN_OPEN_PAR
+        ||m_current.type==TKN_NOT
+        ||m_current.type == TKN_MINUS
+        ||is_constant()
+        ||is_identifier()
+    ){
         procFactorA();
     }
-    else if(){
-        advance();
-        procTerm();
+    if(is_mulop()){
         procMulOp();
         procFactorA();
     }
-    else {showError();}
 }
+
 // fator-a ::= factor | "!" factor | "-" factor
-void SyntaticAnalysis:: procFactorA() {
-    if(){
-        advance();
+void SyntaticAnalysis::procFactorA() {
+    printf("procFactorA\n");
+    if(m_current.type == TKN_OPEN_PAR
+        || is_identifier()
+        || is_constant()){
         procFactor();
     }
-    else if(current.type == TokenType.TKN_NOT){
-        advance();
-        eat(TokenType.TKN_NOT);
+    else if(m_current.type == TKN_NOT){
+        eat(TKN_NOT);
         procFactor();
     }
-    else if(current.type == TokenType.TKN_MINUS){
-        advance();
-        eat(TokenType.TKN_MINUS);
+    else if(m_current.type == TKN_MINUS){
+        eat(TKN_MINUS);
         procFactor();
-    }
-    else{ showError();}
-}
-// factor ::= identifier | constant | "(" expression ")"
-void SyntaticAnalysis:: procFactor() {}
-// relop ::= "==" | ">" | ">=" | "<" | "<=" | "<>"
-void SyntaticAnalysis:: procRelOp() {
-    if(current.type == TokenType.EQ){
-        eat(TokenType.EQ);
-    }
-    else if (current.type == TokenType.GT){
-        eat(TokenType.GT);
-    }
-    else if (current.type == TokenType.GE){
-        eat(TokenType.GE);
-    } else if (current.type == TokenType.LT){
-        eat(TokenType.LT);
-    } else if (current.type == TokenType.LE){
-        eat(TokenType.LE);
-    }
-    else{
-        eat(TokenType.NE);
-    }
-}
-// addop ::= "+" | "-" | "||"
-void SyntaticAnalysis:: procAddOp() {
-    if(current.type == TokenType.PLUS){
-        eat(TokenType.PLUS);
-    }
-    else if (current.type == TokenType.MINUS){
-        eat(TokenType.MINUS);
-    }
-    else{
-        eat(TokenType.TKN_OR);
-    }
-}
-// mulop ::= "*" | "/" | "&&"
-void SyntaticAnalysis:: procMulOp() {
-    if(current.type == TokenType.MUL){
-        eat(TokenType.MUL);
-    }
-    else if (current.type == TokenType.DIV){
-        eat(TokenType.DIV);
-    }
-    else{
-        eat(TokenType.TKN_AND);
-    }
-}
-// constant ::= integer_const | float_const | literal
-void SyntaticAnalysis:: procConstant() {
-    if(){
-        advance();
-        procIntegerConst();
-    }
-    else if(){
-        advance();
-        procFloatConst();
-    }
-    else if(){
-        advance();
-        procLiteral();
     }
     else{showError();}
 }
-// integer_const ::= digit+
-void SyntaticAnalysis:: procIntegerConst() {
-    procDigit();    
+
+// factor ::= identifier | constant | "(" expression ")"
+void SyntaticAnalysis::procFactor() {
+    printf("procFactor\n");
+    if(m_current.type==TKN_OPEN_PAR){
+        eat(TKN_OPEN_PAR);
+        procExpression();
+        eat(TKN_CLOSE_PAR);
+    } else if(is_identifier()) {
+        procIdentifier();
+    } else if(is_constant()) {
+        procConstant();
+    } else { showError(); }
 }
+
+// relop ::= "==" | ">" | ">=" | "<" | "<=" | "<>"
+void SyntaticAnalysis::procRelOp() {
+    printf("procRelOp\n");
+    if(m_current.type == TKN_EQ){
+        eat(TKN_EQ);
+    } else if (m_current.type == TKN_GT){
+        eat(TKN_GT);
+    } else if (m_current.type == TKN_GE){
+        eat(TKN_GE);
+    } else if (m_current.type == TKN_LT){
+        eat(TKN_LT);
+    } else if (m_current.type == TKN_LE){
+        eat(TKN_LE);
+    } else if (m_current.type == TKN_NE){
+        eat(TKN_NE);
+    } else { showError(); }
+}
+// addop ::= "+" | "-" | "||"
+void SyntaticAnalysis::procAddOp() {
+    printf("procAddOp\n");
+    if(m_current.type == TKN_PLUS){
+        eat(TKN_PLUS);
+    }else if (m_current.type == TKN_MINUS){
+        eat(TKN_MINUS);
+    }else if (m_current.type == TKN_OR){
+        eat(TKN_OR);
+    }else { showError(); }
+}
+
+// mulop ::= "*" | "/" | "&&"
+void SyntaticAnalysis::procMulOp() {
+    printf("procMulOp\n");
+    if(m_current.type == TKN_MUL){
+        eat(TKN_MUL);
+    }else if (m_current.type == TKN_DIV){
+        eat(TKN_DIV);
+    }else if (m_current.type == TKN_AND){
+        eat(TKN_AND);
+    }else { showError(); }
+}
+
+// constant ::= integer_const | float_const | literal
+void SyntaticAnalysis::procConstant() {
+    printf("procConstant\n");
+    if(m_current.type == TKN_INT){
+        procIntegerConst();
+    }else if(m_current.type == TKN_INT){
+        procFloatConst();
+    }else if(m_current.type ==TKN_OPEN_CUR){
+        procLiteral();
+    }else{showError();}
+}
+
+// integer_const ::= digit+
+void SyntaticAnalysis::procIntegerConst() {
+    printf("procIntegerConst\n");
+    eat(TKN_INT);
+}
+
 // float_const ::= digit+
 // “.”digit+
-void SyntaticAnalysis:: procFloatConst() {
-    procDigit();
-    eat(TokenType.TKN_DOT);
-    procDigit();
+void SyntaticAnalysis::procFloatConst() {
+    printf("procFloatConst\n");
+    eat(TKN_FLOAT);
 }
+
 // literal ::= " { " {caractere} " } "
-void SyntaticAnalysis:: procLiteral() {
-    eat(TokenType.OPEN_CUR);
-    while(current.type == ){
-        procCaractere();
-    }
-    eat(TokenType.CLOSE_CUR);
+void SyntaticAnalysis::procLiteral() {
+    printf("procLiteral\n");
+    eat(TKN_OPEN_CUR);
+    if(m_current.type==TKN_STRING)
+        procCharacter();
+    eat(TKN_CLOSE_CUR);
 
 }
-// identifier ::= (letter | _ ) (letter | digit )*
-void SyntaticAnalysis:: procIdentifier() {}
-// letter ::= [A-za-z]
-void SyntaticAnalysis:: procLetter() {}
-// digit ::= [0-9]
-void SyntaticAnalysis:: procDigit() {}
-// caractere ::= um dos caracteres ASCII, exceto quebra de linha
-void SyntaticAnalysis:: procCaractere() {}
 
+// identifier ::= (letter | _ ) (letter | digit )*
+void SyntaticAnalysis::procIdentifier() {printf("procIdentifier\n"); eat(TKN_ID);}
+
+// caractere ::= um dos caracteres ASCII, exceto quebra de linha
+void SyntaticAnalysis::procCharacter() {printf("procCharacter\n"); eat(TKN_STRING);}

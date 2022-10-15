@@ -17,11 +17,12 @@ public:
 
     struct Lexeme nextToken();
 
-private:
+    bool showPrints;
+
     int m_line;
+private:
     FILE* m_file;
     SymbolTable m_st;
-    bool showPrints;
 };
 
 #endif

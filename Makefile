@@ -4,8 +4,8 @@ CXXFLAGS=-g -ggdb3 -O2 -Wall
 TARGET=comp
 OBJS=comp.o \
 	lexical/LexicalAnalysis.o \
-	lexical/SymbolTable.o
-
+	lexical/SymbolTable.o \
+	syntatic/SyntaticAnalysis.o
 all: $(TARGET)
 
 clean:

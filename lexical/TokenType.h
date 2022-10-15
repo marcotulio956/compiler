@@ -3,6 +3,7 @@
 
 enum TokenType {
     // SPECIALS
+    TKN_NONE = -4,
     TKN_ID = -3,            // identifier
     TKN_UNEXPECTED_EOF = -2,
     TKN_INVALID_TOKEN = -1,
@@ -52,7 +53,7 @@ enum TokenType {
 
     TKN_TYPE_INT,           // int
     TKN_TYPE_FLOAT,         // float
-    TKN_TYPE_STRING         // string
+    TKN_TYPE_STRING,        // string
 };
 
 inline std::string tt2str(enum TokenType type) {
