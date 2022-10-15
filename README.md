@@ -13,10 +13,12 @@
 </h3>
 <h2> Parte 1 - Análise léxica </h2>
 <h2>Para instalar o projeto copie o repositório e em seu terminal digite git clone e cole o link</h2>
-<h3>
+
+
 <li> O projeto já estará compilado, mas caso queira recompilar digite $make no terminal</li>
-<li> Após abrir a pasta do projeto execute o comando a seguir no terminal: </li>
-$./comp <Nome/Caminho do Arquivo> <Opções>
 <li> OBS: há também a opção de rodar o script do run all : $bash run_tests.sh
 </li>
-</h3>
+
+```
+$./comp <Nome/Caminho do Arquivo> <DEBug Mode> <NOError Mode>
+```
