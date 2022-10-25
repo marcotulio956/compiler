@@ -3,6 +3,7 @@ CXXFLAGS=-g -ggdb3 -O2 -Wall
 
 TARGET=comp
 OBJS=comp.o \
+	util/TreeNode.o \
 	lexical/LexicalAnalysis.o \
 	lexical/SymbolTable.o \
 	syntatic/SyntaticAnalysis.o

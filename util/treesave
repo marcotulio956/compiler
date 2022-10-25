@@ -1,0 +1,32 @@
+// #include <string>
+// #include <vector>
+
+// #ifndef TREE_NODE_H
+// #define TREE_NODE_H
+
+// template<class T> class TreeNode {
+// public:
+//    TreeNode(const T& data) : m_data(data) {}
+//   ~TreeNode( ) {}
+ 
+//    const T& getData() const {return(m_data);}
+//    void setData(const T& data) {m_data = data;}
+//    void addChild(TreeNode<T>* node) {
+//       const T& nodeData = node->getData();
+//       m_children.push_back(node);
+//    }
+//    const std::vector<TreeNode<T>*> getChildren() {return(m_children);}
+   
+//    void pretty_print(std::string tab="") {
+//        printf("%s%s\n", tab.c_str(), m_data.c_str()); 
+//        for (int i=0; i<m_children.size(); i++){
+//             m_children[i]->pretty_print("\t"+tab);
+//        }
+//    }
+ 
+// private:
+//    T m_data;
+//    std::vector<TreeNode<T>*> m_children;
+// };
+
+// #endif

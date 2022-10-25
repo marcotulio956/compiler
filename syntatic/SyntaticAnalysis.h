@@ -5,6 +5,7 @@
 #include <string>
 
 #include "../lexical/LexicalAnalysis.h"
+#include "../util/TreeNode.h"
 
 class SyntaticAnalysis {
 public:
@@ -14,6 +15,7 @@ public:
 private:
     LexicalAnalysis& m_lex;
     Lexeme m_current;
+    TreeNode<std::string> m_derivation;
 
     void eat(enum TokenType type);
     void advance();
@@ -24,38 +26,46 @@ private:
     bool is_relop();
     bool is_addop();
     bool is_mulop();
-    
-    void  procProgram();
-    void  procDeclList();
-    void  procDecl();
-    void  procIdentList();
-    void  procType();
-    void  procStmtList();
-    void  procStmt();
-    void  procAssignStmt();
-    void  procIfStmt();
-    void  procCondition();
-    void  procWhileStmt();
-    void  procStmtSufix();
-    void  procReadStmt();
-    void  procWriteStmt();
-    void  procWritable();
-    void  procExpression();
-    void  procSimpleExpr();
-    void  procTerm();
-    void  procFactorA();
-    void  procFactor();
-    void  procRelOp();
-    void  procAddOp();
-    void  procMulOp();
-    void  procConstant();
-    void  procIntegerConst();
-    void  procFloatConst();
-    void  procLiteral();
-    void  procIdentifier();
-    void  procLetter();
-    void  procDigit();
-    void  procCharacter();
+
+    void  procProgram(TreeNode<std::string> *parent);
+    void  procDeclList(TreeNode<std::string> *parent);
+    void  procDecl(TreeNode<std::string> *parent);
+    void  procIdentList(TreeNode<std::string> *parent);
+    void  procType(TreeNode<std::string> *parent);
+    void  procStmtList(TreeNode<std::string> *parent);
+    void  procStmt(TreeNode<std::string> *parent);
+    void  procAssignStmt(TreeNode<std::string> *parent);
+    // void  procIfStmt(TreeNode<std::string> *parent);
+    void  procIfStmtA(TreeNode<std::string> *parent);
+    void  procIfStmtB(TreeNode<std::string> *parent);
+    void  procCondition(TreeNode<std::string> *parent);
+    void  procWhileStmt(TreeNode<std::string> *parent);
+    void  procStmtSufix(TreeNode<std::string> *parent);
+    void  procReadStmt(TreeNode<std::string> *parent);
+    void  procWriteStmt(TreeNode<std::string> *parent);
+    void  procWritable(TreeNode<std::string> *parent);
+    // void  procExpression(TreeNode<std::string> *parent);
+    void  procExpressionA(TreeNode<std::string> *parent);
+    void  procExpressionB(TreeNode<std::string> *parent);
+    // void  procSimpleExpr(TreeNode<std::string> *parent);
+    void  procSimpleExprA(TreeNode<std::string> *parent);
+    void  procSimpleExprB(TreeNode<std::string> *parent);
+    // void  procTerm(TreeNode<std::string> *parent);
+    void  procTermA(TreeNode<std::string> *parent);
+    void  procTermB(TreeNode<std::string> *parent);
+    void  procFactorA(TreeNode<std::string> *parent);
+    void  procFactor(TreeNode<std::string> *parent);
+    void  procRelOp(TreeNode<std::string> *parent);
+    void  procAddOp(TreeNode<std::string> *parent);
+    void  procMulOp(TreeNode<std::string> *parent);
+    void  procConstant(TreeNode<std::string> *parent);
+    void  procIntegerConst(TreeNode<std::string> *parent);
+    void  procFloatConst(TreeNode<std::string> *parent);
+    void  procLiteral(TreeNode<std::string> *parent);
+    void  procIdentifier(TreeNode<std::string> *parent);
+    void  procLetter(TreeNode<std::string> *parent);
+    void  procDigit(TreeNode<std::string> *parent);
+    void  procCharacter(TreeNode<std::string> *parent);
 };
 
 #endif

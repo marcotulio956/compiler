@@ -1,5 +1,4 @@
 *.o
-run.log
-comp
-comp.exe
+*.log
 /dumps
+/code_test
