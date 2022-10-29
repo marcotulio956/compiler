@@ -5,21 +5,25 @@
 
 #include "SyntaticAnalysis.h"
 
+#define c_tt2str(tt) tt2str(TokenType(tt)).c_str()
+
+#define ttprint(tt) printf("X %s\n", c_tt2str(tt));
+
+#define printct ttprint(m_current.type)
+
 SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex):
     m_lex(lex), m_current(lex.nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")) {
-       
 }
 
-SyntaticAnalysis::~SyntaticAnalysis(){delete &m_lex;}
+SyntaticAnalysis::~SyntaticAnalysis(){}
 
 void SyntaticAnalysis::start(){
-    procProgram(&m_derivation);
-    m_derivation.pretty_print();
+    procProgram("");
 }
 
 void SyntaticAnalysis::advance(){
     m_current = m_lex.nextToken();
-    printf("advance -> %s\n",tt2str(TokenType(m_current.type)).c_str());
+    //printf("advance -> %s\n",tt2str(TokenType(m_current.type)).c_str());
 }
 
 void SyntaticAnalysis::showError(TokenType expected_type=TKN_NONE){ 
@@ -41,23 +45,28 @@ void SyntaticAnalysis::showError(TokenType expected_type=TKN_NONE){
         }
     }
     printf("exec: DERIVATION TREE incomplete\n"); 
-    m_derivation.pretty_print(); 
     if(expected_type!=TKN_NONE)
         printf("Expected Lexeme [%s]\n", tt2str(TokenType(expected_type)).c_str());
-    if(!m_lex.showPrints) 
+    if(!m_lex.showPrints) // in case of debug mode, advance anyway(may not halt)
         exit(1);
     else{ // DEBug mode
-        advance();
+        //advance();
+        exit(1);
     }
 }
 
-void SyntaticAnalysis::eat(enum TokenType type){
-    m_derivation.pretty_print();
-    printf("eat +%s\n",tt2str(TokenType(type)).c_str());
+void SyntaticAnalysis::eat(enum TokenType type, std::string tab){
+    printf("%seat +%s",tab.c_str(),tt2str(TokenType(type)).c_str());
+    if(type == TKN_ID || type == TKN_INT|| type == TKN_STRING || type == TKN_FLOAT )
+        printf(" : '%s'", m_current.token.c_str());
+    else{
+        printf(" - '%s'", m_current.token.c_str());
+    }
+    printf("\n");
     if(type == m_current.type)
         advance();
     else
-        showError();
+        showError(type);
 }
 
 bool SyntaticAnalysis::is_identifier(){
@@ -101,160 +110,124 @@ bool SyntaticAnalysis::is_mulop(){
 }
 
 // program ::= start [decl-list] stmt-list exit
-void SyntaticAnalysis::procProgram(TreeNode<std::string>* parent) {
-    printf("procProgram\n");
-    parent->addChild(tt2str(TokenType(TKN_START)));
-    eat(TKN_START);
+void SyntaticAnalysis::procProgram(std::string tab) {
+    printf("%s<procProgram>\n",tab.c_str());
+    eat(TKN_START, tab+"\t");
 
-    TreeNode<std::string> child_procDeclList = TreeNode<std::string>("<procDeclList>");
     if(m_current.type == TKN_TYPE_INT 
         || m_current.type == TKN_TYPE_FLOAT 
         || m_current.type == TKN_TYPE_STRING){
-        parent->addChild(&child_procDeclList);
-        procDeclList(&child_procDeclList);
+            
+        procDeclList(tab+"\t");
     }
 
-    TreeNode<std::string> child_procStmtList("<procStmtList>");
-    parent->addChild(&child_procStmtList);
-    procStmtList(&child_procStmtList);
+    procStmtList(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_EXIT)));
-    eat(TKN_EXIT);
+    eat(TKN_EXIT, tab+"\t");
 
     printf("exec: DERIVATION TREE complete\n"); 
 }
 
 // decl-list ::= decl {decl}
-void SyntaticAnalysis::procDeclList(TreeNode<std::string>* parent) {
-    printf("procDeclList\n");
+void SyntaticAnalysis::procDeclList(std::string tab) {
+    printf("%s<procDeclList>\n",tab.c_str());
 
-    TreeNode<std::string> child_procDecl("<procDecl>");
-    parent->addChild(&child_procDecl);
-    procDecl(&child_procDecl);
+    procDecl(tab+"\t");
 
     while(m_current.type == TKN_TYPE_INT 
         || m_current.type == TKN_TYPE_FLOAT 
         || m_current.type == TKN_TYPE_STRING
     ){
-        TreeNode<std::string> new_child_procDecl("<procDecl>");
-        parent->addChild(&new_child_procDecl);
-        procDecl(&new_child_procDecl);
+        procDecl(tab+"\t");
     }
 }
 
 // decl ::= type ident-list ";"
-void SyntaticAnalysis::procDecl(TreeNode<std::string>* parent) {
-    printf("procDecl\n");
+void SyntaticAnalysis::procDecl(std::string tab) {
+    printf("%s<procDecl>\n",tab.c_str());
 
-    TreeNode<std::string> child_procType("<procType>");
-    parent->addChild(&child_procType);
-    procType(&child_procType);
+    procType(tab+"\t");
 
-    TreeNode<std::string> child_procIdentList("<procIdentList>");
-    parent->addChild(&child_procIdentList);
-    procIdentList(&child_procIdentList);
+    procIdentList(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_SEMICOLON))); 
-    eat(TKN_SEMICOLON);
+    eat(TKN_SEMICOLON, tab+"\t");
 }
 
 // ident-list ::= identifier {"," identifier}
-void SyntaticAnalysis::procIdentList(TreeNode<std::string>* parent) {
-    printf("procIdentList\n");
+void SyntaticAnalysis::procIdentList(std::string tab) {
+    printf("%s<procIdentList>\n",tab.c_str());
 
-    TreeNode<std::string> child_procIdentifer("<procIdentifier>");
-    parent->addChild(&child_procIdentifer);
-    procIdentifier(&child_procIdentifer);
+    procIdentifier(tab+"\t");
 
     while(m_current.type == TKN_COMMA){
-        parent->addChild(tt2str(TokenType(TKN_COMMA)));
-        eat(TKN_COMMA);
+        eat(TKN_COMMA, tab+"\t");
 
-        TreeNode<std::string> new_child_procIdentifer("<procIdentifier>");
-        parent->addChild(&new_child_procIdentifer);
-        procIdentifier(&new_child_procIdentifer);
+        procIdentifier(tab+"\t");
+
     }
 }
 
 // type ::= int | float | string
-void SyntaticAnalysis::procType(TreeNode<std::string>* parent) {
-    printf("procType\n");
+void SyntaticAnalysis::procType(std::string tab) {
+    printf("%s<procType>\n",tab.c_str());
     if(m_current.type == TKN_TYPE_INT){
-        parent->addChild(tt2str(TokenType(TKN_TYPE_INT)));
-        eat(TKN_TYPE_INT);
+        eat(TKN_TYPE_INT, tab+"\t");
 
     }
     else if(m_current.type == TKN_TYPE_FLOAT){
-        parent->addChild(tt2str(TokenType(TKN_TYPE_FLOAT)));
-        eat(TKN_TYPE_FLOAT);
+        eat(TKN_TYPE_FLOAT, tab+"\t");
 
     }
     else if(m_current.type == TKN_TYPE_STRING){
-        parent->addChild(tt2str(TokenType(TKN_TYPE_STRING)));
-        eat(TKN_TYPE_STRING);
+        eat(TKN_TYPE_STRING, tab+"\t");
     }
     else { showError();}
 
 }
 
 // stmt-list ::= stmt {stmt}
-void SyntaticAnalysis::procStmtList(TreeNode<std::string>* parent) {
-    printf("procStmtList\n");
+void SyntaticAnalysis::procStmtList(std::string tab) {
+    printf("%s<procStmtList>\n",tab.c_str());
     while(m_current.type == TKN_ID 
         || m_current.type == TKN_IF
         || m_current.type == TKN_DO
         || m_current.type == TKN_SCAN
         || m_current.type == TKN_PRINT
     ){
-        TreeNode<std::string> child_procStmt("<procStmt>");
-        parent->addChild(&child_procStmt);
-        procStmt(&child_procStmt);
+        procStmt(tab+"\t");
     }
 }
 
 // stmt ::= assign-stmt ";" | if-stmt | while-stmt
 //  | read-stmt ";" | write-stmt ";"
-void SyntaticAnalysis::procStmt(TreeNode<std::string>* parent) {
-    printf("procStmt\n");
+void SyntaticAnalysis::procStmt(std::string tab) {
+    printf("%s<procStmt>\n",tab.c_str());
     switch(m_current.type){
         case TKN_ID:{
-            TreeNode<std::string> child_procAssignStmt("<procAssignStmt>");
-            parent->addChild(&child_procAssignStmt);
-            procAssignStmt(&child_procAssignStmt);
+            procAssignStmt(tab+"\t");
 
-            parent->addChild(tt2str(TokenType(TKN_SEMICOLON)));
-            eat(TKN_SEMICOLON);
+            eat(TKN_SEMICOLON, tab+"\t");
             break;
         }
         case TKN_IF:{
-            TreeNode<std::string> child_procIfStmt("<procIfStmt>");
-            parent->addChild(&child_procIfStmt);
-            procIfStmtA(&child_procIfStmt);
+            procIfStmtA(tab+"\t");
             break;
         }
         case TKN_DO:{
-            TreeNode<std::string> child_procWhileStmt("<procWhileStmt>");
-            parent->addChild(&child_procWhileStmt);
-            procWhileStmt(&child_procWhileStmt);
+            procWhileStmt(tab+"\t");
             break;
         }
         case TKN_SCAN:{
-            TreeNode<std::string> child_procReadStmt("<procReadStmt>");
-            parent->addChild(&child_procReadStmt);
-            procReadStmt(&child_procReadStmt);
+            procReadStmt(tab+"\t");
             
-            parent->addChild(tt2str(TokenType(TKN_SEMICOLON)));
-            eat(TKN_SEMICOLON);
+            eat(TKN_SEMICOLON, tab+"\t");
 
             break;
         }
         case TKN_PRINT:{
-            TreeNode<std::string> child_procWriteStmt("<procWriteStmt>");
-            parent->addChild(&child_procWriteStmt);
-            procWriteStmt(&child_procWriteStmt);
+            procWriteStmt(tab+"\t");
 
-            parent->addChild(tt2str(TokenType(TKN_SEMICOLON)));
-            eat(TKN_SEMICOLON);
+            eat(TKN_SEMICOLON, tab+"\t");
             break;
         }
         default:
@@ -263,151 +236,100 @@ void SyntaticAnalysis::procStmt(TreeNode<std::string>* parent) {
 }
 
 // assign-stmt ::= identifier "=" simple_expr
-void SyntaticAnalysis::procAssignStmt(TreeNode<std::string>* parent) {
-    printf("procAssignStmt\n");
+void SyntaticAnalysis::procAssignStmt(std::string tab) {
+    printf("%s<procAssignStmt>\n",tab.c_str());
 
-    TreeNode<std::string> child_procIdentifier("<procIdentifier>");
-    parent->addChild(&child_procIdentifier);
-    procIdentifier(&child_procIdentifier);
+    procIdentifier(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_ASSIGN)));
-    eat(TKN_ASSIGN);
+    eat(TKN_ASSIGN, tab+"\t");
 
-    TreeNode<std::string> child_procSimpleExpr("<procSimpleExprA>");
-    parent->addChild(&child_procSimpleExpr);
-    procSimpleExprA(&child_procSimpleExpr);
+    procSimpleExprA(tab+"\t");
 }
 
 // if-stmtA ::= if condition then stmt-list if-stmtB
-void SyntaticAnalysis::procIfStmtA(TreeNode<std::string>* parent) {
-    printf("procIfStmtA\n");
-    parent->addChild(tt2str(TokenType(TKN_IF)));
-    eat(TKN_IF);
+void SyntaticAnalysis::procIfStmtA(std::string tab) {
+    printf("%s<procIfStmtA>\n",tab.c_str());
+    eat(TKN_IF, tab+"\t");
 
-    TreeNode<std::string> child_procCondition("<procCondition>");
-    parent->addChild(&child_procCondition);
-    procCondition(&child_procCondition);
+    procCondition(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_THEN)));
-    eat(TKN_THEN);
+    eat(TKN_THEN, tab+"\t");
 
-    TreeNode<std::string> child_procStmtList("<procStmtList>");
-    parent->addChild(&child_procStmtList);
-    procStmtList(&child_procStmtList);
+    procStmtList(tab+"\t");
     
-    TreeNode<std::string> child_procIfStmtB("<procIfStmtB>");
-    parent->addChild(&child_procIfStmtB);
-    procIfStmtB(&child_procIfStmtB);
+    procIfStmtB(tab+"\t");
 }
 // if-stmtB ::= end | else stmt-list end
-void SyntaticAnalysis::procIfStmtB(TreeNode<std::string>* parent) {
-    printf("procIfStmtB\n");
+void SyntaticAnalysis::procIfStmtB(std::string tab) {
+    printf("%s<procIfStmtB>\n",tab.c_str());
     if(m_current.type == TKN_ELSE){
-        parent->addChild(tt2str(TokenType(TKN_ELSE)));
-        eat(TKN_ELSE);
+        eat(TKN_ELSE, tab+"\t");
 
-        TreeNode<std::string> child_procStmtList("<procStmtList>");
-        parent->addChild(&child_procStmtList);
-        procStmtList(&child_procStmtList);
+        procStmtList(tab+"\t");
     }
-    parent->addChild(tt2str(TokenType(TKN_END)));
-    eat(TKN_END);
+    eat(TKN_END, tab+"\t");
 
 }
 
 // condition ::= expression
-void SyntaticAnalysis::procCondition(TreeNode<std::string>* parent) {
-    printf("procCondition\n");
+void SyntaticAnalysis::procCondition(std::string tab) {
+    printf("%s<procCondition>\n",tab.c_str());
 
-    TreeNode<std::string> child_procExpression("<procExpression>");
-    parent->addChild(&child_procExpression);
-    procExpressionA(&child_procExpression);
+    procExpressionA(tab+"\t");
 }
 
 // while-stmt ::= do stmt-list stmt-sufix
-void SyntaticAnalysis::procWhileStmt(TreeNode<std::string>* parent) {
-    printf("procWhileStmt\n");
+void SyntaticAnalysis::procWhileStmt(std::string tab) {
+    printf("%s<procWhileStmt>\n",tab.c_str());
 
-    parent->addChild(tt2str(TokenType(TKN_DO)));
-    eat(TKN_DO);
+    eat(TKN_DO, tab+"\t");
 
-    TreeNode<std::string> child_procStmtList("<procStmtList>");
-    parent->addChild(&child_procStmtList);
-    procStmtList(&child_procStmtList);
+    procStmtList(tab+"\t");
     
-    TreeNode<std::string> child_procStmtSufix("<procStmtSufix>");
-    parent->addChild(&child_procStmtSufix);
-    procStmtSufix(&child_procStmtSufix);
+    procStmtSufix(tab+"\t");
 }
 
 // stmt-sufix ::= while condition end
-void SyntaticAnalysis::procStmtSufix(TreeNode<std::string>* parent) {
-    printf("procStmtSufix\n");
+void SyntaticAnalysis::procStmtSufix(std::string tab) {
+    printf("%s<procStmtSufix>\n",tab.c_str());
 
-    parent->addChild(tt2str(TokenType(TKN_WHILE)));
-    eat(TKN_WHILE);
+    eat(TKN_WHILE, tab+"\t");
 
-    TreeNode<std::string> child_procCondition("<procCondition>");
-    parent->addChild(&child_procCondition);
-    procCondition(&child_procCondition);
+    procCondition(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_END)));
-    eat(TKN_END);
+    eat(TKN_END, tab+"\t");
 
 }
 
 // read-stmt ::= scan "(" identifier ")"
-void SyntaticAnalysis::procReadStmt(TreeNode<std::string>* parent) {
-    printf("procReadStmt\n");
-    parent->addChild(tt2str(TokenType(TKN_SCAN)));
-    eat(TKN_SCAN);
+void SyntaticAnalysis::procReadStmt(std::string tab) {
+    printf("%s<procReadStmt>\n",tab.c_str());
+    eat(TKN_SCAN, tab+"\t");
     
-    parent->addChild(tt2str(TokenType(TKN_OPEN_PAR)));
-    eat(TKN_OPEN_PAR);
+    eat(TKN_OPEN_PAR, tab+"\t");
 
-    TreeNode<std::string> child_procIdentifier("<procIdentifier>");
-    parent->addChild(&child_procIdentifier);
-    procIdentifier(&child_procIdentifier);
+    procIdentifier(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_CLOSE_PAR)));
-    eat(TKN_CLOSE_PAR);
+    eat(TKN_CLOSE_PAR, tab+"\t");
 }
 
 // write-stmt ::= print "(" writable ")"
-void SyntaticAnalysis::procWriteStmt(TreeNode<std::string>* parent) {
-    printf("procWriteStmt\n");
-    parent->addChild(tt2str(TokenType(TKN_PRINT)));
-    eat(TKN_PRINT);
-    parent->addChild(tt2str(TokenType(TKN_OPEN_PAR)));
-    eat(TKN_OPEN_PAR);
+void SyntaticAnalysis::procWriteStmt(std::string tab) {
+    printf("%s<procWriteStmt>\n",tab.c_str());
+    eat(TKN_PRINT, tab+"\t");
+    eat(TKN_OPEN_PAR, tab+"\t");
 
-    TreeNode<std::string> child_procWritable("<procWritable>");
-    parent->addChild(&child_procWritable);
-    procWritable(&child_procWritable);
+    procWritable(tab+"\t");
 
-    parent->addChild(tt2str(TokenType(TKN_CLOSE_PAR)));
-    eat(TKN_CLOSE_PAR);
+    eat(TKN_CLOSE_PAR, tab+"\t");
 }
 
 
 // writable ::= simple-expr | literal
-void SyntaticAnalysis::procWritable(TreeNode<std::string>* parent) {
-    printf("procWritable\n");
+void SyntaticAnalysis::procWritable(std::string tab) {
+    printf("%s<procWritable>\n",tab.c_str());
     if(m_current.type == TKN_OPEN_CUR){
-        TreeNode<std::string> child_procLiteral("<procLiteral>");
-        parent->addChild(&child_procLiteral);
-        procLiteral(&child_procLiteral);
-
-        if( m_current.type == TKN_NOT
-            || m_current.type == TKN_MINUS
-            || m_current.type == TKN_OPEN_PAR
-            || is_relop()
-            || is_mulop()
-        ){
-            TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-            parent->addChild(&child_procSimpleExpr);
-            procSimpleExprA(&child_procSimpleExpr);
-        }
+        procLiteral(tab+"\t");
     }
     else if(
         m_current.type == TKN_NOT
@@ -416,332 +338,243 @@ void SyntaticAnalysis::procWritable(TreeNode<std::string>* parent) {
         || is_constant()
         || is_identifier()
     ){
-        TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-        parent->addChild(&child_procSimpleExpr);
-        procSimpleExprA(&child_procSimpleExpr);
+        procSimpleExprA(tab+"\t");
     }
     else { showError(); }
 }
 
 // expression ::= simple-expr | simple-expr relop simple-expr
-// void SyntaticAnalysis::procExpression(TreeNode<std::string>* parent) {
-//     printf("procExpression\n");
+// void SyntaticAnalysis::procExpression(std::string tab) {
+//     printf("%s<procExpression>\n",tab.c_str());
 //     while (
 //         m_current.type == TKN_NOT
 //         || m_current.type == TKN_MINUS
 //         || m_current.type == TKN_OPEN_PAR
 //         || is_identifier()
 //         || is_constant()
-//     ){ TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-//             parent->addChild(&child_procSimpleExpr);
-//             procSimpleExpr(&child_procSimpleExpr); }
+//             procSimpleExpr(tab+"\t"); }
 
 //     if(is_relop()){
-//         TreeNode<std::string> child_procRelOp("<procRelOp>");
-//             parent->addChild(&child_procRelOp);
-//             procRelOp(&child_procRelOp);
+//             procRelOp(tab+"\t");
             
-//         TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-//             parent->addChild(&child_procSimpleExpr);
-//             procSimpleExpr(&child_procSimpleExpr);
+//             procSimpleExpr(tab+"\t");
 //     }
 // }
 
 // expressionA ::= simple-expr expressionB
-void SyntaticAnalysis::procExpressionA(TreeNode<std::string>* parent) {
-    printf("procExpressionA\n");
+void SyntaticAnalysis::procExpressionA(std::string tab) {
+    printf("%s<procExpressionA>\n",tab.c_str());
 
-    TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-    parent->addChild(&child_procSimpleExpr);
-    procSimpleExprA(&child_procSimpleExpr);
+    procSimpleExprA(tab+"\t");
 
-    TreeNode<std::string> child_procExpressionB("<procExpressionB>");
-    parent->addChild(&child_procExpressionB);
-    procExpressionB(&child_procExpressionB);
+    procExpressionB(tab+"\t");
 }
 
-// expressionB ::= relop simple-expr
-void SyntaticAnalysis::procExpressionB(TreeNode<std::string>* parent) {
-    printf("procExpressionB\n");
+// expressionB ::= relop simple-exprA | lambda
+void SyntaticAnalysis::procExpressionB(std::string tab) {
+    printf("%s<procExpressionB>\n",tab.c_str());
 
-    TreeNode<std::string> child_procRelOp("<procRelOp>");
-    parent->addChild(&child_procRelOp);
-    procRelOp(&child_procRelOp);
-
-    TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-    parent->addChild(&child_procSimpleExpr);
-    procSimpleExprA(&child_procSimpleExpr);
+    if(is_relop()){
+        procRelOp(tab+"\t");
+        procSimpleExprA(tab+"\t");
+    }
 }
 
 // // simple-expr ::= term | simple-expr addop term
-// void SyntaticAnalysis::procSimpleExpr(TreeNode<std::string>* parent) {
-//     printf("procSimpleExpr\n");
+// void SyntaticAnalysis::procSimpleExpr(std::string tab) {
+//     printf("%s<procSimpleExpr>\n",tab.c_str());
 //     while(m_current.type == TKN_NOT
 //         || m_current.type == TKN_MINUS
 //         || m_current.type == TKN_OPEN_PAR
 //         || is_identifier()
 //         || is_constant()
 //     ){
-//         TreeNode<std::string> child_procTerm("<procTerm>");
-//             parent->addChild(&child_procTerm);
-//             procTerm(&child_procTerm); // ESSA PARTE TA ESTRANHO
+//             procTerm(tab+"\t"); // ESSA PARTE TA ESTRANHO
 
 //         if(m_current.type == TKN_NOT
 //             || m_current.type == TKN_MINUS
 //             || m_current.type == TKN_OPEN_PAR
 //             || is_identifier()
 //             || is_constant()){
-//             TreeNode<std::string> child_procSimpleExpr("<procSimpleExpr>");
-//             parent->addChild(&child_procSimpleExpr);
-//             procSimpleExpr(&child_procSimpleExpr);
+//             procSimpleExpr(tab+"\t");
 //         }
 //     }
 
 //     if(is_addop()){
-//         TreeNode<std::string> child_procAddOp("<procAddOp>");
-//             parent->addChild(&child_procAddOp);
-//             procAddOp(&child_procAddOp);
-//         TreeNode<std::string> child_procTerm("<procTerm>");
-//             parent->addChild(&child_procTerm);
-//             procTerm(&child_procTerm);
+//             procAddOp(tab+"\t");
+//             procTerm(tab+"\t");
 //     }
 // }
 
-// simple-exprA ::= term simple-exprB
-void SyntaticAnalysis::procSimpleExprA(TreeNode<std::string>* parent) {
-    printf("procSimpleExprA\n");
+// simple-exprA ::= termA simple-exprB
+void SyntaticAnalysis::procSimpleExprA(std::string tab) {
+    printf("%s<procSimpleExprA>\n",tab.c_str());
 
-    TreeNode<std::string> child_procTerm("<procTermA>");
-    parent->addChild(&child_procTerm);
-    procTermA(&child_procTerm);
+    procTermA(tab+"\t");
 
-    TreeNode<std::string> child_procSimpleExprB("<procSimpleExprB>");
-    parent->addChild(&child_procSimpleExprB);
-    procSimpleExprB(&child_procSimpleExprB);
+    procSimpleExprB(tab+"\t");
 }
 
-// simple-exprB ::= addop term simple-exprB
-void SyntaticAnalysis::procSimpleExprB(TreeNode<std::string>* parent) {
-    printf("procSimpleExprB\n");
+// simple-exprB ::= addop term simple-exprB | lambda
+void SyntaticAnalysis::procSimpleExprB(std::string tab) {
+    printf("%s<procSimpleExprB>\n",tab.c_str());
 
-    TreeNode<std::string> child_procAddOp("<procAddOp>");
-    parent->addChild(&child_procAddOp);
-    procAddOp(&child_procAddOp);
+    if(is_addop()){
+        procAddOp(tab+"\t");
 
-    TreeNode<std::string> child_procTerm("<procTerm>");
-    parent->addChild(&child_procTerm);
-    procTermA(&child_procTerm);
+        procTermA(tab+"\t");
     
-    TreeNode<std::string> child_procSimpleExprB("<procSimpleExprB>");
-    parent->addChild(&child_procSimpleExprB);
-    procSimpleExprB(&child_procSimpleExprB);
+        procSimpleExprB(tab+"\t");
+    }else if(is_mulop()){
+        procTermB(tab+"\t");
+    
+        procSimpleExprB(tab+"\t");
+    }
 }
-
-// term ::= factor-a | term mulop factor-a
-// void SyntaticAnalysis::procTerm(TreeNode<std::string>* parent) {
-//     printf("procTerm\n");
-//     while(m_current.type==TKN_OPEN_PAR
-//         ||m_current.type==TKN_NOT
-//         ||m_current.type == TKN_MINUS
-//         ||is_constant()
-//         ||is_identifier()
-//     ){
-//         TreeNode<std::string> child_procFactorA("<procFactorA>");
-//             parent->addChild(&child_procFactorA);
-//             procFactorA(&child_procFactorA);
-//     }
-//     if(is_mulop()){
-//         TreeNode<std::string> child_procMulOp("<procMulOp>");
-//             parent->addChild(&child_procMulOp);
-//             procFactorA(&child_procMulOp);
-
-//         TreeNode<std::string> child_procFactorA("<procFactorA>");
-//             parent->addChild(&child_procFactorA);
-//             procFactorA(&child_procFactorA);
-//     }
-// }
 
 // termA ::= factor-a termB
-void SyntaticAnalysis::procTermA(TreeNode<std::string> *parent){
-    TreeNode<std::string> child_procFactorA("<procFactorA>");
-    parent->addChild(&child_procFactorA);
-    procFactorA(&child_procFactorA);
+void SyntaticAnalysis::procTermA(std::string tab) {
+    printf("%s<procTermA>\n",tab.c_str());
 
-    TreeNode<std::string> child_procTermB("<procTermB>");
-    parent->addChild(&child_procTermB);
-    procTermB(&child_procTermB);
+    procFactorA(tab+"\t");
+    procTermB(tab+"\t");
 }
-// termB ::= mulop termB
-void SyntaticAnalysis::procTermB(TreeNode<std::string> *parent){
-    TreeNode<std::string> child_procMulOp("<procMulOp>");
-    parent->addChild(&child_procMulOp);
-    procMulOp(&child_procMulOp);
+// termB ::= mulop factor-a termB
+void SyntaticAnalysis::procTermB(std::string tab) {
+    printf("%s<procTermB>\n",tab.c_str());
 
-    TreeNode<std::string> child_procTermB("<procTermB>");
-    parent->addChild(&child_procTermB);
-    procTermB(&child_procTermB);
+    if(is_mulop()){
+        procMulOp(tab+"\t");
+        procFactorA(tab+"\t");
+        procTermB(tab+"\t");
+    }
 }
 
 // fator-a ::= factor | "!" factor | "-" factor
-void SyntaticAnalysis::procFactorA(TreeNode<std::string>* parent) {
-    printf("procFactorA\n");
+void SyntaticAnalysis::procFactorA(std::string tab) {
+    printf("%s<procFactorA>\n",tab.c_str());
     if(m_current.type == TKN_OPEN_PAR
         || is_identifier()
         || is_constant()){
         
-        TreeNode<std::string> child_procFactor("<procFactor>");
-        parent->addChild(&child_procFactor);
-        procFactor(&child_procFactor);
+        procFactor(tab+"\t");
     }
     else if(m_current.type == TKN_NOT){
-        parent->addChild(tt2str(TokenType(TKN_NOT)));
-        eat(TKN_NOT);
+        eat(TKN_NOT, tab+"\t");
 
-        TreeNode<std::string> child_procFactor("<procFactor>");
-        parent->addChild(&child_procFactor);
-        procFactor(&child_procFactor);
+        procFactor(tab+"\t");
     }
     else if(m_current.type == TKN_MINUS){
-        parent->addChild(tt2str(TokenType(TKN_MINUS)));
-        eat(TKN_MINUS);
+        eat(TKN_MINUS, tab+"\t");
 
-        TreeNode<std::string> child_procFactor("<procFactor>");
-        parent->addChild(&child_procFactor);
-        procFactor(&child_procFactor);
+        procFactor(tab+"\t");
     }
     else{showError();}
 }
 
 // factor ::= identifier | constant | "(" expression ")"
-void SyntaticAnalysis::procFactor(TreeNode<std::string>* parent) {
-    printf("procFactor\n");
+void SyntaticAnalysis::procFactor(std::string tab) {
+    printf("%s<procFactor>\n",tab.c_str());
     if(m_current.type==TKN_OPEN_PAR){
-        parent->addChild(tt2str(TokenType(TKN_OPEN_PAR)));
-        eat(TKN_OPEN_PAR);
+        eat(TKN_OPEN_PAR, tab+"\t");
 
-        TreeNode<std::string> child_procExpression("<procExpression>");
-        parent->addChild(&child_procExpression);
-        procExpressionA(&child_procExpression);
+        procExpressionA(tab+"\t");
 
-        parent->addChild(tt2str(TokenType(TKN_OPEN_PAR)));
-        eat(TKN_CLOSE_PAR);
+        eat(TKN_CLOSE_PAR, tab+"\t");
     } else if(is_identifier()) {
-        TreeNode<std::string> child_procIdentifier("<procIdentifier>");
-            parent->addChild(&child_procIdentifier);
-            procIdentifier(&child_procIdentifier);
+            procIdentifier(tab+"\t");
     } else if(is_constant()) {
-        TreeNode<std::string> child_procConstant("<procConstant>");
-            parent->addChild(&child_procConstant);
-            procConstant(&child_procConstant);
+            procConstant(tab+"\t");
     } else { showError(); }
 }
 
 // relop ::= "==" | ">" | ">=" | "<" | "<=" | "<>"
-void SyntaticAnalysis::procRelOp(TreeNode<std::string>* parent) {
-    printf("procRelOp\n");
+void SyntaticAnalysis::procRelOp(std::string tab) {
+    printf("%s<procRelOp>\n",tab.c_str());
     if(m_current.type == TKN_EQ){
-        parent->addChild(tt2str(TokenType(TKN_EQ)));
-        eat(TKN_EQ);
+        eat(TKN_EQ, tab+"\t");
     } else if (m_current.type == TKN_GT){
-        parent->addChild(tt2str(TokenType(TKN_GT)));
-        eat(TKN_GT);
+        eat(TKN_GT, tab+"\t");
     } else if (m_current.type == TKN_GE){
-        parent->addChild(tt2str(TokenType(TKN_GE)));
-        eat(TKN_GE);
+        eat(TKN_GE, tab+"\t");
     } else if (m_current.type == TKN_LT){
-        parent->addChild(tt2str(TokenType(TKN_LT)));
-        eat(TKN_LT);
+        eat(TKN_LT, tab+"\t");
     } else if (m_current.type == TKN_LE){
-        parent->addChild(tt2str(TokenType(TKN_LE)));
-        eat(TKN_LE);
+        eat(TKN_LE, tab+"\t");
     } else if (m_current.type == TKN_NE){
-        parent->addChild(tt2str(TokenType(TKN_NE)));
-        eat(TKN_NE);
+        eat(TKN_NE, tab+"\t");
     } else { showError(); }
 }
 
 // addop ::= "+" | "-" | "||"
-void SyntaticAnalysis::procAddOp(TreeNode<std::string>* parent) {
-    printf("procAddOp\n");
+void SyntaticAnalysis::procAddOp(std::string tab) {
+    printf("%s<procAddOp>\n",tab.c_str());
     if(m_current.type == TKN_PLUS){
-        parent->addChild(tt2str(TokenType(TKN_PLUS)));
-        eat(TKN_PLUS);
+        eat(TKN_PLUS, tab+"\t");
     }else if (m_current.type == TKN_MINUS){
-        parent->addChild(tt2str(TokenType(TKN_MINUS)));
-        eat(TKN_MINUS);
+        eat(TKN_MINUS, tab+"\t");
     }else if (m_current.type == TKN_OR){
-        parent->addChild(tt2str(TokenType(TKN_OR)));
-        eat(TKN_OR);
+        eat(TKN_OR, tab+"\t");
     }else { showError(); }
 }
 
 // mulop ::= "*" | "/" | "&&"
-void SyntaticAnalysis::procMulOp(TreeNode<std::string>* parent) {
-    printf("procMulOp\n");
+void SyntaticAnalysis::procMulOp(std::string tab) {
+    printf("%s<procMulOp>\n",tab.c_str());
     if(m_current.type == TKN_MUL){
-        parent->addChild(tt2str(TokenType(TKN_MUL)));
-        eat(TKN_MUL);
+        eat(TKN_MUL, tab+"\t");
     }else if (m_current.type == TKN_DIV){
-        parent->addChild(tt2str(TokenType(TKN_DIV)));
-        eat(TKN_DIV);
+        eat(TKN_DIV, tab+"\t");
     }else if (m_current.type == TKN_AND){
-        parent->addChild(tt2str(TokenType(TKN_AND)));
-        eat(TKN_AND);
+        eat(TKN_AND, tab+"\t");
     }else { showError(); }
 }
 
 // constant ::= integer_const | float_const | literal
-void SyntaticAnalysis::procConstant(TreeNode<std::string>* parent) {
-    printf("procConstant\n");
+void SyntaticAnalysis::procConstant(std::string tab) {
+    printf("%s<procConstant>\n",tab.c_str());
     if(m_current.type == TKN_INT){
-        TreeNode<std::string> child_procIntegerConst("<procIntegerConst>");
-            parent->addChild(&child_procIntegerConst);
-            procIntegerConst(&child_procIntegerConst);
+            procIntegerConst(tab+"\t");
 
     }else if(m_current.type == TKN_FLOAT){
-        TreeNode<std::string> child_procFloatConst("<procFloatConst>");
-            parent->addChild(&child_procFloatConst);
-            procFloatConst(&child_procFloatConst);
+            procFloatConst(tab+"\t");
 
-    }else if(m_current.type ==TKN_OPEN_CUR){
-        TreeNode<std::string> child_procLiteral("<procLiteral>");
-            parent->addChild(&child_procLiteral);
-            procLiteral(&child_procLiteral);
+    }else if(m_current.type ==TKN_STRING){
+            procLiteral(tab+"\t");
     }else{showError();}
 }
 
 // integer_const ::= digit+
-void SyntaticAnalysis::procIntegerConst(TreeNode<std::string>* parent) {
-    printf("procIntegerConst\n");
-    parent->addChild(tt2str(TokenType(TKN_INT)));
-    eat(TKN_INT);
+void SyntaticAnalysis::procIntegerConst(std::string tab) {
+    printf("%s<procIntegerConst>\n",tab.c_str());
+    eat(TKN_INT, tab+"\t");
 }
 
 // float_const ::= digit+
 // “.”digit+
-void SyntaticAnalysis::procFloatConst(TreeNode<std::string>* parent) {
-    printf("procFloatConst\n");
-    parent->addChild(tt2str(TokenType(TKN_FLOAT)));
-    eat(TKN_FLOAT);
+void SyntaticAnalysis::procFloatConst(std::string tab) {
+    printf("%s<procFloatConst>\n",tab.c_str());
+    eat(TKN_FLOAT, tab+"\t");
 }
 
 // literal ::= " { " {caractere} " } "
-void SyntaticAnalysis::procLiteral(TreeNode<std::string>* parent) {
-    printf("procLiteral\n");
-    parent->addChild(tt2str(TokenType(TKN_OPEN_CUR)));
-    eat(TKN_OPEN_CUR);
+void SyntaticAnalysis::procLiteral(std::string tab) {
+    printf("%s<procLiteral>\n",tab.c_str());
+    //eat(TKN_OPEN_CUR, tab+"\t");
     if(m_current.type==TKN_STRING){
-        TreeNode<std::string> child_procCharacter("<procCharacter>");
-            parent->addChild(&child_procCharacter);
-            procCharacter(&child_procCharacter);
+        procCharacter(tab+"\t");
     }
-    parent->addChild(tt2str(TokenType(TKN_CLOSE_CUR)));
-    eat(TKN_CLOSE_CUR);
-
+    //eat(TKN_CLOSE_CUR, tab+"\t");
 }
 
 // identifier ::= (letter | _ ) (letter | digit )*
-void SyntaticAnalysis::procIdentifier(TreeNode<std::string>* parent) {printf("procIdentifier\n"); parent->addChild(tt2str(TokenType(TKN_ID))); eat(TKN_ID); }
+void SyntaticAnalysis::procIdentifier(std::string tab) {
+    printf("%s<procIdentifier>\n",tab.c_str());
+    eat(TKN_ID, tab+"\t");
+}
 
 // caractere ::= um dos caracteres ASCII, exceto quebra de linha
-void SyntaticAnalysis::procCharacter(TreeNode<std::string>* parent) {printf("procCharacter\n"); parent->addChild(tt2str(TokenType(TKN_STRING))); eat(TKN_STRING);}
+void SyntaticAnalysis::procCharacter(std::string tab) {
+    printf("%s<procCharacter>\n",tab.c_str());
+    eat(TKN_STRING, tab+"\t");
+}

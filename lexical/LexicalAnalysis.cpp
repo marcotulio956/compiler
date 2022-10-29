@@ -49,14 +49,12 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 }else if (isdigit(c)){
                     lex.token += (char) c;
                     state = 2;
-                }else if (c == '"'){
+                }else if (c == '{'){
                     lex.token += (char) c;
                     state = 4;
                 }else if(c == ';'
                     || c == '('
                     || c == ')'
-                    || c == '{'
-                    || c == '}'
                     || c == ','
                     || c == '!'
                     || c == '+'
@@ -85,7 +83,7 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     state = 10;
                 }else if(c == '/'){
                     state = 11;
-                }else if(c == '.'){
+                }else if(c == '.' || c == 34){
                     lex.type = TKN_INVALID_TOKEN;
                     state = tkn_defined;
                 }else if(c == -1){
@@ -134,7 +132,7 @@ struct Lexeme LexicalAnalysis::nextToken() {
                 break;
             }
             case 4:{
-                if(c >= 32 && c<= 254 && c != 34){
+                if(c >= 32 && c<= 254 && c != '}'){
                     lex.token += (char) c;
                 } else if(c == '\n'){
                     lex.token += (char) c;
@@ -142,7 +140,7 @@ struct Lexeme LexicalAnalysis::nextToken() {
                     /*if(showPrints){
                         printf("\t\tm_lines %d\n", m_line);
                     }*/
-                } else if (c == '"'){
+                } else if (c == '}'){
                     lex.token += (char) c;
                     lex.type = TKN_STRING;
                     state = tkn_defined;

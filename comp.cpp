@@ -25,26 +25,23 @@ int main(int argc, char* argv[]) {
     try {
         LexicalAnalysis l(argv[1], DEBug);
 
-        // O código a seguir é usado apenas para testar o analisador léxico.
-        // TODO: depois de pronto, comentar o código abaixo.
-        /*struct Lexeme lex;
-        do {
-            lex = l.nextToken();
-            if(DEBug)
+        if(DEBug) {
+            LexicalAnalysis l_DEBug(argv[1], 1);
+            struct Lexeme lex;
+            do {
+                lex = l_DEBug.nextToken();
                 printf("%02d: <\"%s\", %s>\n", 
-                    l.line(),
+                    l_DEBug.line(),
                     lex.token.c_str(), 
                     tt2str(TokenType(lex.type)).c_str()
                 );
-        } while (
-            lex.type != TKN_END_OF_FILE 
-            && lex.type != TKN_UNEXPECTED_EOF
-            && (NOError == true
-                || lex.type != TKN_INVALID_TOKEN)
-        );*/
-
-        // O código a seguir é usado apenas para testar o analisador sintático.
-        // TODO: depois de pronto, comentar o código abaixo.
+            } while (
+                lex.type != TKN_END_OF_FILE 
+                && lex.type != TKN_UNEXPECTED_EOF
+                && (NOError == true
+                    || lex.type != TKN_INVALID_TOKEN)
+            );
+        }
 
         SyntaticAnalysis s(l);
         s.start();

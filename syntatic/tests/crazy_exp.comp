@@ -1,0 +1,4 @@
+start
+    result1 = -1+(a*b/1 + 1)/-8*(2-a*(1*b))-1;
+    result2 = -1/2/result1;
+exit

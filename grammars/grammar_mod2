@@ -27,21 +27,21 @@ writable ::= simple-expr | literal
 expression ::= simple-expr | simple-expr relop simple-expr
 -- ^ left factoring v --
 expressionA ::= simple-expr expressionB
-expressionB ::= relop simple-exprA
+expressionB ::= relop simple-exprA | lambda
 --
 
 --
 simple-expr ::= term | simple-expr addop term
 -- ^ eliminate left recursion v --
 simple-exprA ::= termA simple-exprB
-simple-exprB ::= addop term simple-exprB | termB simple-exprB | lambda
+simple-exprB ::= addop term simple-exprB | lambda
 --
 
 --
 term ::= factor-a | term mulop factor-a
 -- ^ eliminate left recursion v --
 termA ::= factor-a termB
-termB ::= mulop termB | lambda
+termB ::= mulop factor-a termB | lambda
 --
 
 fator-a ::= factor | "!" factor | "-" factor

@@ -1,16 +1,18 @@
 start 
-    int a, b;
+    int a, b, c, d, e, f, g;
+    string str;
     int result;
     float a,x,total;
+    str = {nice string};
     a = 2;
     x = 0.1;
     scan (b);
     scan (y);
-    result = (a*b ++ 1) / 2;
-    print “Resultado: ”;
+    result = (a*b + 1) / 2;
+    print ({Resultado: });
     print (result);
-    print (“Total: ”);
+    print ({Total: });
     total = y / x;
-    print (“Total: ”;
+    print ({New Total: });
     print (total);
 exit
