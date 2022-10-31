@@ -6,16 +6,6 @@ Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corre
 02: <"a", ID>
 02: <",", COMMA>
 02: <"b", ID>
-02: <",", COMMA>
-02: <"c", ID>
-02: <",", COMMA>
-02: <"d", ID>
-02: <",", COMMA>
-02: <"e", ID>
-02: <",", COMMA>
-02: <"f", ID>
-02: <",", COMMA>
-02: <"g", ID>
 02: <";", SEMICOLON>
 03: <"string", TYPE STRING>
 03: <"str", ID>
@@ -87,7 +77,7 @@ Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corre
 15: <";", SEMICOLON>
 16: <"print", PRINT>
 16: <"(", OPEN_PAR>
-16: <"{New Total: }", STRING>
+16: <"{Total: }", STRING>
 16: <")", CLOSE_PAR>
 16: <";", SEMICOLON>
 17: <"print", PRINT>
@@ -96,7 +86,7 @@ Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corre
 17: <")", CLOSE_PAR>
 17: <";", SEMICOLON>
 18: <"exit", EXIT>
-19: <"", END_OF_FILE>
+20: <"", END_OF_FILE>
 <procProgram>
 	eat +START - 'start'
 	<procDeclList>
@@ -109,21 +99,6 @@ Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corre
 				eat +COMMA - ','
 				<procIdentifier>
 					eat +ID : 'b'
-				eat +COMMA - ','
-				<procIdentifier>
-					eat +ID : 'c'
-				eat +COMMA - ','
-				<procIdentifier>
-					eat +ID : 'd'
-				eat +COMMA - ','
-				<procIdentifier>
-					eat +ID : 'e'
-				eat +COMMA - ','
-				<procIdentifier>
-					eat +ID : 'f'
-				eat +COMMA - ','
-				<procIdentifier>
-					eat +ID : 'g'
 			eat +SEMICOLON - ';'
 		<procDecl>
 			<procType>
@@ -346,7 +321,7 @@ Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corre
 									<procConstant>
 										<procLiteral>
 											<procCharacter>
-												eat +STRING : '{New Total: }'
+												eat +STRING : '{Total: }'
 							<procTermB>
 						<procSimpleExprB>
 				eat +CLOSE_PAR - ')'
@@ -362,6 +337,1955 @@ Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corre
 								<procFactor>
 									<procIdentifier>
 										eat +ID : 'total'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+	eat +EXIT - 'exit'
+exec: DERIVATION TREE complete
+TESTING ./examples/corrected_codes/t2.comp ---
+DEBug Mode Enabled: (args3)
+Lexical: File> ./examples/corrected_codes/t2.compLexical: File> ./examples/corrected_codes/t2.comp01: <"start", START>
+02: <"int", TYPE INT>
+02: <"a", ID>
+02: <",", COMMA>
+02: <"c_", ID>
+02: <";", SEMICOLON>
+03: <"float", TYPE FLOAT>
+03: <"d", ID>
+03: <",", COMMA>
+03: <"e", ID>
+03: <";", SEMICOLON>
+04: <"a", ID>
+04: <"=", ASSIGN>
+04: <"0", INT>
+04: <";", SEMICOLON>
+04: <"d", ID>
+04: <"=", ASSIGN>
+04: <"3.5", FLOAT>
+04: <";", SEMICOLON>
+05: <"c", ID>
+05: <"=", ASSIGN>
+05: <"d", ID>
+05: <"/", DIV>
+05: <"1.2", FLOAT>
+05: <";", SEMICOLON>
+07: <"scan", SCAN>
+07: <"(", OPEN_PAR>
+07: <"a", ID>
+07: <")", CLOSE_PAR>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+08: <"c", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+09: <"b", ID>
+09: <"=", ASSIGN>
+09: <"a", ID>
+09: <"*", MUL>
+09: <"a", ID>
+09: <";", SEMICOLON>
+10: <"c", ID>
+10: <"=", ASSIGN>
+10: <"b", ID>
+10: <"+", PLUS>
+10: <"a", ID>
+10: <"*", MUL>
+10: <"(", OPEN_PAR>
+10: <"1", INT>
+10: <"+", PLUS>
+10: <"a", ID>
+10: <"*", MUL>
+10: <"c", ID>
+10: <")", CLOSE_PAR>
+10: <";", SEMICOLON>
+11: <"print", PRINT>
+11: <"(", OPEN_PAR>
+11: <"{Resultado: }", STRING>
+11: <")", CLOSE_PAR>
+11: <";", SEMICOLON>
+12: <"print", PRINT>
+12: <"(", OPEN_PAR>
+12: <"c", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+13: <"d", ID>
+13: <"=", ASSIGN>
+13: <"34.2", FLOAT>
+13: <";", SEMICOLON>
+14: <"e", ID>
+14: <"=", ASSIGN>
+14: <"val", ID>
+14: <"+", PLUS>
+14: <"2.2", FLOAT>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+15: <"{E: }", STRING>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"print", PRINT>
+16: <"(", OPEN_PAR>
+16: <"e", ID>
+16: <")", CLOSE_PAR>
+16: <";", SEMICOLON>
+17: <"a", ID>
+17: <"=", ASSIGN>
+17: <"(", OPEN_PAR>
+17: <"b", ID>
+17: <"+", PLUS>
+17: <"c", ID>
+17: <"+", PLUS>
+17: <"d", ID>
+17: <")", CLOSE_PAR>
+17: <"/", DIV>
+17: <"2", INT>
+17: <";", SEMICOLON>
+18: <"exit", EXIT>
+18: <"", END_OF_FILE>
+<procProgram>
+	eat +START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT - 'int'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'c_'
+			eat +SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE FLOAT - 'float'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'd'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'e'
+			eat +SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'd'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procFloatConst>
+										eat +FLOAT : '3.5'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'c'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'd'
+						<procTermB>
+							<procMulOp>
+								eat +DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procFloatConst>
+											eat +FLOAT : '1.2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'c'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'b'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'a'
+						<procTermB>
+							<procMulOp>
+								eat +MUL - '*'
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'a'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'c'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'b'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'a'
+							<procTermB>
+								<procMulOp>
+									eat +MUL - '*'
+								<procFactorA>
+									<procFactor>
+										eat +OPEN_PAR - '('
+										<procExpressionA>
+											<procSimpleExprA>
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procConstant>
+																<procIntegerConst>
+																	eat +INT : '1'
+													<procTermB>
+												<procSimpleExprB>
+													<procAddOp>
+														eat +PLUS - '+'
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID : 'a'
+														<procTermB>
+															<procMulOp>
+																eat +MUL - '*'
+															<procFactorA>
+																<procFactor>
+																	<procIdentifier>
+																		eat +ID : 'c'
+															<procTermB>
+													<procSimpleExprB>
+											<procExpressionB>
+										eat +CLOSE_PAR - ')'
+								<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING : '{Resultado: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'c'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'd'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procFloatConst>
+										eat +FLOAT : '34.2'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'e'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'val'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procFloatConst>
+											eat +FLOAT : '2.2'
+							<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING : '{E: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'e'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								eat +OPEN_PAR - '('
+								<procExpressionA>
+									<procSimpleExprA>
+										<procTermA>
+											<procFactorA>
+												<procFactor>
+													<procIdentifier>
+														eat +ID : 'b'
+											<procTermB>
+										<procSimpleExprB>
+											<procAddOp>
+												eat +PLUS - '+'
+											<procTermA>
+												<procFactorA>
+													<procFactor>
+														<procIdentifier>
+															eat +ID : 'c'
+												<procTermB>
+											<procSimpleExprB>
+												<procAddOp>
+													eat +PLUS - '+'
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procIdentifier>
+																eat +ID : 'd'
+													<procTermB>
+												<procSimpleExprB>
+									<procExpressionB>
+								eat +CLOSE_PAR - ')'
+						<procTermB>
+							<procMulOp>
+								eat +DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT : '2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+	eat +EXIT - 'exit'
+exec: DERIVATION TREE complete
+TESTING ./examples/corrected_codes/t3.comp ---
+DEBug Mode Enabled: (args3)
+Lexical: File> ./examples/corrected_codes/t3.compLexical: File> ./examples/corrected_codes/t3.comp01: <"start", START>
+02: <"int", TYPE INT>
+02: <"pontuacao", ID>
+02: <",", COMMA>
+02: <"pontuacaoMaxina", ID>
+02: <",", COMMA>
+02: <"disponibilidade", ID>
+02: <";", SEMICOLON>
+03: <"string", TYPE STRING>
+03: <"pontuacaoMinima", ID>
+03: <";", SEMICOLON>
+05: <"disponibilidade", ID>
+05: <"=", ASSIGN>
+05: <"{Sim}", STRING>
+05: <";", SEMICOLON>
+06: <"pontuacaoMinima", ID>
+06: <"=", ASSIGN>
+06: <"50", INT>
+06: <";", SEMICOLON>
+07: <"pontuacaoMaxima", ID>
+07: <"=", ASSIGN>
+07: <"100", INT>
+07: <";", SEMICOLON>
+12: <"do", DO>
+13: <"print", PRINT>
+13: <"(", OPEN_PAR>
+13: <"{Pontuacao Candidato: }", STRING>
+13: <")", CLOSE_PAR>
+13: <";", SEMICOLON>
+14: <"scan", SCAN>
+14: <"(", OPEN_PAR>
+14: <"pontuacao", ID>
+14: <")", CLOSE_PAR>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+15: <"{Disponibilidade Candidato: }", STRING>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"scan", SCAN>
+16: <"(", OPEN_PAR>
+16: <"disponibilidade", ID>
+16: <")", CLOSE_PAR>
+16: <";", SEMICOLON>
+17: <"if", IF>
+17: <"(", OPEN_PAR>
+17: <"(", OPEN_PAR>
+17: <"pontuacao", ID>
+17: <">", GT>
+17: <"pontuacaoMinima", ID>
+17: <")", CLOSE_PAR>
+17: <"&&", AND>
+17: <"(", OPEN_PAR>
+17: <"disponibilidade", ID>
+17: <"==", EQ>
+17: <"{Sim}", STRING>
+17: <")", CLOSE_PAR>
+17: <")", CLOSE_PAR>
+17: <"then", THEN>
+18: <"print", PRINT>
+18: <"(", OPEN_PAR>
+18: <"{Candidato aprovado}", STRING>
+18: <")", CLOSE_PAR>
+18: <";", SEMICOLON>
+19: <"else", ELSE>
+20: <"print", PRINT>
+20: <"(", OPEN_PAR>
+20: <"{Candidato reprovado}", STRING>
+20: <")", CLOSE_PAR>
+20: <";", SEMICOLON>
+21: <"end", END>
+22: <"while", WHILE>
+22: <"(", OPEN_PAR>
+22: <"pontuacao", ID>
+22: <">=", GE>
+22: <"0", INT>
+22: <")", CLOSE_PAR>
+22: <"end", END>
+23: <"exit", EXIT>
+24: <"", END_OF_FILE>
+<procProgram>
+	eat +START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT - 'int'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'pontuacao'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'pontuacaoMaxina'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'disponibilidade'
+			eat +SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE STRING - 'string'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'pontuacaoMinima'
+			eat +SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'disponibilidade'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procLiteral>
+										<procCharacter>
+											eat +STRING : '{Sim}'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'pontuacaoMinima'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT : '50'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'pontuacaoMaxima'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT : '100'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWhileStmt>
+				eat +DO - 'do'
+				<procStmtList>
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{Pontuacao Candidato: }'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN - 'scan'
+							eat +OPEN_PAR - '('
+							<procIdentifier>
+								eat +ID : 'pontuacao'
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{Disponibilidade Candidato: }'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN - 'scan'
+							eat +OPEN_PAR - '('
+							<procIdentifier>
+								eat +ID : 'disponibilidade'
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procIfStmtA>
+							eat +IF - 'if'
+							<procCondition>
+								<procExpressionA>
+									<procSimpleExprA>
+										<procTermA>
+											<procFactorA>
+												<procFactor>
+													eat +OPEN_PAR - '('
+													<procExpressionA>
+														<procSimpleExprA>
+															<procTermA>
+																<procFactorA>
+																	<procFactor>
+																		eat +OPEN_PAR - '('
+																		<procExpressionA>
+																			<procSimpleExprA>
+																				<procTermA>
+																					<procFactorA>
+																						<procFactor>
+																							<procIdentifier>
+																								eat +ID : 'pontuacao'
+																					<procTermB>
+																				<procSimpleExprB>
+																			<procExpressionB>
+																				<procRelOp>
+																					eat +GT - '>'
+																				<procSimpleExprA>
+																					<procTermA>
+																						<procFactorA>
+																							<procFactor>
+																								<procIdentifier>
+																									eat +ID : 'pontuacaoMinima'
+																						<procTermB>
+																					<procSimpleExprB>
+																		eat +CLOSE_PAR - ')'
+																<procTermB>
+																	<procMulOp>
+																		eat +AND - '&&'
+																	<procFactorA>
+																		<procFactor>
+																			eat +OPEN_PAR - '('
+																			<procExpressionA>
+																				<procSimpleExprA>
+																					<procTermA>
+																						<procFactorA>
+																							<procFactor>
+																								<procIdentifier>
+																									eat +ID : 'disponibilidade'
+																						<procTermB>
+																					<procSimpleExprB>
+																				<procExpressionB>
+																					<procRelOp>
+																						eat +EQ - '=='
+																					<procSimpleExprA>
+																						<procTermA>
+																							<procFactorA>
+																								<procFactor>
+																									<procConstant>
+																										<procLiteral>
+																											<procCharacter>
+																												eat +STRING : '{Sim}'
+																							<procTermB>
+																						<procSimpleExprB>
+																			eat +CLOSE_PAR - ')'
+																	<procTermB>
+															<procSimpleExprB>
+														<procExpressionB>
+													eat +CLOSE_PAR - ')'
+											<procTermB>
+										<procSimpleExprB>
+									<procExpressionB>
+							eat +THEN - 'then'
+							<procStmtList>
+								<procStmt>
+									<procWriteStmt>
+										eat +PRINT - 'print'
+										eat +OPEN_PAR - '('
+										<procWritable>
+											<procSimpleExprA>
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procConstant>
+																<procLiteral>
+																	<procCharacter>
+																		eat +STRING : '{Candidato aprovado}'
+													<procTermB>
+												<procSimpleExprB>
+										eat +CLOSE_PAR - ')'
+									eat +SEMICOLON - ';'
+							<procIfStmtB>
+								eat +ELSE - 'else'
+								<procStmtList>
+									<procStmt>
+										<procWriteStmt>
+											eat +PRINT - 'print'
+											eat +OPEN_PAR - '('
+											<procWritable>
+												<procSimpleExprA>
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procConstant>
+																	<procLiteral>
+																		<procCharacter>
+																			eat +STRING : '{Candidato reprovado}'
+														<procTermB>
+													<procSimpleExprB>
+											eat +CLOSE_PAR - ')'
+										eat +SEMICOLON - ';'
+								eat +END - 'end'
+				<procStmtSufix>
+					eat +WHILE - 'while'
+					<procCondition>
+						<procExpressionA>
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											eat +OPEN_PAR - '('
+											<procExpressionA>
+												<procSimpleExprA>
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID : 'pontuacao'
+														<procTermB>
+													<procSimpleExprB>
+												<procExpressionB>
+													<procRelOp>
+														eat +GE - '>='
+													<procSimpleExprA>
+														<procTermA>
+															<procFactorA>
+																<procFactor>
+																	<procConstant>
+																		<procIntegerConst>
+																			eat +INT : '0'
+															<procTermB>
+														<procSimpleExprB>
+											eat +CLOSE_PAR - ')'
+									<procTermB>
+								<procSimpleExprB>
+							<procExpressionB>
+					eat +END - 'end'
+	eat +EXIT - 'exit'
+exec: DERIVATION TREE complete
+TESTING ./examples/corrected_codes/t4.comp ---
+DEBug Mode Enabled: (args3)
+Lexical: File> ./examples/corrected_codes/t4.compLexical: File> ./examples/corrected_codes/t4.comp01: <"start", START>
+02: <"int", TYPE INT>
+02: <"a", ID>
+02: <",", COMMA>
+02: <"aux", ID>
+02: <",", COMMA>
+02: <"b", ID>
+02: <";", SEMICOLON>
+03: <"string", TYPE STRING>
+03: <"nome", ID>
+03: <",", COMMA>
+03: <"sobrenome", ID>
+03: <",", COMMA>
+03: <"msg", ID>
+03: <";", SEMICOLON>
+05: <"print", PRINT>
+05: <"(", OPEN_PAR>
+05: <"{Nome: }", STRING>
+05: <")", CLOSE_PAR>
+05: <";", SEMICOLON>
+06: <"scan", SCAN>
+06: <"(", OPEN_PAR>
+06: <"nome", ID>
+06: <")", CLOSE_PAR>
+06: <";", SEMICOLON>
+07: <"print", PRINT>
+07: <"(", OPEN_PAR>
+07: <"{Sobrenome: }", STRING>
+07: <")", CLOSE_PAR>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+08: <"sobrenome", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+09: <"msg", ID>
+09: <"=", ASSIGN>
+09: <"{Ola, }", STRING>
+09: <"+", PLUS>
+09: <"nome", ID>
+09: <"+", PLUS>
+09: <"{ }", STRING>
+09: <"+", PLUS>
+10: <"sobrenome", ID>
+10: <"+", PLUS>
+10: <"{!}", STRING>
+10: <";", SEMICOLON>
+11: <"msg", ID>
+11: <"=", ASSIGN>
+11: <"msg", ID>
+11: <"+", PLUS>
+11: <"1", INT>
+11: <";", SEMICOLON>
+12: <"print", PRINT>
+12: <"(", OPEN_PAR>
+12: <"msg", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+14: <"scan", SCAN>
+14: <"(", OPEN_PAR>
+14: <"a", ID>
+14: <")", CLOSE_PAR>
+14: <";", SEMICOLON>
+15: <"scan", SCAN>
+15: <"(", OPEN_PAR>
+15: <"b", ID>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"if", IF>
+16: <"(", OPEN_PAR>
+16: <"a", ID>
+16: <">", GT>
+16: <"b", ID>
+16: <")", CLOSE_PAR>
+16: <"then", THEN>
+17: <"aux", ID>
+17: <"=", ASSIGN>
+17: <"b", ID>
+17: <";", SEMICOLON>
+18: <"b", ID>
+18: <"=", ASSIGN>
+18: <"a", ID>
+18: <";", SEMICOLON>
+19: <"a", ID>
+19: <"=", ASSIGN>
+19: <"aux", ID>
+19: <";", SEMICOLON>
+20: <"end", END>
+21: <"print", PRINT>
+21: <"(", OPEN_PAR>
+21: <"{Apos a troca: }", STRING>
+21: <")", CLOSE_PAR>
+21: <";", SEMICOLON>
+22: <"print", PRINT>
+22: <"(", OPEN_PAR>
+22: <"a", ID>
+22: <")", CLOSE_PAR>
+22: <";", SEMICOLON>
+23: <"print", PRINT>
+23: <"(", OPEN_PAR>
+23: <"b", ID>
+23: <")", CLOSE_PAR>
+23: <";", SEMICOLON>
+24: <"exit", EXIT>
+24: <"", END_OF_FILE>
+<procProgram>
+	eat +START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT - 'int'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'aux'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'b'
+			eat +SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE STRING - 'string'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'nome'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'sobrenome'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'msg'
+			eat +SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING : '{Nome: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'nome'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING : '{Sobrenome: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'sobrenome'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'msg'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procLiteral>
+										<procCharacter>
+											eat +STRING : '{Ola, }'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'nome'
+							<procTermB>
+						<procSimpleExprB>
+							<procAddOp>
+								eat +PLUS - '+'
+							<procTermA>
+								<procFactorA>
+									<procFactor>
+										<procConstant>
+											<procLiteral>
+												<procCharacter>
+													eat +STRING : '{ }'
+								<procTermB>
+							<procSimpleExprB>
+								<procAddOp>
+									eat +PLUS - '+'
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID : 'sobrenome'
+									<procTermB>
+								<procSimpleExprB>
+									<procAddOp>
+										eat +PLUS - '+'
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{!}'
+										<procTermB>
+									<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'msg'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'msg'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT : '1'
+							<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'msg'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'b'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procIfStmtA>
+				eat +IF - 'if'
+				<procCondition>
+					<procExpressionA>
+						<procSimpleExprA>
+							<procTermA>
+								<procFactorA>
+									<procFactor>
+										eat +OPEN_PAR - '('
+										<procExpressionA>
+											<procSimpleExprA>
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procIdentifier>
+																eat +ID : 'a'
+													<procTermB>
+												<procSimpleExprB>
+											<procExpressionB>
+												<procRelOp>
+													eat +GT - '>'
+												<procSimpleExprA>
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID : 'b'
+														<procTermB>
+													<procSimpleExprB>
+										eat +CLOSE_PAR - ')'
+								<procTermB>
+							<procSimpleExprB>
+						<procExpressionB>
+				eat +THEN - 'then'
+				<procStmtList>
+					<procStmt>
+						<procAssignStmt>
+							<procIdentifier>
+								eat +ID : 'aux'
+							eat +ASSIGN - '='
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID : 'b'
+									<procTermB>
+								<procSimpleExprB>
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procAssignStmt>
+							<procIdentifier>
+								eat +ID : 'b'
+							eat +ASSIGN - '='
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID : 'a'
+									<procTermB>
+								<procSimpleExprB>
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procAssignStmt>
+							<procIdentifier>
+								eat +ID : 'a'
+							eat +ASSIGN - '='
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID : 'aux'
+									<procTermB>
+								<procSimpleExprB>
+						eat +SEMICOLON - ';'
+				<procIfStmtB>
+					eat +END - 'end'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING : '{Apos a troca: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'a'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'b'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+	eat +EXIT - 'exit'
+exec: DERIVATION TREE complete
+TESTING ./examples/corrected_codes/t5.comp ---
+DEBug Mode Enabled: (args3)
+Lexical: File> ./examples/corrected_codes/t5.compLexical: File> ./examples/corrected_codes/t5.comp01: <"start", START>
+02: <"int", TYPE INT>
+02: <"a", ID>
+02: <",", COMMA>
+02: <"b", ID>
+02: <",", COMMA>
+02: <"c", ID>
+02: <",", COMMA>
+02: <"maior", ID>
+02: <",", COMMA>
+02: <"outro", ID>
+02: <";", SEMICOLON>
+04: <"do", DO>
+05: <"print", PRINT>
+05: <"(", OPEN_PAR>
+05: <"{A}", STRING>
+05: <")", CLOSE_PAR>
+05: <";", SEMICOLON>
+06: <"scan", SCAN>
+06: <"(", OPEN_PAR>
+06: <"a", ID>
+06: <")", CLOSE_PAR>
+06: <";", SEMICOLON>
+07: <"print", PRINT>
+07: <"(", OPEN_PAR>
+07: <"{B}", STRING>
+07: <")", CLOSE_PAR>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+08: <"b", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+09: <"print", PRINT>
+09: <"(", OPEN_PAR>
+09: <"{C}", STRING>
+09: <")", CLOSE_PAR>
+09: <";", SEMICOLON>
+10: <"scan", SCAN>
+10: <"(", OPEN_PAR>
+10: <"c", ID>
+10: <")", CLOSE_PAR>
+10: <";", SEMICOLON>
+12: <"if", IF>
+12: <"(", OPEN_PAR>
+12: <"(", OPEN_PAR>
+12: <"a", ID>
+12: <">", GT>
+12: <"b", ID>
+12: <")", CLOSE_PAR>
+12: <"&&", AND>
+12: <"(", OPEN_PAR>
+12: <"a", ID>
+12: <">", GT>
+12: <"c", ID>
+12: <")", CLOSE_PAR>
+12: <")", CLOSE_PAR>
+12: <"then", THEN>
+13: <"maior", ID>
+13: <"=", ASSIGN>
+13: <"a", ID>
+13: <";", SEMICOLON>
+14: <"else", ELSE>
+15: <"if", IF>
+15: <"(", OPEN_PAR>
+15: <"b", ID>
+15: <">", GT>
+15: <"c", ID>
+15: <")", CLOSE_PAR>
+15: <"then", THEN>
+16: <"maior", ID>
+16: <"=", ASSIGN>
+16: <"b", ID>
+16: <";", SEMICOLON>
+17: <"else", ELSE>
+18: <"maior", ID>
+18: <"=", ASSIGN>
+18: <"c", ID>
+18: <";", SEMICOLON>
+19: <"end", END>
+20: <"end", END>
+22: <"print", PRINT>
+22: <"(", OPEN_PAR>
+22: <"{Maior valor:}", STRING>
+22: <")", CLOSE_PAR>
+22: <";", SEMICOLON>
+23: <"print", PRINT>
+23: <"(", OPEN_PAR>
+23: <"maior", ID>
+23: <")", CLOSE_PAR>
+23: <";", SEMICOLON>
+24: <"print", PRINT>
+24: <"(", OPEN_PAR>
+24: <"{Outro? }", STRING>
+24: <")", CLOSE_PAR>
+24: <";", SEMICOLON>
+25: <"scan", SCAN>
+25: <"(", OPEN_PAR>
+25: <"outro", ID>
+25: <")", CLOSE_PAR>
+25: <";", SEMICOLON>
+26: <"while", WHILE>
+26: <"(", OPEN_PAR>
+26: <"outro", ID>
+26: <">=", GE>
+26: <"0", INT>
+26: <")", CLOSE_PAR>
+26: <"end", END>
+27: <"exit", EXIT>
+27: <"", END_OF_FILE>
+<procProgram>
+	eat +START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT - 'int'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'a'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'b'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'c'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'maior'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'outro'
+			eat +SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procWhileStmt>
+				eat +DO - 'do'
+				<procStmtList>
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{A}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN - 'scan'
+							eat +OPEN_PAR - '('
+							<procIdentifier>
+								eat +ID : 'a'
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{B}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN - 'scan'
+							eat +OPEN_PAR - '('
+							<procIdentifier>
+								eat +ID : 'b'
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{C}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN - 'scan'
+							eat +OPEN_PAR - '('
+							<procIdentifier>
+								eat +ID : 'c'
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procIfStmtA>
+							eat +IF - 'if'
+							<procCondition>
+								<procExpressionA>
+									<procSimpleExprA>
+										<procTermA>
+											<procFactorA>
+												<procFactor>
+													eat +OPEN_PAR - '('
+													<procExpressionA>
+														<procSimpleExprA>
+															<procTermA>
+																<procFactorA>
+																	<procFactor>
+																		eat +OPEN_PAR - '('
+																		<procExpressionA>
+																			<procSimpleExprA>
+																				<procTermA>
+																					<procFactorA>
+																						<procFactor>
+																							<procIdentifier>
+																								eat +ID : 'a'
+																					<procTermB>
+																				<procSimpleExprB>
+																			<procExpressionB>
+																				<procRelOp>
+																					eat +GT - '>'
+																				<procSimpleExprA>
+																					<procTermA>
+																						<procFactorA>
+																							<procFactor>
+																								<procIdentifier>
+																									eat +ID : 'b'
+																						<procTermB>
+																					<procSimpleExprB>
+																		eat +CLOSE_PAR - ')'
+																<procTermB>
+																	<procMulOp>
+																		eat +AND - '&&'
+																	<procFactorA>
+																		<procFactor>
+																			eat +OPEN_PAR - '('
+																			<procExpressionA>
+																				<procSimpleExprA>
+																					<procTermA>
+																						<procFactorA>
+																							<procFactor>
+																								<procIdentifier>
+																									eat +ID : 'a'
+																						<procTermB>
+																					<procSimpleExprB>
+																				<procExpressionB>
+																					<procRelOp>
+																						eat +GT - '>'
+																					<procSimpleExprA>
+																						<procTermA>
+																							<procFactorA>
+																								<procFactor>
+																									<procIdentifier>
+																										eat +ID : 'c'
+																							<procTermB>
+																						<procSimpleExprB>
+																			eat +CLOSE_PAR - ')'
+																	<procTermB>
+															<procSimpleExprB>
+														<procExpressionB>
+													eat +CLOSE_PAR - ')'
+											<procTermB>
+										<procSimpleExprB>
+									<procExpressionB>
+							eat +THEN - 'then'
+							<procStmtList>
+								<procStmt>
+									<procAssignStmt>
+										<procIdentifier>
+											eat +ID : 'maior'
+										eat +ASSIGN - '='
+										<procSimpleExprA>
+											<procTermA>
+												<procFactorA>
+													<procFactor>
+														<procIdentifier>
+															eat +ID : 'a'
+												<procTermB>
+											<procSimpleExprB>
+									eat +SEMICOLON - ';'
+							<procIfStmtB>
+								eat +ELSE - 'else'
+								<procStmtList>
+									<procStmt>
+										<procIfStmtA>
+											eat +IF - 'if'
+											<procCondition>
+												<procExpressionA>
+													<procSimpleExprA>
+														<procTermA>
+															<procFactorA>
+																<procFactor>
+																	eat +OPEN_PAR - '('
+																	<procExpressionA>
+																		<procSimpleExprA>
+																			<procTermA>
+																				<procFactorA>
+																					<procFactor>
+																						<procIdentifier>
+																							eat +ID : 'b'
+																				<procTermB>
+																			<procSimpleExprB>
+																		<procExpressionB>
+																			<procRelOp>
+																				eat +GT - '>'
+																			<procSimpleExprA>
+																				<procTermA>
+																					<procFactorA>
+																						<procFactor>
+																							<procIdentifier>
+																								eat +ID : 'c'
+																					<procTermB>
+																				<procSimpleExprB>
+																	eat +CLOSE_PAR - ')'
+															<procTermB>
+														<procSimpleExprB>
+													<procExpressionB>
+											eat +THEN - 'then'
+											<procStmtList>
+												<procStmt>
+													<procAssignStmt>
+														<procIdentifier>
+															eat +ID : 'maior'
+														eat +ASSIGN - '='
+														<procSimpleExprA>
+															<procTermA>
+																<procFactorA>
+																	<procFactor>
+																		<procIdentifier>
+																			eat +ID : 'b'
+																<procTermB>
+															<procSimpleExprB>
+													eat +SEMICOLON - ';'
+											<procIfStmtB>
+												eat +ELSE - 'else'
+												<procStmtList>
+													<procStmt>
+														<procAssignStmt>
+															<procIdentifier>
+																eat +ID : 'maior'
+															eat +ASSIGN - '='
+															<procSimpleExprA>
+																<procTermA>
+																	<procFactorA>
+																		<procFactor>
+																			<procIdentifier>
+																				eat +ID : 'c'
+																	<procTermB>
+																<procSimpleExprB>
+														eat +SEMICOLON - ';'
+												eat +END - 'end'
+								eat +END - 'end'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{Maior valor:}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procIdentifier>
+													eat +ID : 'maior'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT - 'print'
+							eat +OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING : '{Outro? }'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN - 'scan'
+							eat +OPEN_PAR - '('
+							<procIdentifier>
+								eat +ID : 'outro'
+							eat +CLOSE_PAR - ')'
+						eat +SEMICOLON - ';'
+				<procStmtSufix>
+					eat +WHILE - 'while'
+					<procCondition>
+						<procExpressionA>
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											eat +OPEN_PAR - '('
+											<procExpressionA>
+												<procSimpleExprA>
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID : 'outro'
+														<procTermB>
+													<procSimpleExprB>
+												<procExpressionB>
+													<procRelOp>
+														eat +GE - '>='
+													<procSimpleExprA>
+														<procTermA>
+															<procFactorA>
+																<procFactor>
+																	<procConstant>
+																		<procIntegerConst>
+																			eat +INT : '0'
+															<procTermB>
+														<procSimpleExprB>
+											eat +CLOSE_PAR - ')'
+									<procTermB>
+								<procSimpleExprB>
+							<procExpressionB>
+					eat +END - 'end'
+	eat +EXIT - 'exit'
+exec: DERIVATION TREE complete
+TESTING ./examples/corrected_codes/t6.comp ---
+DEBug Mode Enabled: (args3)
+Lexical: File> ./examples/corrected_codes/t6.compLexical: File> ./examples/corrected_codes/t6.comp05: <"start", START>
+06: <"int", TYPE INT>
+06: <"x", ID>
+06: <",", COMMA>
+06: <"y", ID>
+06: <";", SEMICOLON>
+07: <"int", TYPE INT>
+07: <"soma", ID>
+07: <",", COMMA>
+07: <"media", ID>
+07: <",", COMMA>
+07: <"mult", ID>
+07: <";", SEMICOLON>
+08: <"soma", ID>
+08: <"=", ASSIGN>
+08: <"0", INT>
+08: <";", SEMICOLON>
+09: <"media", ID>
+09: <"=", ASSIGN>
+09: <"0", INT>
+09: <";", SEMICOLON>
+10: <"mult", ID>
+10: <"=", ASSIGN>
+10: <"0", INT>
+10: <";", SEMICOLON>
+11: <"scan", SCAN>
+11: <"(", OPEN_PAR>
+11: <"x", ID>
+11: <")", CLOSE_PAR>
+11: <";", SEMICOLON>
+12: <"scan", SCAN>
+12: <"(", OPEN_PAR>
+12: <"b", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+14: <"soma", ID>
+14: <"=", ASSIGN>
+14: <"x", ID>
+14: <"+", PLUS>
+14: <"y", ID>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+15: <"soma", ID>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"media", ID>
+16: <"=", ASSIGN>
+16: <"soma", ID>
+16: <"/", DIV>
+16: <"2", INT>
+16: <";", SEMICOLON>
+17: <"print", PRINT>
+17: <"(", OPEN_PAR>
+17: <"media", ID>
+17: <")", CLOSE_PAR>
+17: <";", SEMICOLON>
+18: <"mult", ID>
+18: <"=", ASSIGN>
+18: <"x", ID>
+18: <"*", MUL>
+18: <"y", ID>
+18: <";", SEMICOLON>
+19: <"print", PRINT>
+19: <"(", OPEN_PAR>
+19: <"mult", ID>
+19: <")", CLOSE_PAR>
+19: <";", SEMICOLON>
+20: <"exit", EXIT>
+20: <"", END_OF_FILE>
+<procProgram>
+	eat +START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT - 'int'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'x'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'y'
+			eat +SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE INT - 'int'
+			<procIdentList>
+				<procIdentifier>
+					eat +ID : 'soma'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'media'
+				eat +COMMA - ','
+				<procIdentifier>
+					eat +ID : 'mult'
+			eat +SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'soma'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'media'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'mult'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'x'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN - 'scan'
+				eat +OPEN_PAR - '('
+				<procIdentifier>
+					eat +ID : 'b'
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'soma'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'x'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'y'
+							<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'soma'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'media'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'soma'
+						<procTermB>
+							<procMulOp>
+								eat +DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT : '2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'media'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR - ')'
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID : 'mult'
+				eat +ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID : 'x'
+						<procTermB>
+							<procMulOp>
+								eat +MUL - '*'
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'y'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT - 'print'
+				eat +OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID : 'mult'
 							<procTermB>
 						<procSimpleExprB>
 				eat +CLOSE_PAR - ')'

@@ -1,5 +1,5 @@
 start 
-    int a, b, c, d, e, f, g;
+    int a, b;
     string str;
     int result;
     float a,x,total;
@@ -13,6 +13,7 @@ start
     print (result);
     print ({Total: });
     total = y / x;
-    print ({New Total: });
+    print ({Total: });
     print (total);
 exit
+
