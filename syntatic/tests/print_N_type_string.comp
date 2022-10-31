@@ -1,0 +1,8 @@
+start
+    //string str1, str2;
+    //str1 = "not a string"; // lexical error
+    str2 = {definetly a string};
+    print({cool string});
+    //print("aint a string dude"); // lexical error
+    print({valid});
+exit
