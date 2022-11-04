@@ -12,3 +12,10 @@ g++ -g -ggdb3 -O2 -Wall -c -o lexical/LexicalAnalysis.o lexical/LexicalAnalysis.
 g++ -g -ggdb3 -O2 -Wall -c -o lexical/SymbolTable.o lexical/SymbolTable.cpp
 g++ -g -ggdb3 -O2 -Wall -c -o syntatic/SyntaticAnalysis.o syntatic/SyntaticAnalysis.cpp
 g++ -o comp comp.o util/TreeNode.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o	
+rm -frd comp comp.o util/TreeNode.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o
+g++ -g -ggdb3 -O2 -Wall -c -o comp.o comp.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o util/TreeNode.o util/TreeNode.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o lexical/LexicalAnalysis.o lexical/LexicalAnalysis.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o lexical/SymbolTable.o lexical/SymbolTable.cpp
+g++ -g -ggdb3 -O2 -Wall -c -o syntatic/SyntaticAnalysis.o syntatic/SyntaticAnalysis.cpp
+g++ -o comp comp.o util/TreeNode.o lexical/LexicalAnalysis.o lexical/SymbolTable.o syntatic/SyntaticAnalysis.o	

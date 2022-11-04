@@ -5,4 +5,5 @@ start
     print({cool string});
     //print("aint a string dude"); // lexical error
     print({valid});
+    print("A");
 exit
