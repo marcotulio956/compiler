@@ -23,7 +23,8 @@ int main(int argc, char* argv[]) {
         printf("Unexpected argc: %d\n", argc);
     }
     try {
-        LexicalAnalysis l(argv[1], DEBug);
+        SymbolTable st = new SymbolTable();
+        LexicalAnalysis l(argv[1], DEBug, st);
 
         if(DEBug) {
             LexicalAnalysis l_DEBug(argv[1], 1);
@@ -43,6 +44,7 @@ int main(int argc, char* argv[]) {
             );
         }
 
+        SemanticAnalysis semantic(m_st);
         SyntaticAnalysis s(l);
         s.start();
         

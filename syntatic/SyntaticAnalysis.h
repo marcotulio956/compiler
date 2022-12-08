@@ -6,6 +6,7 @@
 
 #include "../lexical/LexicalAnalysis.h"
 #include "../util/TreeNode.h"
+#include "../semantic/SemanticAnalysis.h"
 
 class SyntaticAnalysis {
 public:

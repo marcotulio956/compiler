@@ -6,7 +6,7 @@
 
 using namespace std;
 
-LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug) : m_line(1) {
+LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug, SymbolTable st = NULL) : m_line(1), symboltable(st) {
     showPrints = DEBug;
     m_line = 1;
     if(DEBug)
@@ -289,7 +289,7 @@ struct Lexeme LexicalAnalysis::nextToken() {
         }
     }
     if(state==sb_find){
-        lex.type = m_st.find(lex.token);
+        lex.type = symboltable.find(lex.token);
     }
     /*if (showPrints)
         cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;*/
