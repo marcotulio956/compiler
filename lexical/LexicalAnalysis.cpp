@@ -14,6 +14,7 @@ LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug, SymbolTable s
     m_file = fopen(filename, "r");
     if (!m_file)
         throw std::string("Unable to open file: %s", filename);
+        
 }
 
 LexicalAnalysis::~LexicalAnalysis() {
