@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
         }
 
         SemanticAnalysis semantic(st);
-        SyntaticAnalysis s(l);
+        SyntaticAnalysis s(l, semantic);
         s.start();
         
         // O código a seguir é dado para testar o interpretador.

@@ -11,8 +11,8 @@
 
 #define printct ttprint(m_current.type)
 
-SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex):
-    m_lex(lex), m_current(lex.nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")) {
+SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex, SemanticAnalysis semantic):
+    m_lex(lex), m_current(lex.nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")), semanticAnalysis(semantic) {
 }
 
 SyntaticAnalysis::~SyntaticAnalysis(){}
