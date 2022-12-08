@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "lexical/LexicalAnalysis.h"
+#include "lexical/SymbolTable.h"
 #include "syntatic/SyntaticAnalysis.h"
 
 int main(int argc, char* argv[]) {
@@ -23,10 +24,11 @@ int main(int argc, char* argv[]) {
         printf("Unexpected argc: %d\n", argc);
     }
     try {
-        LexicalAnalysis l(argv[1], DEBug);
+        SymbolTable st;
+        LexicalAnalysis l(argv[1], DEBug, st);
 
         if(DEBug) {
-            LexicalAnalysis l_DEBug(argv[1], 1);
+            LexicalAnalysis l_DEBug(argv[1], 1, st);
             struct Lexeme lex;
             do {
                 lex = l_DEBug.nextToken();
@@ -43,6 +45,7 @@ int main(int argc, char* argv[]) {
             );
         }
 
+        SemanticAnalysis semantic(st);
         SyntaticAnalysis s(l);
         s.start();
         
