@@ -13,6 +13,6 @@ public:
 private:
   bool equalTypes(Lexeme l1, Lexeme l2);
   bool varDeclared(std::string var);
-  void appendValueST(string var, string value);
+  void appendValueST(std::string var, std::string value);
 };
 #endif
