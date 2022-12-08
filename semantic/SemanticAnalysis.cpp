@@ -22,7 +22,7 @@ bool SemanticAnalysis::equalTypes(Lexeme l1, Lexeme l2){
 
 bool SemanticAnalysis::varDeclared(std::string var){
   if(symboltable.contains(var)){
-    return false;
+    return true;
   }
   return false;
 }
