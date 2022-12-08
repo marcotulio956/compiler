@@ -26,6 +26,7 @@ bool SemanticAnalysis::varDeclared(std::string var){
   }
   return false;
 }
+
 void SemanticAnalysis:: appendValueST(string var, string value){
 Lexeme lex = symboltable.get(lex);
 lex.value = value;
