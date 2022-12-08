@@ -4,10 +4,11 @@
 #include <cstdio>
 #include <string>
 #include "../lexical/Lexeme.h"
+#include "../lexical/SymbolTable.h"
 
 class SemanticAnalysis{
 public:
-  SemanticAnalysis();
+  SemanticAnalysis(SymbolTable st);
   virtual ~SemanticAnalysis();
 private:
   bool equalTypes(Lexeme l1, Lexeme l2);

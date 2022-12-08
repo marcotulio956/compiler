@@ -3,10 +3,11 @@
 #include <cassert>
 #include <iostream>
 #include "LexicalAnalysis.h"
+#include "SymbolTable.h"
 
 using namespace std;
 
-LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug, SymbolTable st = NULL) : m_line(1), symboltable(st) {
+LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug, SymbolTable st) : m_line(1), symboltable(st) {
     showPrints = DEBug;
     m_line = 1;
     if(DEBug)
