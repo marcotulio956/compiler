@@ -27,8 +27,29 @@ bool SemanticAnalysis::varDeclared(std::string var){
   return false;
 }
 
+// essa aqui é pra add valor na TS
 void SemanticAnalysis:: appendValueST(std::string var, std::string value){
-  Lexeme lex = symboltable.find(lex);
-  lex.value = value;
-  symboltable.put(lex,value);
+  symboltable.m_st.insert(value, symboltable.find(var));
 }
+
+//essa aqui é pra pegar Valor na TS
+std:: string getIdValueST(std::string var){
+  std::string lex = symboltable.find(var);
+  return lex.value;
+}
+/* 
+    node_type extract(const key_type& _Keyval) {
+        const const_iterator _Where = find(_Keyval);
+        if (_Where == end()) {
+            return node_type{};
+        }
+
+        return extract(_Where);
+    }*/
+
+
+// essa aqui é pra add tipo na TS
+void SemanticAnalysis:: appendTypeST(std::string var, int type){
+symboltable.m_st.insert(type, symboltable.find(var));
+}
+

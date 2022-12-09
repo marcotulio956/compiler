@@ -14,5 +14,7 @@ private:
   bool equalTypes(Lexeme l1, Lexeme l2);
   bool varDeclared(std::string var);
   void appendValueST(std::string var, std::string value);
+  std:: string getIdValueST(std::string var);
+  void SemanticAnalysis:: appendTypeST(std::string var, int type);
 };
 #endif
