@@ -25,15 +25,15 @@ int main(int argc, char* argv[]) {
     }
     try {
         SymbolTable st;
-        LexicalAnalysis l(argv[1], DEBug, st);
+        LexicalAnalysis lexcl(argv[1], DEBug, &st);
 
         if(DEBug) {
-            LexicalAnalysis l_DEBug(argv[1], 1, st);
+            LexicalAnalysis lexcl_DEBug(argv[1], 1, &st);
             struct Lexeme lex;
             do {
-                lex = l_DEBug.nextToken();
+                lex = lexcl_DEBug.nextToken();
                 printf("%02d: <\"%s\", %s>\n", 
-                    l_DEBug.line(),
+                    lexcl_DEBug.line(),
                     lex.token.c_str(), 
                     tt2str(TokenType(lex.type)).c_str()
                 );
@@ -45,9 +45,9 @@ int main(int argc, char* argv[]) {
             );
         }
 
-        SemanticAnalysis semantic(st);
-        SyntaticAnalysis s(l, semantic);
-        s.start();
+        SemanticAnalysis seman(&st);
+        SyntaticAnalysis syntc(&lexcl, &seman);
+        syntc.start();
         
         // O código a seguir é dado para testar o interpretador.
         // TODO: descomentar depois que o analisador léxico estiver OK.

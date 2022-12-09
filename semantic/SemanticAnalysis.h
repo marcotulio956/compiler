@@ -8,9 +8,9 @@
 
 class SemanticAnalysis{
 public:
-  SemanticAnalysis(SymbolTable st);
+  SemanticAnalysis(SymbolTable* st);
   virtual ~SemanticAnalysis();
-private:
+  SymbolTable* symbolTable;
   bool equalTypes(Lexeme l1, Lexeme l2);
   bool varDeclared(std::string var);
   void appendValueST(std::string var, std::string value);

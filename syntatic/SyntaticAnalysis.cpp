@@ -11,8 +11,8 @@
 
 #define printct ttprint(m_current.type)
 
-SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex, SemanticAnalysis semantic):
-    m_lex(lex), m_current(lex.nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")), semanticAnalysis(semantic) {
+SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis* syntatical, SemanticAnalysis* semantic):
+    lexicalAnalysis(syntatical), m_current(syntatical->nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")), semanticAnalysis(semantic){
 }
 
 SyntaticAnalysis::~SyntaticAnalysis(){}
@@ -22,13 +22,13 @@ void SyntaticAnalysis::start(){
 }
 
 void SyntaticAnalysis::advance(){
-    m_current = m_lex.nextToken();
+    m_current = lexicalAnalysis->nextToken();
     //printf("advance -> %s\n",tt2str(TokenType(m_current.type)).c_str());
 }
 
 void SyntaticAnalysis::showError(TokenType expected_type=TKN_NONE){ 
     printf("showError\n");
-    printf("%02d: ", m_lex.m_line);
+    printf("%02d: ", lexicalAnalysis->m_line);
     switch(m_current.type){
         case TKN_INVALID_TOKEN: { 
             printf("Invalid Lexeme [%s]\n", m_current.token.c_str());
@@ -47,7 +47,7 @@ void SyntaticAnalysis::showError(TokenType expected_type=TKN_NONE){
     printf("exec: DERIVATION TREE incomplete\n"); 
     if(expected_type!=TKN_NONE)
         printf("Expected Lexeme [%s]\n", tt2str(TokenType(expected_type)).c_str());
-    if(!m_lex.showPrints) // in case of debug mode, advance anyway(may not halt)
+    if(!lexicalAnalysis->showPrints) // in case of debug mode, advance anyway(may not halt)
         exit(1);
     else{ // DEBug mode
         //advance();
