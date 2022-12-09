@@ -13,6 +13,7 @@ class SymbolTable {
 
 	    bool contains(std::string token);
 	    enum TokenType find(std::string token);
+		bool addEntry(std::string id, enum TokenType type);
 	private:
 	    std::map<std::string, enum TokenType> m_st;
 };

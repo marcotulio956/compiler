@@ -10,14 +10,14 @@
 
 class SyntaticAnalysis {
 public:
-    SyntaticAnalysis(LexicalAnalysis& lex, SemanticAnalysis semantic);
+    SyntaticAnalysis(LexicalAnalysis* lex, SemanticAnalysis* semantic);
     virtual ~SyntaticAnalysis();
     void start();
 private:
-    LexicalAnalysis& m_lex;
+    LexicalAnalysis* lexicalAnalysis;
     Lexeme m_current;
     TreeNode<std::string> m_derivation;
-    SemanticAnalysis semanticAnalysis;
+    SemanticAnalysis* semanticAnalysis;
 
     void eat(enum TokenType type, std::string tab);
     void advance();

@@ -3,11 +3,11 @@
 #include <cassert>
 #include <iostream>
 #include "LexicalAnalysis.h"
-#include "SymbolTable.h"
+#include "symbolTable.h"
 
 using namespace std;
 
-LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug, SymbolTable st) : m_line(1), symboltable(st) {
+LexicalAnalysis::LexicalAnalysis(const char* filename, bool DEBug, SymbolTable* st) : m_line(1), symbolTable(st) {
     showPrints = DEBug;
     m_line = 1;
     if(DEBug)
@@ -291,7 +291,10 @@ struct Lexeme LexicalAnalysis::nextToken() {
         }
     }
     if(state==sb_find){
-        lex.type = symboltable.find(lex.token);
+        lex.type = symbolTable->find(lex.token);
+        if(lex.type==TKN_ID){
+            symbolTable->addEntry(lex.token, lex.type);
+        }
     }
     /*if (showPrints)
         cout << "\t\tm_st[\'" << lex.token << "\']: " << lex.type << " _ " << tt2str(TokenType(lex.type)) << endl;*/

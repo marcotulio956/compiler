@@ -10,7 +10,7 @@
 
 class LexicalAnalysis {
 public:
-    LexicalAnalysis(const char* filename, bool DEBug, SymbolTable st);
+    LexicalAnalysis(const char* filename, bool DEBug, SymbolTable* st);
     virtual ~LexicalAnalysis();
 
     int line() const;
@@ -22,7 +22,7 @@ public:
     int m_line;
 private:
     FILE* m_file;
-    SymbolTable symboltable;
+    SymbolTable* symbolTable;
 };
 
 #endif
