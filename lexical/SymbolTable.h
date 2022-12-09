@@ -16,7 +16,6 @@ class SymbolTable {
 
 	private:
 	    std::map<std::string, enum TokenType> m_st;
-
 };
 
 #endif
