@@ -291,9 +291,9 @@ struct Lexeme LexicalAnalysis::nextToken() {
         }
     }
     if(state==sb_find){
-        lex.type = symbolTable->find(lex.token);
+        lex.type = symbolTable->findType(lex.token);
         if(lex.type==TKN_ID){
-            symbolTable->addEntry(lex.token, lex.type);
+            symbolTable->addEntry(lex.token, lex.type, TKN_UNASSINGD);
         }
     }
     /*if (showPrints)

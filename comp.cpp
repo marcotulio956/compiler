@@ -48,6 +48,7 @@ int main(int argc, char* argv[]) {
         SemanticAnalysis seman(&st);
         SyntaticAnalysis syntc(&lexcl, &seman);
         syntc.start();
+        st.print();
         
         // O código a seguir é dado para testar o interpretador.
         // TODO: descomentar depois que o analisador léxico estiver OK.
@@ -57,9 +58,8 @@ int main(int argc, char* argv[]) {
             delete c;
         */
     } catch (std::string msg) {
-        fprintf(stderr, "Internal error: %s\n", msg.c_str());
+        fprintf(stderr, "Compile Error: %s\n", msg.c_str());
         return 2;
     }
-
     return 0;
 }

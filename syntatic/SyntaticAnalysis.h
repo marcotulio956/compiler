@@ -19,7 +19,7 @@ private:
     TreeNode<std::string> m_derivation;
     SemanticAnalysis* semanticAnalysis;
 
-    void eat(enum TokenType type, std::string tab);
+    TokenType eat(enum TokenType type, std::string tab);
     void advance();
     void showError(enum TokenType expected_type);
 
@@ -32,8 +32,8 @@ private:
     void  procProgram(std::string tab);
     void  procDeclList(std::string tab);
     void  procDecl(std::string tab);
-    void  procIdentList(std::string tab);
-    void  procType(std::string tab);
+    void  procIdentList(enum TokenType dtype, std::string tab);
+    enum TokenType  procType(std::string tab);
     void  procStmtList(std::string tab);
     void  procStmt(std::string tab);
     void  procAssignStmt(std::string tab);
@@ -47,20 +47,20 @@ private:
     void  procWriteStmt(std::string tab);
     void  procWritable(std::string tab);
     // void  procExpression(std::string tab);
-    void  procExpressionA(std::string tab);
-    void  procExpressionB(std::string tab);
+    TokenType  procExpressionA(std::string tab);
+    TokenType  procExpressionB(std::string tab);
     // void  procSimpleExpr(std::string tab);
-    void  procSimpleExprA(std::string tab);
-    void  procSimpleExprB(std::string tab);
+    TokenType  procSimpleExprA(std::string tab);
+    TokenType  procSimpleExprB(std::string tab);
     // void  procTerm(std::string tab);
-    void  procTermA(std::string tab);
-    void  procTermB(std::string tab);
-    void  procFactorA(std::string tab);
-    void  procFactor(std::string tab);
+    TokenType  procTermA(std::string tab);
+    TokenType  procTermB(std::string tab);
+    TokenType  procFactorA(std::string tab);
+    TokenType  procFactor(std::string tab);
     void  procRelOp(std::string tab);
     void  procAddOp(std::string tab);
     void  procMulOp(std::string tab);
-    void  procConstant(std::string tab);
+    TokenType  procConstant(std::string tab);
     void  procIntegerConst(std::string tab);
     void  procFloatConst(std::string tab);
     void  procLiteral(std::string tab);

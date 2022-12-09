@@ -2,18 +2,10 @@ start
     int a, b;
     string str;
     int result;
-    float a,x,total;
+    
+    float a1,x,total;
+
     str = {nice string};
-    a = 2;
-    x = 0.1;
-    scan (b);
-    scan (y);
-    result = (a*b + 1) / 2;
-    print ({Resultado: });
-    print (result);
-    print ({Total: });
-    total = y / x;
-    print ({Total: });
-    print (total);
+
 exit
 

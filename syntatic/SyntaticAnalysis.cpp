@@ -55,8 +55,8 @@ void SyntaticAnalysis::showError(TokenType expected_type=TKN_NONE){
     }
 }
 
-void SyntaticAnalysis::eat(enum TokenType type, std::string tab){
-    printf("%seat +%s",tab.c_str(),tt2str(TokenType(type)).c_str());
+TokenType SyntaticAnalysis::eat(enum TokenType type, std::string tab){
+    printf("%seat +%s | curr =%s",tab.c_str(),tt2str(TokenType(type)).c_str(),tt2str(TokenType(m_current.type)).c_str());
     if(type == TKN_ID || type == TKN_INT|| type == TKN_STRING || type == TKN_FLOAT )
         printf(" : '%s'", m_current.token.c_str());
     else{
@@ -67,6 +67,7 @@ void SyntaticAnalysis::eat(enum TokenType type, std::string tab){
         advance();
     else
         showError(type);
+    return m_current.type;
 }
 
 bool SyntaticAnalysis::is_identifier(){
@@ -146,42 +147,45 @@ void SyntaticAnalysis::procDeclList(std::string tab) {
 void SyntaticAnalysis::procDecl(std::string tab) {
     printf("%s<procDecl>\n",tab.c_str());
 
-    procType(tab+"\t");
+    enum TokenType dtype = procType(tab+"\t");
 
-    procIdentList(tab+"\t");
+    procIdentList(dtype, tab+"\t");
 
     eat(TKN_SEMICOLON, tab+"\t");
 }
 
 // ident-list ::= identifier {"," identifier}
-void SyntaticAnalysis::procIdentList(std::string tab) {
+void SyntaticAnalysis::procIdentList(enum TokenType dtype, std::string tab) {
     printf("%s<procIdentList>\n",tab.c_str());
 
+    semanticAnalysis->checkLexeme(m_current, dtype);
     procIdentifier(tab+"\t");
 
     while(m_current.type == TKN_COMMA){
         eat(TKN_COMMA, tab+"\t");
-
+        
+        semanticAnalysis->checkLexeme(m_current, dtype);
         procIdentifier(tab+"\t");
-
     }
 }
 
 // type ::= int | float | string
-void SyntaticAnalysis::procType(std::string tab) {
+enum TokenType SyntaticAnalysis::procType(std::string tab) {
     printf("%s<procType>\n",tab.c_str());
     if(m_current.type == TKN_TYPE_INT){
         eat(TKN_TYPE_INT, tab+"\t");
-
+        return TKN_TYPE_INT;
     }
     else if(m_current.type == TKN_TYPE_FLOAT){
         eat(TKN_TYPE_FLOAT, tab+"\t");
+        return TKN_TYPE_FLOAT;
 
     }
     else if(m_current.type == TKN_TYPE_STRING){
         eat(TKN_TYPE_STRING, tab+"\t");
+        return TKN_TYPE_STRING;
     }
-    else { showError();}
+    else { showError(); return TKN_NONE;}
 
 }
 
@@ -239,11 +243,22 @@ void SyntaticAnalysis::procStmt(std::string tab) {
 void SyntaticAnalysis::procAssignStmt(std::string tab) {
     printf("%s<procAssignStmt>\n",tab.c_str());
 
+    TokenType tt1 = semanticAnalysis->getTokenType(m_current.token);
     procIdentifier(tab+"\t");
 
     eat(TKN_ASSIGN, tab+"\t");
 
-    procSimpleExprA(tab+"\t");
+    TokenType tt2 = procSimpleExprA(tab+"\t");
+
+    if(!semanticAnalysis->checkDataType(tt1, tt2)){
+        printf("smntc: dtype error line %d: <procIdentifier>(%s) = <procSimpleExprA>(%s)\n",
+            lexicalAnalysis->line(),
+            tt2str(TokenType(tt1)).c_str(),
+            tt2str(TokenType(tt2)).c_str()
+        );
+        
+        exit(1);
+    }
 }
 
 // if-stmtA ::= if condition then stmt-list if-stmtB
@@ -362,130 +377,129 @@ void SyntaticAnalysis::procWritable(std::string tab) {
 // }
 
 // expressionA ::= simple-expr expressionB
-void SyntaticAnalysis::procExpressionA(std::string tab) {
+TokenType SyntaticAnalysis::procExpressionA(std::string tab) {
     printf("%s<procExpressionA>\n",tab.c_str());
+    TokenType tt1, tt2;
+    tt1 = procSimpleExprA(tab+"\t");
 
-    procSimpleExprA(tab+"\t");
+    tt2 = procExpressionB(tab+"\t");
 
-    procExpressionB(tab+"\t");
+    semanticAnalysis->checkDataType(tt1,tt2);
+
+    return tt1;
 }
 
 // expressionB ::= relop simple-exprA | lambda
-void SyntaticAnalysis::procExpressionB(std::string tab) {
+TokenType SyntaticAnalysis::procExpressionB(std::string tab) {
     printf("%s<procExpressionB>\n",tab.c_str());
-
+    TokenType tt1=TKN_NONE;
     if(is_relop()){
         procRelOp(tab+"\t");
-        procSimpleExprA(tab+"\t");
+        tt1 = procSimpleExprA(tab+"\t");
     }
+    return tt1;
 }
 
-// // simple-expr ::= term | simple-expr addop term
-// void SyntaticAnalysis::procSimpleExpr(std::string tab) {
-//     printf("%s<procSimpleExpr>\n",tab.c_str());
-//     while(m_current.type == TKN_NOT
-//         || m_current.type == TKN_MINUS
-//         || m_current.type == TKN_OPEN_PAR
-//         || is_identifier()
-//         || is_constant()
-//     ){
-//             procTerm(tab+"\t"); // ESSA PARTE TA ESTRANHO
-
-//         if(m_current.type == TKN_NOT
-//             || m_current.type == TKN_MINUS
-//             || m_current.type == TKN_OPEN_PAR
-//             || is_identifier()
-//             || is_constant()){
-//             procSimpleExpr(tab+"\t");
-//         }
-//     }
-
-//     if(is_addop()){
-//             procAddOp(tab+"\t");
-//             procTerm(tab+"\t");
-//     }
-// }
-
 // simple-exprA ::= termA simple-exprB
-void SyntaticAnalysis::procSimpleExprA(std::string tab) {
+TokenType SyntaticAnalysis::procSimpleExprA(std::string tab) {
     printf("%s<procSimpleExprA>\n",tab.c_str());
 
-    procTermA(tab+"\t");
+    TokenType tt1 = procTermA(tab+"\t");
 
-    procSimpleExprB(tab+"\t");
+    TokenType tt2 = procSimpleExprB(tab+"\t");
+
+    semanticAnalysis->checkDataType(tt1, tt2);
+
+    return tt1;
 }
 
 // simple-exprB ::= addop term simple-exprB | lambda
-void SyntaticAnalysis::procSimpleExprB(std::string tab) {
+TokenType SyntaticAnalysis::procSimpleExprB(std::string tab) {
     printf("%s<procSimpleExprB>\n",tab.c_str());
 
+    TokenType tt1=TKN_NONE, tt2=TKN_NONE;
     if(is_addop()){
         procAddOp(tab+"\t");
 
-        procTermA(tab+"\t");
+        tt1 = procTermA(tab+"\t");
     
-        procSimpleExprB(tab+"\t");
+        tt2 = procSimpleExprB(tab+"\t");
     }else if(is_mulop()){
-        procTermB(tab+"\t");
+        tt1 = procTermB(tab+"\t");
     
-        procSimpleExprB(tab+"\t");
+        tt2 = procSimpleExprB(tab+"\t");
     }
+    semanticAnalysis->checkDataType(tt1, tt2);
+    return tt1;
 }
 
 // termA ::= factor-a termB
-void SyntaticAnalysis::procTermA(std::string tab) {
+TokenType SyntaticAnalysis::procTermA(std::string tab) {
     printf("%s<procTermA>\n",tab.c_str());
 
-    procFactorA(tab+"\t");
-    procTermB(tab+"\t");
+    TokenType tt1 = procFactorA(tab+"\t");
+    TokenType tt2 = procTermB(tab+"\t");
+
+    semanticAnalysis->checkDataType(tt1, tt2);
+
+    return tt1;
 }
 // termB ::= mulop factor-a termB
-void SyntaticAnalysis::procTermB(std::string tab) {
+TokenType SyntaticAnalysis::procTermB(std::string tab) {
     printf("%s<procTermB>\n",tab.c_str());
-
+    TokenType tt1=TKN_NONE, tt2=TKN_NONE;
     if(is_mulop()){
         procMulOp(tab+"\t");
-        procFactorA(tab+"\t");
-        procTermB(tab+"\t");
+        tt1 = procFactorA(tab+"\t");
+        tt2 = procTermB(tab+"\t");
     }
+    semanticAnalysis->checkDataType(tt1, tt2);
+    return tt1;
 }
 
 // fator-a ::= factor | "!" factor | "-" factor
-void SyntaticAnalysis::procFactorA(std::string tab) {
+TokenType SyntaticAnalysis::procFactorA(std::string tab) {
     printf("%s<procFactorA>\n",tab.c_str());
+    TokenType tt1;
     if(m_current.type == TKN_OPEN_PAR
         || is_identifier()
         || is_constant()){
         
-        procFactor(tab+"\t");
+        tt1 = procFactor(tab+"\t");
     }
     else if(m_current.type == TKN_NOT){
         eat(TKN_NOT, tab+"\t");
 
-        procFactor(tab+"\t");
+        tt1 = procFactor(tab+"\t");
     }
     else if(m_current.type == TKN_MINUS){
         eat(TKN_MINUS, tab+"\t");
 
-        procFactor(tab+"\t");
+        tt1 = procFactor(tab+"\t");
     }
     else{showError();}
+    return tt1;
 }
 
 // factor ::= identifier | constant | "(" expression ")"
-void SyntaticAnalysis::procFactor(std::string tab) {
+TokenType SyntaticAnalysis::procFactor(std::string tab) {
     printf("%s<procFactor>\n",tab.c_str());
+    TokenType tt1;
     if(m_current.type==TKN_OPEN_PAR){
         eat(TKN_OPEN_PAR, tab+"\t");
 
-        procExpressionA(tab+"\t");
+        tt1 = procExpressionA(tab+"\t");
 
         eat(TKN_CLOSE_PAR, tab+"\t");
     } else if(is_identifier()) {
-            procIdentifier(tab+"\t");
+        std::string token = m_current.token;
+        procIdentifier(tab+"\t");
+        tt1 = semanticAnalysis->getTokenType(token);
     } else if(is_constant()) {
-            procConstant(tab+"\t");
+        tt1 = procConstant(tab+"\t");
     } else { showError(); }
+
+    return tt1;
 }
 
 // relop ::= "==" | ">" | ">=" | "<" | "<=" | "<>"
@@ -531,17 +545,21 @@ void SyntaticAnalysis::procMulOp(std::string tab) {
 }
 
 // constant ::= integer_const | float_const | literal
-void SyntaticAnalysis::procConstant(std::string tab) {
+TokenType SyntaticAnalysis::procConstant(std::string tab) {
     printf("%s<procConstant>\n",tab.c_str());
+    TokenType tt1;
     if(m_current.type == TKN_INT){
-            procIntegerConst(tab+"\t");
-
+        procIntegerConst(tab+"\t");
+        tt1 = TKN_INT;
     }else if(m_current.type == TKN_FLOAT){
-            procFloatConst(tab+"\t");
-
+        procFloatConst(tab+"\t");
+        tt1 = TKN_FLOAT;
     }else if(m_current.type ==TKN_STRING){
-            procLiteral(tab+"\t");
+        procLiteral(tab+"\t");
+        tt1 = TKN_STRING;
     }else{showError();}
+
+    return tt1;
 }
 
 // integer_const ::= digit+
@@ -570,6 +588,7 @@ void SyntaticAnalysis::procLiteral(std::string tab) {
 // identifier ::= (letter | _ ) (letter | digit )*
 void SyntaticAnalysis::procIdentifier(std::string tab) {
     printf("%s<procIdentifier>\n",tab.c_str());
+
     eat(TKN_ID, tab+"\t");
 }
 
