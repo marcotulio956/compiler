@@ -2,39 +2,54 @@
 #include <cctype>
 #include <cassert>
 #include <iostream>
-#include <string>
-#include <vector>
 
-using namespace std;
+#include "SemanticAnalysis.h"
 
-class SemanticAnalysis
-{
-    // tem que fazer pra unicidade tb
+SymbolTable symboltable;
 
-    
-    public:
-    static std::string verifyType(std::string tipo1, std::string tipo2)
-    {
-        if ((tipo1.compare(tipo2) != 0))
-        {
-            return tipo1;
+SemanticAnalysis::SemanticAnalysis(SymbolTable st){
+  symboltable = st;
+}
+
+SemanticAnalysis::~SemanticAnalysis(){}
+
+bool SemanticAnalysis::equalTypes(Lexeme l1, Lexeme l2){
+  if(l1.type == l2.type){
+    return true;
+  }
+  return false;
+}
+
+bool SemanticAnalysis::varDeclared(std::string var){
+  if(symboltable.contains(var)){
+    return true;
+  }
+  return false;
+}
+
+// essa aqui é pra add valor na TS
+void SemanticAnalysis:: appendValueST(std::string var, std::string value){
+  symboltable.m_st.insert(value, symboltable.find(var));
+}
+
+//essa aqui é pra pegar Valor na TS
+std:: string getIdValueST(std::string var){
+  std::string lex = symboltable.find(var);
+  return lex.value;
+}
+/* 
+    node_type extract(const key_type& _Keyval) {
+        const const_iterator _Where = find(_Keyval);
+        if (_Where == end()) {
+            return node_type{};
         }
-        else if ((tipo1.compare("tipo_erro-nao-declarado") != 0) || (tipo2.compare("tipo_erro-nao-declarado") != 0))
-        {
-            return "tipo_erro-nao-declarado";
-        }
-        else 
-        {
-            return "tipo_erro-tipo-invalido";
-        }
-    }
-    static std::string verifyUnity(std::SymbolTable tabelaDeSimbolos, std:: Lexeme palavra)
-    {
-        if (tabelaDeSimbolos.get(palavra.getLexeme()) == null){
-            return "nao-declarado";
-        }
-        else{
-            return "declarado";
-        }
-    }
-};
+
+        return extract(_Where);
+    }*/
+
+
+// essa aqui é pra add tipo na TS
+void SemanticAnalysis:: appendTypeST(std::string var, int type){
+symboltable.m_st.insert(type, symboltable.find(var));
+}
+

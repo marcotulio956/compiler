@@ -11,8 +11,8 @@
 
 #define printct ttprint(m_current.type)
 
-SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex):
-    m_lex(lex), m_current(lex.nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")) {
+SyntaticAnalysis::SyntaticAnalysis(LexicalAnalysis& lex, SemanticAnalysis semantic):
+    m_lex(lex), m_current(lex.nextToken()), m_derivation(TreeNode<std::string>("<procProgram>")), semanticAnalysis(semantic) {
 }
 
 SyntaticAnalysis::~SyntaticAnalysis(){}
@@ -156,17 +156,6 @@ void SyntaticAnalysis::procDecl(std::string tab) {
 // ident-list ::= identifier {"," identifier}
 void SyntaticAnalysis::procIdentList(std::string tab) {
     printf("%s<procIdentList>\n",tab.c_str());
-if(verifyUnity(lex.getLexeme(),(Lexeme) token).contains("nao-declarado")){
-    TabelaDeSimbolos aux = lex.getLexeme();
-    aux.incluirTipoOffset(((Lexeme) aux1), tipoAux,offset);
-    lex.setLexeme(aux);
-    tipo1 = "tipo_vazio";
-    } else {
-        erros_semanticos++;
-        System.out.println("--------------------------------------------");
-        System.out.println("ERRO SEMANTICO:\n" +
-                "\tA variável '" + ((Lexeme) token).getLexeme() + "' na linha " + lex.line + " já foi declarada antes");
-    }
 
     procIdentifier(tab+"\t");
 

@@ -6,16 +6,18 @@
 
 #include "../lexical/LexicalAnalysis.h"
 #include "../util/TreeNode.h"
+#include "../semantic/SemanticAnalysis.h"
 
 class SyntaticAnalysis {
 public:
-    SyntaticAnalysis(LexicalAnalysis& lex);
+    SyntaticAnalysis(LexicalAnalysis& lex, SemanticAnalysis semantic);
     virtual ~SyntaticAnalysis();
     void start();
 private:
     LexicalAnalysis& m_lex;
     Lexeme m_current;
     TreeNode<std::string> m_derivation;
+    SemanticAnalysis semanticAnalysis;
 
     void eat(enum TokenType type, std::string tab);
     void advance();

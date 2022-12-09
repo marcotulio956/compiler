@@ -6,7 +6,9 @@ OBJS=comp.o \
 	util/TreeNode.o \
 	lexical/LexicalAnalysis.o \
 	lexical/SymbolTable.o \
+	semantic/SemanticAnalysis.o \
 	syntatic/SyntaticAnalysis.o
+	
 all: $(TARGET)
 
 clean:
