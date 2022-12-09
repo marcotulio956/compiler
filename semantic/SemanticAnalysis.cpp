@@ -53,3 +53,7 @@ void SemanticAnalysis:: appendTypeST(std::string var, int type){
 symboltable.m_st.insert(type, symboltable.find(var));
 }
 
+//essa aqui é pra pegar TIPO na TS
+int getIdTypeST(std::string var){
+  return symboltable.find(var);
+}

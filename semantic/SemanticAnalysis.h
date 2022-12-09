@@ -16,5 +16,6 @@ private:
   void appendValueST(std::string var, std::string value);
   std:: string getIdValueST(std::string var);
   void SemanticAnalysis:: appendTypeST(std::string var, int type);
+  int getIdTypeST(std::string var);
 };
 #endif
