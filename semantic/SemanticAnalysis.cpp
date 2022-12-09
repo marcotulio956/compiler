@@ -5,16 +5,19 @@
 
 #include "SemanticAnalysis.h"
 
+SymbolTable symboltable;
+
 SemanticAnalysis::SemanticAnalysis(SymbolTable* st) : symbolTable(st){
 }
+
 
 SemanticAnalysis::~SemanticAnalysis(){}
 
 bool SemanticAnalysis::equalTypes(Lexeme l1, Lexeme l2){
-	if(l1.type == l2.type){
-		return true;
-	}
-	return false;
+  if(l1.type == l2.type){
+    return true;
+  }
+  return false;
 }
 
 bool SemanticAnalysis::checkLexeme(Lexeme lex, TokenType dtype){
