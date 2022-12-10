@@ -1,0 +1,3522 @@
+
+TESTING ./examples/corrected_codes/t1.comp ---
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+DEBug Mode Enabled: (args3)
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+Lexical: File> ./examples/corrected_codes/t1.compLexical: File> ./examples/corrected_codes/t1.comp01: <"start", START>
+02: <"int", TYPE INT>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"a", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"b", ID>
+02: <";", SEMICOLON>
+03: <"int", TYPE INT>
+symboltable: new Lexeme Token [result] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"result", ID>
+03: <";", SEMICOLON>
+04: <"float", TYPE FLOAT>
+symboltable: new Lexeme Token [a1] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+04: <"a1", ID>
+04: <",", COMMA>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+04: <"x", ID>
+04: <",", COMMA>
+symboltable: new Lexeme Token [total] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+04: <"total", ID>
+04: <",", COMMA>
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+04: <"y", ID>
+04: <";", SEMICOLON>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+06: <"a", ID>
+06: <"=", ASSIGN>
+06: <"2", INT>
+06: <";", SEMICOLON>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+07: <"x", ID>
+07: <"=", ASSIGN>
+07: <"0.1", FLOAT>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+08: <"b", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+09: <"scan", SCAN>
+09: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+09: <"y", ID>
+09: <")", CLOSE_PAR>
+09: <";", SEMICOLON>
+symboltable: new Lexeme Token [result] type (ID, UNASSIGNED)
+	 - returned
+10: <"result", ID>
+10: <"=", ASSIGN>
+10: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+10: <"a", ID>
+10: <"*", MUL>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+10: <"b", ID>
+10: <"+", PLUS>
+10: <"1", INT>
+10: <")", CLOSE_PAR>
+10: <"/", DIV>
+10: <"2", INT>
+10: <";", SEMICOLON>
+11: <"print", PRINT>
+11: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [Resultado] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+11: <"Resultado", ID>
+11: <")", CLOSE_PAR>
+11: <";", SEMICOLON>
+12: <"print", PRINT>
+12: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [result] type (ID, UNASSIGNED)
+	 - returned
+12: <"result", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+13: <"print", PRINT>
+13: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [Total] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+13: <"Total", ID>
+13: <")", CLOSE_PAR>
+13: <";", SEMICOLON>
+symboltable: new Lexeme Token [total] type (ID, UNASSIGNED)
+	 - returned
+14: <"total", ID>
+14: <"=", ASSIGN>
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+14: <"y", ID>
+14: <"/", DIV>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+14: <"x", ID>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [Total] type (ID, UNASSIGNED)
+	 - returned
+15: <"Total", ID>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"print", PRINT>
+16: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [total] type (ID, UNASSIGNED)
+	 - returned
+16: <"total", ID>
+16: <")", CLOSE_PAR>
+16: <";", SEMICOLON>
+17: <"exit", EXIT>
+19: <"", END_OF_FILE>
+<procProgram>
+	eat +START | curr =START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [a](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [b](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [result] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [result](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'result'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE FLOAT | curr =TYPE FLOAT - 'float'
+symboltable: new Lexeme Token [a1] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [a1](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'a1'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [x](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'x'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [total] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [total](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'total'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [y](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'y'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '2'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'x'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procFloatConst>
+										eat +FLOAT | curr =FLOAT : '0.1'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'y'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [result] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'result'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+								<procExpressionA>
+									<procSimpleExprA>
+										<procTermA>
+											<procFactorA>
+												<procFactor>
+													<procIdentifier>
+														eat +ID | curr =ID : 'a'
+											<procTermB>
+												<procMulOp>
+													eat +MUL | curr =MUL - '*'
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+												<procFactorA>
+													<procFactor>
+														<procIdentifier>
+															eat +ID | curr =ID : 'b'
+												<procTermB>
+										<procSimpleExprB>
+											<procAddOp>
+												eat +PLUS | curr =PLUS - '+'
+											<procTermA>
+												<procFactorA>
+													<procFactor>
+														<procConstant>
+															<procIntegerConst>
+																eat +INT | curr =INT : '1'
+												<procTermB>
+											<procSimpleExprB>
+									<procExpressionB>
+								eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						<procTermB>
+							<procMulOp>
+								eat +DIV | curr =DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT | curr =INT : '2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [Resultado] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'Resultado'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [result] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'result'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [Total] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'Total'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [total] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'total'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'y'
+						<procTermB>
+							<procMulOp>
+								eat +DIV | curr =DIV - '/'
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'x'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [Total] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'Total'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [total] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'total'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+	eat +EXIT | curr =EXIT - 'exit'
+exec: DERIVATION TREE complete
+symbolTable Identifiers
+.1 Resultado -:- (ID, NONE)
+.2 Total -:- (ID, NONE)
+.3 a -:- (ID, TYPE INT)
+.4 a1 -:- (ID, TYPE FLOAT)
+.5 b -:- (ID, TYPE INT)
+.6 result -:- (ID, TYPE INT)
+.7 total -:- (ID, TYPE FLOAT)
+.8 x -:- (ID, TYPE FLOAT)
+.9 y -:- (ID, TYPE FLOAT)
+TESTING ./examples/corrected_codes/t2.comp ---
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+DEBug Mode Enabled: (args3)
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+Lexical: File> ./examples/corrected_codes/t2.compLexical: File> ./examples/corrected_codes/t2.comp01: <"start", START>
+02: <"int", TYPE INT>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"a", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [c_] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"c_", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [val] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"val", ID>
+02: <";", SEMICOLON>
+03: <"float", TYPE FLOAT>
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"d", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [e] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"e", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [c_1] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"c_1", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"b", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"c", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [a1] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"a1", ID>
+03: <";", SEMICOLON>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+04: <"a", ID>
+04: <"=", ASSIGN>
+04: <"0", INT>
+04: <";", SEMICOLON>
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+04: <"d", ID>
+04: <"=", ASSIGN>
+04: <"3.5", FLOAT>
+04: <";", SEMICOLON>
+symboltable: new Lexeme Token [c_1] type (ID, UNASSIGNED)
+	 - returned
+05: <"c_1", ID>
+05: <"=", ASSIGN>
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+05: <"d", ID>
+05: <"/", DIV>
+05: <"1.2", FLOAT>
+05: <";", SEMICOLON>
+07: <"scan", SCAN>
+07: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+07: <"a", ID>
+07: <")", CLOSE_PAR>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+08: <"c", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+09: <"b", ID>
+09: <"=", ASSIGN>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+09: <"a", ID>
+09: <"*", MUL>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+09: <"a", ID>
+09: <";", SEMICOLON>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+10: <"c", ID>
+10: <"=", ASSIGN>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+10: <"b", ID>
+10: <"+", PLUS>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+10: <"a", ID>
+10: <"*", MUL>
+10: <"(", OPEN_PAR>
+10: <"1", INT>
+10: <"+", PLUS>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+10: <"a", ID>
+10: <"*", MUL>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+10: <"c", ID>
+10: <")", CLOSE_PAR>
+10: <";", SEMICOLON>
+11: <"print", PRINT>
+11: <"(", OPEN_PAR>
+11: <"{Resultado: }", STRING>
+11: <")", CLOSE_PAR>
+11: <";", SEMICOLON>
+12: <"print", PRINT>
+12: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+12: <"c", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+13: <"d", ID>
+13: <"=", ASSIGN>
+13: <"34.2", FLOAT>
+13: <";", SEMICOLON>
+symboltable: new Lexeme Token [e] type (ID, UNASSIGNED)
+	 - returned
+14: <"e", ID>
+14: <"=", ASSIGN>
+symboltable: new Lexeme Token [val] type (ID, UNASSIGNED)
+	 - returned
+14: <"val", ID>
+14: <"+", PLUS>
+14: <"2.2", FLOAT>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+15: <"{E: }", STRING>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"print", PRINT>
+16: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [e] type (ID, UNASSIGNED)
+	 - returned
+16: <"e", ID>
+16: <")", CLOSE_PAR>
+16: <";", SEMICOLON>
+symboltable: new Lexeme Token [a1] type (ID, UNASSIGNED)
+	 - returned
+17: <"a1", ID>
+17: <"=", ASSIGN>
+17: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+17: <"b", ID>
+17: <"+", PLUS>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+17: <"c", ID>
+17: <"+", PLUS>
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+17: <"d", ID>
+17: <")", CLOSE_PAR>
+17: <"/", DIV>
+17: <"2", INT>
+17: <";", SEMICOLON>
+18: <"exit", EXIT>
+18: <"", END_OF_FILE>
+<procProgram>
+	eat +START | curr =START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [a](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [c_] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [c_](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'c_'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [val] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [val](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'val'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE FLOAT | curr =TYPE FLOAT - 'float'
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [d](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'd'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [e] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [e](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'e'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [c_1] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [c_1](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'c_1'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [b](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [c](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'c'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [a1] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [a1](NONE) to type (TYPE FLOAT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'a1'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'd'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procFloatConst>
+										eat +FLOAT | curr =FLOAT : '3.5'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [c_1] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'c_1'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'd'
+						<procTermB>
+							<procMulOp>
+								eat +DIV | curr =DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procFloatConst>
+											eat +FLOAT | curr =FLOAT : '1.2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'c'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'a'
+						<procTermB>
+							<procMulOp>
+								eat +MUL | curr =MUL - '*'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'a'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'c'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'b'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'a'
+							<procTermB>
+								<procMulOp>
+									eat +MUL | curr =MUL - '*'
+								<procFactorA>
+									<procFactor>
+										eat +OPEN_PAR | curr =OPEN_PAR - '('
+										<procExpressionA>
+											<procSimpleExprA>
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procConstant>
+																<procIntegerConst>
+																	eat +INT | curr =INT : '1'
+													<procTermB>
+												<procSimpleExprB>
+													<procAddOp>
+														eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID | curr =ID : 'a'
+														<procTermB>
+															<procMulOp>
+																eat +MUL | curr =MUL - '*'
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+															<procFactorA>
+																<procFactor>
+																	<procIdentifier>
+																		eat +ID | curr =ID : 'c'
+															<procTermB>
+													<procSimpleExprB>
+											<procExpressionB>
+										eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+								<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING | curr =STRING : '{Resultado: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'c'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'd'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procFloatConst>
+										eat +FLOAT | curr =FLOAT : '34.2'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [e] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'e'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [val] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'val'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS | curr =PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procFloatConst>
+											eat +FLOAT | curr =FLOAT : '2.2'
+							<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING | curr =STRING : '{E: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [e] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'e'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [a1] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'a1'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+								<procExpressionA>
+									<procSimpleExprA>
+										<procTermA>
+											<procFactorA>
+												<procFactor>
+													<procIdentifier>
+														eat +ID | curr =ID : 'b'
+											<procTermB>
+										<procSimpleExprB>
+											<procAddOp>
+												eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+											<procTermA>
+												<procFactorA>
+													<procFactor>
+														<procIdentifier>
+															eat +ID | curr =ID : 'c'
+												<procTermB>
+											<procSimpleExprB>
+												<procAddOp>
+													eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [d] type (ID, UNASSIGNED)
+	 - returned
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procIdentifier>
+																eat +ID | curr =ID : 'd'
+													<procTermB>
+												<procSimpleExprB>
+									<procExpressionB>
+								eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						<procTermB>
+							<procMulOp>
+								eat +DIV | curr =DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT | curr =INT : '2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+	eat +EXIT | curr =EXIT - 'exit'
+exec: DERIVATION TREE complete
+symbolTable Identifiers
+.1 a -:- (ID, TYPE INT)
+.2 a1 -:- (ID, TYPE FLOAT)
+.3 b -:- (ID, TYPE FLOAT)
+.4 c -:- (ID, TYPE FLOAT)
+.5 c_ -:- (ID, TYPE INT)
+.6 c_1 -:- (ID, TYPE FLOAT)
+.7 d -:- (ID, TYPE FLOAT)
+.8 e -:- (ID, TYPE FLOAT)
+.9 val -:- (ID, TYPE INT)
+TESTING ./examples/corrected_codes/t3.comp ---
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+DEBug Mode Enabled: (args3)
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+Lexical: File> ./examples/corrected_codes/t3.compLexical: File> ./examples/corrected_codes/t3.comp01: <"start", START>
+02: <"int", TYPE INT>
+symboltable: new Lexeme Token [pontuacao] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"pontuacao", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [pontuacaoMaxina] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"pontuacaoMaxina", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [disponibilidade] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"disponibilidade", ID>
+02: <";", SEMICOLON>
+03: <"string", TYPE STRING>
+symboltable: new Lexeme Token [pontuacaoMinima] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"pontuacaoMinima", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [disponibilidade1] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"disponibilidade1", ID>
+03: <";", SEMICOLON>
+symboltable: new Lexeme Token [disponibilidade1] type (ID, UNASSIGNED)
+	 - returned
+05: <"disponibilidade1", ID>
+05: <"=", ASSIGN>
+05: <"{Sim}", STRING>
+05: <";", SEMICOLON>
+symboltable: new Lexeme Token [pontuacaoMinima] type (ID, UNASSIGNED)
+	 - returned
+06: <"pontuacaoMinima", ID>
+06: <"=", ASSIGN>
+06: <"50", INT>
+06: <";", SEMICOLON>
+symboltable: new Lexeme Token [pontuacaoMaxima] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+07: <"pontuacaoMaxima", ID>
+07: <"=", ASSIGN>
+07: <"100", INT>
+07: <";", SEMICOLON>
+12: <"do", DO>
+13: <"print", PRINT>
+13: <"(", OPEN_PAR>
+13: <"{Pontuacao Candidato: }", STRING>
+13: <")", CLOSE_PAR>
+13: <";", SEMICOLON>
+14: <"scan", SCAN>
+14: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [pontuacao] type (ID, UNASSIGNED)
+	 - returned
+14: <"pontuacao", ID>
+14: <")", CLOSE_PAR>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+15: <"{Disponibilidade Candidato: }", STRING>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"scan", SCAN>
+16: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [disponibilidade] type (ID, UNASSIGNED)
+	 - returned
+16: <"disponibilidade", ID>
+16: <")", CLOSE_PAR>
+16: <";", SEMICOLON>
+17: <"if", IF>
+17: <"(", OPEN_PAR>
+17: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [pontuacao] type (ID, UNASSIGNED)
+	 - returned
+17: <"pontuacao", ID>
+17: <">", GT>
+symboltable: new Lexeme Token [pontuacaoMinima] type (ID, UNASSIGNED)
+	 - returned
+17: <"pontuacaoMinima", ID>
+17: <")", CLOSE_PAR>
+17: <"&&", AND>
+17: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [disponibilidade] type (ID, UNASSIGNED)
+	 - returned
+17: <"disponibilidade", ID>
+17: <"==", EQ>
+17: <"{Sim}", STRING>
+17: <")", CLOSE_PAR>
+17: <")", CLOSE_PAR>
+17: <"then", THEN>
+18: <"print", PRINT>
+18: <"(", OPEN_PAR>
+18: <"{Candidato aprovado}", STRING>
+18: <")", CLOSE_PAR>
+18: <";", SEMICOLON>
+19: <"else", ELSE>
+20: <"print", PRINT>
+20: <"(", OPEN_PAR>
+20: <"{Candidato reprovado}", STRING>
+20: <")", CLOSE_PAR>
+20: <";", SEMICOLON>
+21: <"end", END>
+22: <"while", WHILE>
+22: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [pontuacao] type (ID, UNASSIGNED)
+	 - returned
+22: <"pontuacao", ID>
+22: <">=", GE>
+22: <"0", INT>
+22: <")", CLOSE_PAR>
+22: <"end", END>
+23: <"exit", EXIT>
+24: <"", END_OF_FILE>
+<procProgram>
+	eat +START | curr =START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [pontuacao] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [pontuacao](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'pontuacao'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [pontuacaoMaxina] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [pontuacaoMaxina](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'pontuacaoMaxina'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [disponibilidade] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [disponibilidade](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'disponibilidade'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE STRING | curr =TYPE STRING - 'string'
+symboltable: new Lexeme Token [pontuacaoMinima] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [pontuacaoMinima](NONE) to type (TYPE STRING)
+				<procIdentifier>
+					eat +ID | curr =ID : 'pontuacaoMinima'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [disponibilidade1] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [disponibilidade1](NONE) to type (TYPE STRING)
+				<procIdentifier>
+					eat +ID | curr =ID : 'disponibilidade1'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [disponibilidade1] type (ID, UNASSIGNED)
+	 - returned
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'disponibilidade1'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procLiteral>
+										<procCharacter>
+											eat +STRING | curr =STRING : '{Sim}'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [pontuacaoMinima] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'pontuacaoMinima'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '50'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [pontuacaoMaxima] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'pontuacaoMaxima'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '100'
+						<procTermB>
+					<procSimpleExprB>
+smntc: dtype error line 7: <procIdentifier>(NONE) = <procSimpleExprA>(INT)
+TESTING ./examples/corrected_codes/t4.comp ---
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+DEBug Mode Enabled: (args3)
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+Lexical: File> ./examples/corrected_codes/t4.compLexical: File> ./examples/corrected_codes/t4.comp01: <"start", START>
+02: <"int", TYPE INT>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"a", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [aux] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"aux", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"b", ID>
+02: <";", SEMICOLON>
+03: <"string", TYPE STRING>
+symboltable: new Lexeme Token [nome] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"nome", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [sobrenome] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"sobrenome", ID>
+03: <",", COMMA>
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+03: <"msg", ID>
+03: <";", SEMICOLON>
+05: <"print", PRINT>
+05: <"(", OPEN_PAR>
+05: <"{Nome: }", STRING>
+05: <")", CLOSE_PAR>
+05: <";", SEMICOLON>
+06: <"scan", SCAN>
+06: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [nome] type (ID, UNASSIGNED)
+	 - returned
+06: <"nome", ID>
+06: <")", CLOSE_PAR>
+06: <";", SEMICOLON>
+07: <"print", PRINT>
+07: <"(", OPEN_PAR>
+07: <"{Sobrenome: }", STRING>
+07: <")", CLOSE_PAR>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [sobrenome] type (ID, UNASSIGNED)
+	 - returned
+08: <"sobrenome", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+09: <"msg", ID>
+09: <"=", ASSIGN>
+09: <"{Ola, }", STRING>
+09: <"+", PLUS>
+symboltable: new Lexeme Token [nome] type (ID, UNASSIGNED)
+	 - returned
+09: <"nome", ID>
+09: <"+", PLUS>
+09: <"{ }", STRING>
+09: <"+", PLUS>
+symboltable: new Lexeme Token [sobrenome] type (ID, UNASSIGNED)
+	 - returned
+10: <"sobrenome", ID>
+10: <"+", PLUS>
+10: <"{!}", STRING>
+10: <";", SEMICOLON>
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+11: <"msg", ID>
+11: <"=", ASSIGN>
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+11: <"msg", ID>
+11: <"+", PLUS>
+11: <"1", INT>
+11: <";", SEMICOLON>
+12: <"print", PRINT>
+12: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+12: <"msg", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+14: <"scan", SCAN>
+14: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+14: <"a", ID>
+14: <")", CLOSE_PAR>
+14: <";", SEMICOLON>
+15: <"scan", SCAN>
+15: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+15: <"b", ID>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+16: <"if", IF>
+16: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+16: <"a", ID>
+16: <">", GT>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+16: <"b", ID>
+16: <")", CLOSE_PAR>
+16: <"then", THEN>
+symboltable: new Lexeme Token [aux] type (ID, UNASSIGNED)
+	 - returned
+17: <"aux", ID>
+17: <"=", ASSIGN>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+17: <"b", ID>
+17: <";", SEMICOLON>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+18: <"b", ID>
+18: <"=", ASSIGN>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+18: <"a", ID>
+18: <";", SEMICOLON>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+19: <"a", ID>
+19: <"=", ASSIGN>
+symboltable: new Lexeme Token [aux] type (ID, UNASSIGNED)
+	 - returned
+19: <"aux", ID>
+19: <";", SEMICOLON>
+20: <"end", END>
+21: <"print", PRINT>
+21: <"(", OPEN_PAR>
+21: <"{Apos a troca: }", STRING>
+21: <")", CLOSE_PAR>
+21: <";", SEMICOLON>
+22: <"print", PRINT>
+22: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+22: <"a", ID>
+22: <")", CLOSE_PAR>
+22: <";", SEMICOLON>
+23: <"print", PRINT>
+23: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+23: <"b", ID>
+23: <")", CLOSE_PAR>
+23: <";", SEMICOLON>
+24: <"exit", EXIT>
+24: <"", END_OF_FILE>
+<procProgram>
+	eat +START | curr =START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [a](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [aux] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [aux](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'aux'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [b](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE STRING | curr =TYPE STRING - 'string'
+symboltable: new Lexeme Token [nome] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [nome](NONE) to type (TYPE STRING)
+				<procIdentifier>
+					eat +ID | curr =ID : 'nome'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [sobrenome] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [sobrenome](NONE) to type (TYPE STRING)
+				<procIdentifier>
+					eat +ID | curr =ID : 'sobrenome'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [msg](NONE) to type (TYPE STRING)
+				<procIdentifier>
+					eat +ID | curr =ID : 'msg'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING | curr =STRING : '{Nome: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [nome] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'nome'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING | curr =STRING : '{Sobrenome: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [sobrenome] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'sobrenome'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'msg'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procLiteral>
+										<procCharacter>
+											eat +STRING | curr =STRING : '{Ola, }'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [nome] type (ID, UNASSIGNED)
+	 - returned
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'nome'
+							<procTermB>
+						<procSimpleExprB>
+							<procAddOp>
+								eat +PLUS | curr =PLUS - '+'
+							<procTermA>
+								<procFactorA>
+									<procFactor>
+										<procConstant>
+											<procLiteral>
+												<procCharacter>
+													eat +STRING | curr =STRING : '{ }'
+								<procTermB>
+							<procSimpleExprB>
+								<procAddOp>
+									eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [sobrenome] type (ID, UNASSIGNED)
+	 - returned
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID | curr =ID : 'sobrenome'
+									<procTermB>
+								<procSimpleExprB>
+									<procAddOp>
+										eat +PLUS | curr =PLUS - '+'
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING | curr =STRING : '{!}'
+										<procTermB>
+									<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'msg'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'msg'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS | curr =PLUS - '+'
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT | curr =INT : '1'
+							<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [msg] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'msg'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procIfStmtA>
+				eat +IF | curr =IF - 'if'
+				<procCondition>
+					<procExpressionA>
+						<procSimpleExprA>
+							<procTermA>
+								<procFactorA>
+									<procFactor>
+										eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+										<procExpressionA>
+											<procSimpleExprA>
+												<procTermA>
+													<procFactorA>
+														<procFactor>
+															<procIdentifier>
+																eat +ID | curr =ID : 'a'
+													<procTermB>
+												<procSimpleExprB>
+											<procExpressionB>
+												<procRelOp>
+													eat +GT | curr =GT - '>'
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+												<procSimpleExprA>
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID | curr =ID : 'b'
+														<procTermB>
+													<procSimpleExprB>
+										eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+								<procTermB>
+							<procSimpleExprB>
+						<procExpressionB>
+				eat +THEN | curr =THEN - 'then'
+symboltable: new Lexeme Token [aux] type (ID, UNASSIGNED)
+	 - returned
+				<procStmtList>
+					<procStmt>
+						<procAssignStmt>
+							<procIdentifier>
+								eat +ID | curr =ID : 'aux'
+							eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID | curr =ID : 'b'
+									<procTermB>
+								<procSimpleExprB>
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+					<procStmt>
+						<procAssignStmt>
+							<procIdentifier>
+								eat +ID | curr =ID : 'b'
+							eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID | curr =ID : 'a'
+									<procTermB>
+								<procSimpleExprB>
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+					<procStmt>
+						<procAssignStmt>
+							<procIdentifier>
+								eat +ID | curr =ID : 'a'
+							eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [aux] type (ID, UNASSIGNED)
+	 - returned
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											<procIdentifier>
+												eat +ID | curr =ID : 'aux'
+									<procTermB>
+								<procSimpleExprB>
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+				<procIfStmtB>
+					eat +END | curr =END - 'end'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procLiteral>
+											<procCharacter>
+												eat +STRING | curr =STRING : '{Apos a troca: }'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'a'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'b'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+	eat +EXIT | curr =EXIT - 'exit'
+exec: DERIVATION TREE complete
+symbolTable Identifiers
+.1 a -:- (ID, TYPE INT)
+.2 aux -:- (ID, TYPE INT)
+.3 b -:- (ID, TYPE INT)
+.4 msg -:- (ID, TYPE STRING)
+.5 nome -:- (ID, TYPE STRING)
+.6 sobrenome -:- (ID, TYPE STRING)
+TESTING ./examples/corrected_codes/t5.comp ---
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+DEBug Mode Enabled: (args3)
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+Lexical: File> ./examples/corrected_codes/t5.compLexical: File> ./examples/corrected_codes/t5.comp01: <"start", START>
+02: <"int", TYPE INT>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"a", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"b", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"c", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"maior", ID>
+02: <",", COMMA>
+symboltable: new Lexeme Token [outro] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+02: <"outro", ID>
+02: <";", SEMICOLON>
+04: <"do", DO>
+05: <"print", PRINT>
+05: <"(", OPEN_PAR>
+05: <"{A}", STRING>
+05: <")", CLOSE_PAR>
+05: <";", SEMICOLON>
+06: <"scan", SCAN>
+06: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+06: <"a", ID>
+06: <")", CLOSE_PAR>
+06: <";", SEMICOLON>
+07: <"print", PRINT>
+07: <"(", OPEN_PAR>
+07: <"{B}", STRING>
+07: <")", CLOSE_PAR>
+07: <";", SEMICOLON>
+08: <"scan", SCAN>
+08: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+08: <"b", ID>
+08: <")", CLOSE_PAR>
+08: <";", SEMICOLON>
+09: <"print", PRINT>
+09: <"(", OPEN_PAR>
+09: <"{C}", STRING>
+09: <")", CLOSE_PAR>
+09: <";", SEMICOLON>
+10: <"scan", SCAN>
+10: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+10: <"c", ID>
+10: <")", CLOSE_PAR>
+10: <";", SEMICOLON>
+12: <"if", IF>
+12: <"(", OPEN_PAR>
+12: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+12: <"a", ID>
+12: <">", GT>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+12: <"b", ID>
+12: <")", CLOSE_PAR>
+12: <"&&", AND>
+12: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+12: <"a", ID>
+12: <">", GT>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+12: <"c", ID>
+12: <")", CLOSE_PAR>
+12: <")", CLOSE_PAR>
+12: <"then", THEN>
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+13: <"maior", ID>
+13: <"=", ASSIGN>
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+13: <"a", ID>
+13: <";", SEMICOLON>
+14: <"else", ELSE>
+15: <"if", IF>
+15: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+15: <"b", ID>
+15: <">", GT>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+15: <"c", ID>
+15: <")", CLOSE_PAR>
+15: <"then", THEN>
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+16: <"maior", ID>
+16: <"=", ASSIGN>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+16: <"b", ID>
+16: <";", SEMICOLON>
+17: <"else", ELSE>
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+18: <"maior", ID>
+18: <"=", ASSIGN>
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+18: <"c", ID>
+18: <";", SEMICOLON>
+19: <"end", END>
+20: <"end", END>
+22: <"print", PRINT>
+22: <"(", OPEN_PAR>
+22: <"{Maior valor:}", STRING>
+22: <")", CLOSE_PAR>
+22: <";", SEMICOLON>
+23: <"print", PRINT>
+23: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+23: <"maior", ID>
+23: <")", CLOSE_PAR>
+23: <";", SEMICOLON>
+24: <"print", PRINT>
+24: <"(", OPEN_PAR>
+24: <"{Outro? }", STRING>
+24: <")", CLOSE_PAR>
+24: <";", SEMICOLON>
+25: <"scan", SCAN>
+25: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [outro] type (ID, UNASSIGNED)
+	 - returned
+25: <"outro", ID>
+25: <")", CLOSE_PAR>
+25: <";", SEMICOLON>
+26: <"while", WHILE>
+26: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [outro] type (ID, UNASSIGNED)
+	 - returned
+26: <"outro", ID>
+26: <">=", GE>
+26: <"0", INT>
+26: <")", CLOSE_PAR>
+26: <"end", END>
+27: <"exit", EXIT>
+27: <"", END_OF_FILE>
+<procProgram>
+	eat +START | curr =START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [a](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'a'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [b](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [c](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'c'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [maior](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'maior'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [outro] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [outro](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'outro'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+	<procStmtList>
+		<procStmt>
+			<procWhileStmt>
+				eat +DO | curr =DO - 'do'
+				<procStmtList>
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT | curr =PRINT - 'print'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING | curr =STRING : '{A}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN | curr =SCAN - 'scan'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+							<procIdentifier>
+								eat +ID | curr =ID : 'a'
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT | curr =PRINT - 'print'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING | curr =STRING : '{B}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN | curr =SCAN - 'scan'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+							<procIdentifier>
+								eat +ID | curr =ID : 'b'
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT | curr =PRINT - 'print'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING | curr =STRING : '{C}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN | curr =SCAN - 'scan'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+							<procIdentifier>
+								eat +ID | curr =ID : 'c'
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procIfStmtA>
+							eat +IF | curr =IF - 'if'
+							<procCondition>
+								<procExpressionA>
+									<procSimpleExprA>
+										<procTermA>
+											<procFactorA>
+												<procFactor>
+													eat +OPEN_PAR | curr =OPEN_PAR - '('
+													<procExpressionA>
+														<procSimpleExprA>
+															<procTermA>
+																<procFactorA>
+																	<procFactor>
+																		eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+																		<procExpressionA>
+																			<procSimpleExprA>
+																				<procTermA>
+																					<procFactorA>
+																						<procFactor>
+																							<procIdentifier>
+																								eat +ID | curr =ID : 'a'
+																					<procTermB>
+																				<procSimpleExprB>
+																			<procExpressionB>
+																				<procRelOp>
+																					eat +GT | curr =GT - '>'
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+																				<procSimpleExprA>
+																					<procTermA>
+																						<procFactorA>
+																							<procFactor>
+																								<procIdentifier>
+																									eat +ID | curr =ID : 'b'
+																						<procTermB>
+																					<procSimpleExprB>
+																		eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+																<procTermB>
+																	<procMulOp>
+																		eat +AND | curr =AND - '&&'
+																	<procFactorA>
+																		<procFactor>
+																			eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+																			<procExpressionA>
+																				<procSimpleExprA>
+																					<procTermA>
+																						<procFactorA>
+																							<procFactor>
+																								<procIdentifier>
+																									eat +ID | curr =ID : 'a'
+																						<procTermB>
+																					<procSimpleExprB>
+																				<procExpressionB>
+																					<procRelOp>
+																						eat +GT | curr =GT - '>'
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+																					<procSimpleExprA>
+																						<procTermA>
+																							<procFactorA>
+																								<procFactor>
+																									<procIdentifier>
+																										eat +ID | curr =ID : 'c'
+																							<procTermB>
+																						<procSimpleExprB>
+																			eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+																	<procTermB>
+															<procSimpleExprB>
+														<procExpressionB>
+													eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+											<procTermB>
+										<procSimpleExprB>
+									<procExpressionB>
+							eat +THEN | curr =THEN - 'then'
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+							<procStmtList>
+								<procStmt>
+									<procAssignStmt>
+										<procIdentifier>
+											eat +ID | curr =ID : 'maior'
+										eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [a] type (ID, UNASSIGNED)
+	 - returned
+										<procSimpleExprA>
+											<procTermA>
+												<procFactorA>
+													<procFactor>
+														<procIdentifier>
+															eat +ID | curr =ID : 'a'
+												<procTermB>
+											<procSimpleExprB>
+									eat +SEMICOLON | curr =SEMICOLON - ';'
+							<procIfStmtB>
+								eat +ELSE | curr =ELSE - 'else'
+								<procStmtList>
+									<procStmt>
+										<procIfStmtA>
+											eat +IF | curr =IF - 'if'
+											<procCondition>
+												<procExpressionA>
+													<procSimpleExprA>
+														<procTermA>
+															<procFactorA>
+																<procFactor>
+																	eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+																	<procExpressionA>
+																		<procSimpleExprA>
+																			<procTermA>
+																				<procFactorA>
+																					<procFactor>
+																						<procIdentifier>
+																							eat +ID | curr =ID : 'b'
+																				<procTermB>
+																			<procSimpleExprB>
+																		<procExpressionB>
+																			<procRelOp>
+																				eat +GT | curr =GT - '>'
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+																			<procSimpleExprA>
+																				<procTermA>
+																					<procFactorA>
+																						<procFactor>
+																							<procIdentifier>
+																								eat +ID | curr =ID : 'c'
+																					<procTermB>
+																				<procSimpleExprB>
+																	eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+															<procTermB>
+														<procSimpleExprB>
+													<procExpressionB>
+											eat +THEN | curr =THEN - 'then'
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+											<procStmtList>
+												<procStmt>
+													<procAssignStmt>
+														<procIdentifier>
+															eat +ID | curr =ID : 'maior'
+														eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+														<procSimpleExprA>
+															<procTermA>
+																<procFactorA>
+																	<procFactor>
+																		<procIdentifier>
+																			eat +ID | curr =ID : 'b'
+																<procTermB>
+															<procSimpleExprB>
+													eat +SEMICOLON | curr =SEMICOLON - ';'
+											<procIfStmtB>
+												eat +ELSE | curr =ELSE - 'else'
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+												<procStmtList>
+													<procStmt>
+														<procAssignStmt>
+															<procIdentifier>
+																eat +ID | curr =ID : 'maior'
+															eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [c] type (ID, UNASSIGNED)
+	 - returned
+															<procSimpleExprA>
+																<procTermA>
+																	<procFactorA>
+																		<procFactor>
+																			<procIdentifier>
+																				eat +ID | curr =ID : 'c'
+																	<procTermB>
+																<procSimpleExprB>
+														eat +SEMICOLON | curr =SEMICOLON - ';'
+												eat +END | curr =END - 'end'
+								eat +END | curr =END - 'end'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT | curr =PRINT - 'print'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING | curr =STRING : '{Maior valor:}'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT | curr =PRINT - 'print'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [maior] type (ID, UNASSIGNED)
+	 - returned
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procIdentifier>
+													eat +ID | curr =ID : 'maior'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procWriteStmt>
+							eat +PRINT | curr =PRINT - 'print'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+							<procWritable>
+								<procSimpleExprA>
+									<procTermA>
+										<procFactorA>
+											<procFactor>
+												<procConstant>
+													<procLiteral>
+														<procCharacter>
+															eat +STRING | curr =STRING : '{Outro? }'
+										<procTermB>
+									<procSimpleExprB>
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+					<procStmt>
+						<procReadStmt>
+							eat +SCAN | curr =SCAN - 'scan'
+							eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [outro] type (ID, UNASSIGNED)
+	 - returned
+							<procIdentifier>
+								eat +ID | curr =ID : 'outro'
+							eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+						eat +SEMICOLON | curr =SEMICOLON - ';'
+				<procStmtSufix>
+					eat +WHILE | curr =WHILE - 'while'
+					<procCondition>
+						<procExpressionA>
+							<procSimpleExprA>
+								<procTermA>
+									<procFactorA>
+										<procFactor>
+											eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [outro] type (ID, UNASSIGNED)
+	 - returned
+											<procExpressionA>
+												<procSimpleExprA>
+													<procTermA>
+														<procFactorA>
+															<procFactor>
+																<procIdentifier>
+																	eat +ID | curr =ID : 'outro'
+														<procTermB>
+													<procSimpleExprB>
+												<procExpressionB>
+													<procRelOp>
+														eat +GE | curr =GE - '>='
+													<procSimpleExprA>
+														<procTermA>
+															<procFactorA>
+																<procFactor>
+																	<procConstant>
+																		<procIntegerConst>
+																			eat +INT | curr =INT : '0'
+															<procTermB>
+														<procSimpleExprB>
+											eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+									<procTermB>
+								<procSimpleExprB>
+							<procExpressionB>
+					eat +END | curr =END - 'end'
+	eat +EXIT | curr =EXIT - 'exit'
+exec: DERIVATION TREE complete
+symbolTable Identifiers
+.1 a -:- (ID, TYPE INT)
+.2 b -:- (ID, TYPE INT)
+.3 c -:- (ID, TYPE INT)
+.4 maior -:- (ID, TYPE INT)
+.5 outro -:- (ID, TYPE INT)
+TESTING ./examples/corrected_codes/t6.comp ---
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+DEBug Mode Enabled: (args3)
+symboltable: new Lexeme Token [;] type (SEMICOLON, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [(] type (OPEN_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [)] type (CLOSE_PAR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [{] type (OPEN_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [}] type (CLOSE_CUR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [.] type (DOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [,] type (COMMA, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [=] type (ASSIGN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [==] type (EQ, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<>] type (NE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [!] type (NOT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [+] type (PLUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [-] type (MINUS, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [*] type (MUL, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [/] type (DIV, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [&&] type (AND, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [||] type (OR, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>] type (GT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<] type (LT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [>=] type (GE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [<=] type (LE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [start] type (START, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [exit] type (EXIT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [if] type (IF, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [then] type (THEN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [else] type (ELSE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [end] type (END, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [do] type (DO, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [while] type (WHILE, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [scan] type (SCAN, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [print] type (PRINT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [int] type (TYPE INT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [float] type (TYPE FLOAT, NONE)
+	 - init as TKN_NONE
+symboltable: new Lexeme Token [string] type (TYPE STRING, NONE)
+	 - init as TKN_NONE
+Lexical: File> ./examples/corrected_codes/t6.compLexical: File> ./examples/corrected_codes/t6.comp05: <"start", START>
+06: <"int", TYPE INT>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+06: <"x", ID>
+06: <",", COMMA>
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+06: <"y", ID>
+06: <";", SEMICOLON>
+07: <"int", TYPE INT>
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+07: <"soma", ID>
+07: <",", COMMA>
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+07: <"media", ID>
+07: <",", COMMA>
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+07: <"mult", ID>
+07: <";", SEMICOLON>
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+08: <"soma", ID>
+08: <"=", ASSIGN>
+08: <"0", INT>
+08: <";", SEMICOLON>
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+09: <"media", ID>
+09: <"=", ASSIGN>
+09: <"0", INT>
+09: <";", SEMICOLON>
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+10: <"mult", ID>
+10: <"=", ASSIGN>
+10: <"0", INT>
+10: <";", SEMICOLON>
+11: <"scan", SCAN>
+11: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+11: <"x", ID>
+11: <")", CLOSE_PAR>
+11: <";", SEMICOLON>
+12: <"scan", SCAN>
+12: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - init as TKN_NONE
+12: <"b", ID>
+12: <")", CLOSE_PAR>
+12: <";", SEMICOLON>
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+14: <"soma", ID>
+14: <"=", ASSIGN>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+14: <"x", ID>
+14: <"+", PLUS>
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+14: <"y", ID>
+14: <";", SEMICOLON>
+15: <"print", PRINT>
+15: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+15: <"soma", ID>
+15: <")", CLOSE_PAR>
+15: <";", SEMICOLON>
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+16: <"media", ID>
+16: <"=", ASSIGN>
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+16: <"soma", ID>
+16: <"/", DIV>
+16: <"2", INT>
+16: <";", SEMICOLON>
+17: <"print", PRINT>
+17: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+17: <"media", ID>
+17: <")", CLOSE_PAR>
+17: <";", SEMICOLON>
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+18: <"mult", ID>
+18: <"=", ASSIGN>
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+18: <"x", ID>
+18: <"*", MUL>
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+18: <"y", ID>
+18: <";", SEMICOLON>
+19: <"print", PRINT>
+19: <"(", OPEN_PAR>
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+19: <"mult", ID>
+19: <")", CLOSE_PAR>
+19: <";", SEMICOLON>
+20: <"exit", EXIT>
+20: <"", END_OF_FILE>
+<procProgram>
+	eat +START | curr =START - 'start'
+	<procDeclList>
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [x](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'x'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [y](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'y'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procDecl>
+			<procType>
+				eat +TYPE INT | curr =TYPE INT - 'int'
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+			<procIdentList>
+smntc: checkLexeme [soma](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'soma'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [media](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'media'
+				eat +COMMA | curr =COMMA - ','
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+smntc: checkLexeme [mult](NONE) to type (TYPE INT)
+				<procIdentifier>
+					eat +ID | curr =ID : 'mult'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+	<procStmtList>
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'soma'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'media'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'mult'
+				eat +ASSIGN | curr =ASSIGN - '='
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procConstant>
+									<procIntegerConst>
+										eat +INT | curr =INT : '0'
+						<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'x'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procReadStmt>
+				eat +SCAN | curr =SCAN - 'scan'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [b] type (ID, UNASSIGNED)
+	 - returned
+				<procIdentifier>
+					eat +ID | curr =ID : 'b'
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'soma'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'x'
+						<procTermB>
+					<procSimpleExprB>
+						<procAddOp>
+							eat +PLUS | curr =PLUS - '+'
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'y'
+							<procTermB>
+						<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'soma'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'media'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [soma] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'soma'
+						<procTermB>
+							<procMulOp>
+								eat +DIV | curr =DIV - '/'
+							<procFactorA>
+								<procFactor>
+									<procConstant>
+										<procIntegerConst>
+											eat +INT | curr =INT : '2'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [media] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'media'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+		<procStmt>
+			<procAssignStmt>
+				<procIdentifier>
+					eat +ID | curr =ID : 'mult'
+				eat +ASSIGN | curr =ASSIGN - '='
+symboltable: new Lexeme Token [x] type (ID, UNASSIGNED)
+	 - returned
+				<procSimpleExprA>
+					<procTermA>
+						<procFactorA>
+							<procFactor>
+								<procIdentifier>
+									eat +ID | curr =ID : 'x'
+						<procTermB>
+							<procMulOp>
+								eat +MUL | curr =MUL - '*'
+symboltable: new Lexeme Token [y] type (ID, UNASSIGNED)
+	 - returned
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'y'
+							<procTermB>
+					<procSimpleExprB>
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+		<procStmt>
+			<procWriteStmt>
+				eat +PRINT | curr =PRINT - 'print'
+				eat +OPEN_PAR | curr =OPEN_PAR - '('
+symboltable: new Lexeme Token [mult] type (ID, UNASSIGNED)
+	 - returned
+				<procWritable>
+					<procSimpleExprA>
+						<procTermA>
+							<procFactorA>
+								<procFactor>
+									<procIdentifier>
+										eat +ID | curr =ID : 'mult'
+							<procTermB>
+						<procSimpleExprB>
+				eat +CLOSE_PAR | curr =CLOSE_PAR - ')'
+			eat +SEMICOLON | curr =SEMICOLON - ';'
+	eat +EXIT | curr =EXIT - 'exit'
+exec: DERIVATION TREE complete
+symbolTable Identifiers
+.1 b -:- (ID, NONE)
+.2 media -:- (ID, TYPE INT)
+.3 mult -:- (ID, TYPE INT)
+.4 soma -:- (ID, TYPE INT)
+.5 x -:- (ID, TYPE INT)
+.6 y -:- (ID, TYPE INT)

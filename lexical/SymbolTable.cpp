@@ -6,7 +6,6 @@
 SymbolTable::SymbolTable() {
 	// SYMBOLS
 	this->addEntry(";", TKN_SEMICOLON);
-	this->addEntry(";", TKN_SEMICOLON);
 	this->addEntry("(", TKN_OPEN_PAR);
 	this->addEntry(")", TKN_CLOSE_PAR);
 	this->addEntry("{", TKN_OPEN_CUR);
@@ -61,11 +60,6 @@ bool SymbolTable::addEntry(std::string token, enum TokenType type, enum TokenTyp
 		printf("\t - init as TKN_NONE\n");
 
 		m_st[token] = std::pair<TokenType, TokenType>(type, TKN_NONE);
-		return true;
-	}else if(this->findDataType(token)!=TKN_UNASSINGD){
-		printf("\t - added as %s\n", tt2str(TokenType(dtype)).c_str());
-
-		m_st[token] = std::pair<TokenType, TokenType>(type, dtype);
 		return true;
 	}
 	printf("\t - returned\n");

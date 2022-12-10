@@ -1,8 +1,8 @@
 start
     int pontuacao, pontuacaoMaxina, disponibilidade;
-    string pontuacaoMinima;
+    string pontuacaoMinima, disponibilidade1;
     
-    disponibilidade = {Sim}; 
+    disponibilidade1 = {Sim}; 
     pontuacaoMinima = 50;
     pontuacaoMaxima = 100;
     
