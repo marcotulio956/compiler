@@ -92,6 +92,39 @@ fp.close(); // fecha arq
 fp = fpOld; // recupera arq anterior
 currentTable = tempHold; //recupera tablea corrente
 hasStart= tempStart; // recupera flag
+}
+
+void createMain(){
+    EntryClass  v = (EntryClass) currentTable.levelUp;
+    putCode();
+    putCode(";Entry point for the JVM");
+    putCode(".method static public main([Ljava/lang/String;)V");
+    putCode(".limit locals 1");
+    putCode(".limit stack 1");
+    putCode("invokeStatitc langXrt/Runtime/initialize()I");
+    putCode("ifne     end");
+    putCode("pop");
+    putCode("end");
+    putCode("invokeStatic langXrt/Runtime/finilizy()V");
+    putCode("return");
+    putCode(".end method");
+}
+
+void CodeGenClassBodyNode(ClassBodyNode node)
+//throws GenCodeException
+{
+    EntryMethod l;
+    if(node == null) return;
+    CodeGendClassDeclListNode(node.clist);
+    CodeGenVarDeclListNode(node.vlist);
+    l = currentTable.methodFindInClass("constructor", null);
+    if(l.fake){
+        GeraConstructorDefault();
+    }
+    CodeGenConstructDeclListNode(node.ctlist);
+    CodeGenMethodDeclListNode(node.mlist);
 
 }
+
+
 
