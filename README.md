@@ -11,7 +11,8 @@
 <li>Júlio Souza</li>
 <li>Marco Túlio Siqueira</li>
 </h3>
-<h2> Parte 1 - Análise léxica </h2>
+
+
 <h2>Para instalar o projeto copie o repositório e em seu terminal digite git clone e cole o link</h2>
 
 
